@@ -49,11 +49,29 @@ namespace SupplyChainManagement_S1.MainScript
             get { return Fld_password.Trim(); }
         }
 
+        /// <summary>
+        /// Constrcutor
+        /// </summary>
+        /// <param name="ClsDbConn"></param>
         public Cls_Login(Cls_DbConnection ClsDbConn)
         {
             DbConn = ClsDbConn;
         }
 
+        /// <summary>
+        /// Memindahkan user ke dashboardnya masing - masing
+        /// jika user berhasil login.
+        /// </summary>
+        public void Redirect_user()
+        {
+
+        }
+
+        /// <summary>
+        /// Memeriksa apakah username dan password tersimpan di dalam 
+        /// database.
+        /// </summary>
+        /// <returns></returns>
         public bool Do_login()
         {
             try
