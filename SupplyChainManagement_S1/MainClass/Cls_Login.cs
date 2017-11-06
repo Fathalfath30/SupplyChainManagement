@@ -29,15 +29,22 @@ namespace SupplyChainManagement_S1
         private string Fld_Username;
         private string Fld_password;
 
+        /// <summary>
+        /// Username user.
+        /// </summary>
         public string Username
         {
             set { Fld_Username = value.Trim(); }
             get { return Fld_Username.Trim(); }
         }
 
+        /// <summary>
+        /// Password user, secara otomatis akan di enkripsi menggunakan
+        /// fungsi kriptografi MD5.
+        /// </summary>
         public string Password
         {
-            set { Fld_password = value.Trim(); }
+            set { Fld_password = Cls_Security.GetMD5(value.Trim()); }
             get { return Fld_password.Trim(); }
         }
 
