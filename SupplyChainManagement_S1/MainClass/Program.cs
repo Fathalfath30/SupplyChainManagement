@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SupplyChainManagement_S1.Script
+namespace SupplyChainManagement_S1.MainScript
 {
     /// <summary>
     /// Class Program, class yang akan dijalankan pertama kali 

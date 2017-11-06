@@ -57,6 +57,7 @@ namespace SupplyChainManagement_S1.UI
             // 
             // Txt_Username
             // 
+            this.Txt_Username.AcceptsTab = true;
             this.Txt_Username.Location = new System.Drawing.Point(104, 59);
             this.Txt_Username.Name = "Txt_Username";
             this.Txt_Username.Size = new System.Drawing.Size(286, 20);
@@ -66,6 +67,7 @@ namespace SupplyChainManagement_S1.UI
             // 
             this.Txt_Password.Location = new System.Drawing.Point(104, 88);
             this.Txt_Password.Name = "Txt_Password";
+            this.Txt_Password.PasswordChar = '*';
             this.Txt_Password.Size = new System.Drawing.Size(286, 20);
             this.Txt_Password.TabIndex = 3;
             // 
@@ -77,6 +79,7 @@ namespace SupplyChainManagement_S1.UI
             this.Btn_Login.TabIndex = 4;
             this.Btn_Login.Text = "Login";
             this.Btn_Login.UseSelectable = true;
+            this.Btn_Login.Click += new System.EventHandler(this.Btn_Login_Click);
             // 
             // Btn_Batal
             // 
@@ -86,6 +89,7 @@ namespace SupplyChainManagement_S1.UI
             this.Btn_Batal.TabIndex = 5;
             this.Btn_Batal.Text = "Batal";
             this.Btn_Batal.UseSelectable = true;
+            this.Btn_Batal.Click += new System.EventHandler(this.Btn_Batal_Click);
             // 
             // Lnbl_Lupa_password
             // 
@@ -95,6 +99,7 @@ namespace SupplyChainManagement_S1.UI
             this.Lnbl_Lupa_password.TabIndex = 6;
             this.Lnbl_Lupa_password.Text = "Lupa Password";
             this.Lnbl_Lupa_password.UseSelectable = true;
+            this.Lnbl_Lupa_password.Click += new System.EventHandler(this.Lnbl_Lupa_password_Click);
             // 
             // Frm_login
             // 

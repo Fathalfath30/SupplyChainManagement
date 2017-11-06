@@ -14,6 +14,7 @@ namespace SupplyChainManagement_S1.UI
     public partial class Frm_login : MetroForm
     {
         private Cls_DbConnection DbConn;
+        private Cls_Login CLogin;
 
         public Frm_login()
         {
@@ -29,6 +30,47 @@ namespace SupplyChainManagement_S1.UI
             DbConn.Database = "db_prototype";
 
             DbConn.OpenConnection();
+            CLogin = new Cls_Login(DbConn);
+
+            Txt_Username.Focus();
+        }
+
+        private void Btn_Login_Click(object sender, EventArgs e)
+        {
+            CLogin.Username = Txt_Username.Text;
+            CLogin.Password = Txt_Password.Text;
+
+            if (CLogin.Do_login())
+            {
+                MessageBox.Show(
+                    this,
+                    string.Format("Selamat datang {0}.", Properties.Settings.Default.S_USER_NAME),
+                    "Login Berhasil",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            } 
+            else
+            {
+                MessageBox.Show(
+                    this,
+                    "Maaf, Username atau password yang anda masukan tidak sesuai.\nSilahkan coba lagi.",
+                    "Login Gagal",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                Txt_Password.Clear();
+                Txt_Password.Focus();
+            }
+        }
+
+        private void Btn_Batal_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Lnbl_Lupa_password_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Maaf, fitur ini masih dalam pengembangan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SupplyChainManagement_S1
+namespace SupplyChainManagement_S1.MainScript
 {
     public static class Cls_Security
     {
