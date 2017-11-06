@@ -22,12 +22,13 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
-namespace SupplyChainManagement_S1
+namespace SupplyChainManagement_S1.MainScript
 {
     public class Cls_Login
     {
         private string Fld_Username;
         private string Fld_password;
+        private Cls_DbConnection DbConn;
 
         /// <summary>
         /// Username user.
@@ -48,6 +49,49 @@ namespace SupplyChainManagement_S1
             get { return Fld_password.Trim(); }
         }
 
+        public Cls_Login(Cls_DbConnection ClsDbConn)
+        {
+            DbConn = ClsDbConn;
+        }
 
+        public bool Do_login()
+        {
+            try
+            {
+                string Query = "SELECT" +
+                      " id_user AS 'ID_USER', nama_user AS 'NAMA_USER', username AS 'USERNAME', password AS 'PASSWORD', level_user AS 'LEVEL_USER'" +
+                      " FROM user WHERE username=@p1 AND password=@p2 LIMIT 1";
+                MySqlConnection MySqlConn = DbConn.Connection;
+                MySqlCommand MySqlCmd = new MySqlCommand(Query, MySqlConn);
+                MySqlCmd.Parameters.AddWithValue("@p1", Username);
+                MySqlCmd.Parameters.AddWithValue("@p2", Password);
+
+                if (MySqlConn.State == ConnectionState.Closed)
+                    MySqlConn.Open();
+
+                MySqlDataReader MySqlReader = MySqlCmd.ExecuteReader();
+                if (MySqlReader.Read())
+                {
+                    Properties.Settings.Default.S_USER_ID = MySqlReader.GetString("ID_USER");
+                    Properties.Settings.Default.S_USER_NAME = MySqlReader.GetString("NAMA_USER");
+                    Properties.Settings.Default.S_USERNAME = MySqlReader.GetString("USERNAME");
+                    Properties.Settings.Default.S_LEVEL = MySqlReader.GetString("LEVEL_USER");
+                    Properties.Settings.Default.Save();
+
+                    MySqlReader.Close();
+                    return true;
+                }
+                else
+                {
+                    MySqlReader.Close();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Fatal Error :\n{0}",ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }
