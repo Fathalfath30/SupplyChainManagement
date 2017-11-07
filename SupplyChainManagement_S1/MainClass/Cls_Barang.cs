@@ -67,6 +67,11 @@ namespace SupplyChainManagement_S1.MainScript
             throw new NotImplementedException();
         }
 
+        public int rowCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Tambah_data()
         {
             throw new NotImplementedException();

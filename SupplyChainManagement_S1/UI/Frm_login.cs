@@ -44,7 +44,7 @@ namespace SupplyChainManagement_S1.UI
             switch (Convert.ToInt32(Properties.Settings.Default.S_LEVEL))
             {
                 case 1:
-                    new Manufaktur.Frm_Manufaktur_Dashboard(DbConn).Show();
+                    new Dashboard.Frm_Manufaktur_Dashboard(DbConn).Show();
                     this.Hide();
                     break;
             }

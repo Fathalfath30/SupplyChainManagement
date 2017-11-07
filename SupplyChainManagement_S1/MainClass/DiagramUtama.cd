@@ -24,13 +24,13 @@
   <Class Name="SupplyChainManagement_S1.MainScript.Cls_Barang">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACABQAAAACAAAAAACAQAAIQAIIAAAA=</HashCode>
+      <HashCode>AAAEAAAABAAAAACABQAAAACAAAEAACASAAoQAIIAIAA=</HashCode>
       <FileName>MainClass\Cls_Barang.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="SupplyChainManagement_S1.Model">
-    <Position X="7.75" Y="1" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAABAAAAAAAAAAAAAAAAAEAAAACAAgAAAAAIAA=</HashCode>
       <FileName>Model.cs</FileName>
