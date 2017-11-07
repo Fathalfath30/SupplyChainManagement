@@ -59,15 +59,6 @@ namespace SupplyChainManagement_S1.MainScript
         }
 
         /// <summary>
-        /// Memindahkan user ke dashboardnya masing - masing
-        /// jika user berhasil login.
-        /// </summary>
-        public void Redirect_user()
-        {
-
-        }
-
-        /// <summary>
         /// Memeriksa apakah username dan password tersimpan di dalam 
         /// database.
         /// </summary>

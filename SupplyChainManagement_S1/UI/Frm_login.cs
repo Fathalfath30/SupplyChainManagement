@@ -35,6 +35,21 @@ namespace SupplyChainManagement_S1.UI
             Txt_Username.Focus();
         }
 
+        /// <summary>
+        /// Memindahkan user ke dashboardnya masing - masing
+        /// jika user berhasil login.
+        /// </summary>
+        public void Redirect_user()
+        {
+            switch (Convert.ToInt32(Properties.Settings.Default.S_LEVEL))
+            {
+                case 1:
+                    new Manufaktur.Frm_Manufaktur_Dashboard(DbConn).Show();
+                    this.Hide();
+                    break;
+            }
+        }
+
         private void Btn_Login_Click(object sender, EventArgs e)
         {
             CLogin.Username = Txt_Username.Text;
@@ -48,6 +63,8 @@ namespace SupplyChainManagement_S1.UI
                     "Login Berhasil",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                Redirect_user();
             } 
             else
             {
@@ -71,6 +88,18 @@ namespace SupplyChainManagement_S1.UI
         private void Lnbl_Lupa_password_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Maaf, fitur ini masih dalam pengembangan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Txt_Username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Txt_Password.Focus();
+        }
+
+        private void Txt_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Btn_Login.PerformClick();
         }
     }
 }

@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SupplyChainManagement_S1.MainScript.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -83,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\Frm_login.resx">
       <DependentUpon>Frm_login.cs</DependentUpon>
@@ -104,7 +108,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\UI\goods.png" />
+    <Content Include="Assets\UI\po.png" />
+    <Content Include="Assets\UI\product.png" />
+    <Content Include="Assets\UI\shopping.png" />
+    <Content Include="Assets\UI\supplier.png" />
+    <Content Include="Assets\UI\truck.png" />
     <Content Include="MetroFramework.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Query\" />
+    <Folder Include="UI\Administrator\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
