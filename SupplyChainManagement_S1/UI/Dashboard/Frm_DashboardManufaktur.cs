@@ -14,12 +14,12 @@ using SupplyChainManagement_S1.UI.Master;
 
 namespace SupplyChainManagement_S1.UI.Dashboard
 {
-    public partial class Frm_Manufaktur_Dashboard : MetroForm
+    public partial class Frm_DashboardManufaktur : MetroForm
     {
         Cls_DbConnection CDbConnection;
         MySqlConnection SqlConn;
 
-        public Frm_Manufaktur_Dashboard(Cls_DbConnection ClsDB)
+        public Frm_DashboardManufaktur(Cls_DbConnection ClsDB)
         {
             InitializeComponent();
             CDbConnection = ClsDB;
@@ -94,7 +94,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
 
         private void MTile_Barang_Click(object sender, EventArgs e)
         {
-            new ManajemenBarang().ShowDialog();
+            new Frm_ManajemenBarang().ShowDialog();
         }
     }
 }

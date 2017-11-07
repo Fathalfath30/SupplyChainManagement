@@ -1,6 +1,6 @@
 namespace SupplyChainManagement_S1.UI.Dashboard
 {
-    partial class Frm_Manufaktur_Dashboard
+    partial class Frm_DashboardManufaktur
     {
         /// <summary>
         /// Required designer variable.
