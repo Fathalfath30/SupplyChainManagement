@@ -13,25 +13,16 @@ namespace SupplyChainManagement_S1.UI
 {
     public partial class Frm_login : MetroForm
     {
-        private Cls_DbConnection DbConn;
         private Cls_Login CLogin;
 
         public Frm_login()
         {
             InitializeComponent();
-            DbConn = new Cls_DbConnection();
         }
 
         private void Frm_login_Load(object sender, EventArgs e)
         {
-            DbConn.Hostname = "localhost";
-            DbConn.Username = "root";
-            DbConn.Password = "";
-            DbConn.Database = "db_prototype";
-
-            DbConn.initClass().OpenConnection();
-            CLogin = new Cls_Login(DbConn);
-
+            CLogin = new Cls_Login();
             Txt_Username.Focus();
         }
 
@@ -41,10 +32,10 @@ namespace SupplyChainManagement_S1.UI
         /// </summary>
         public void Redirect_user()
         {
-            switch (Properties.Settings.Default.S_LEVEL)
+            switch (Properties.Settings.Default.S_TYPE)
             {
                 case "MNF":
-                    new Dashboard.Frm_DashboardManufaktur(DbConn).Show();
+                    new Dashboard.Frm_DashboardManufaktur().Show();
                     this.Hide();
                     break;
             }

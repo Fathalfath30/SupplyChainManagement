@@ -48,7 +48,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnSimpan = new MetroFramework.Controls.MetroButton();
             this.BtnUpdate = new MetroFramework.Controls.MetroButton();
             this.BtnHapus = new MetroFramework.Controls.MetroButton();
-            this.BtnReset = new MetroFramework.Controls.MetroButton();
+            this.BtnRefresh = new MetroFramework.Controls.MetroButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Gview_Main)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -124,6 +124,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Txt_Keyword.WaterMark = "Masukan keyword";
             this.Txt_Keyword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Txt_Keyword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.Txt_Keyword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_Keyword_KeyUp);
             // 
             // groupBox1
             // 
@@ -379,21 +380,22 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnHapus.Text = "Hapus";
             this.BtnHapus.UseSelectable = true;
             // 
-            // BtnReset
+            // BtnRefresh
             // 
-            this.BtnReset.Location = new System.Drawing.Point(157, 433);
-            this.BtnReset.Name = "BtnReset";
-            this.BtnReset.Size = new System.Drawing.Size(131, 23);
-            this.BtnReset.TabIndex = 17;
-            this.BtnReset.Text = "Reset";
-            this.BtnReset.UseSelectable = true;
+            this.BtnRefresh.Location = new System.Drawing.Point(157, 433);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(131, 23);
+            this.BtnRefresh.TabIndex = 17;
+            this.BtnRefresh.Text = "Refresh";
+            this.BtnRefresh.UseSelectable = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // Frm_ManajemenBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 475);
-            this.Controls.Add(this.BtnReset);
+            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.BtnHapus);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSimpan);
@@ -435,6 +437,6 @@ namespace SupplyChainManagement_S1.UI.Master
         private MetroFramework.Controls.MetroButton BtnSimpan;
         private MetroFramework.Controls.MetroButton BtnUpdate;
         private MetroFramework.Controls.MetroButton BtnHapus;
-        private MetroFramework.Controls.MetroButton BtnReset;
+        private MetroFramework.Controls.MetroButton BtnRefresh;
     }
 }

@@ -14,16 +14,44 @@ namespace SupplyChainManagement_S1.UI.Master
 {
     public partial class Frm_ManajemenBarang : MetroForm
     {
-        private Cls_DbConnection CDatabase;
         private Cls_Barang CBarang;
 
         /* ---------- [START] Method Utama ---------- */
+        private void BindMainData(bool search = false)
+        {
+            if (search && Txt_Keyword.Text != "")
+            {
+                Gview_Main.DataSource = CBarang.Cari_data(Txt_Keyword.Text);
+            }
+            else
+            {
+                Gview_Main.DataSource = CBarang.Tampil_data();
+            }
+
+
+            Gview_Main.AutoGenerateColumns = false;
+            Gview_Main.AllowDrop = false;
+            Gview_Main.AllowUserToAddRows = false;
+            Gview_Main.AllowUserToDeleteRows = false;
+
+            Gview_Main.Columns["KodeBarang"].HeaderText = "Kode Barang";
+            Gview_Main.Columns["NamaBarang"].HeaderText = "Nama Barang";
+            Gview_Main.Columns["sTipeBarang"].HeaderText = "Tipe Barang";
+            Gview_Main.Columns["MinStock"].HeaderText = "Stock Minimal";
+            Gview_Main.Columns["MaxStock"].HeaderText = "Stock Maximal";
+            Gview_Main.Columns["iTipeBarang"].Visible = false;
+
+            for (int i = 0; i < Gview_Main.Columns.Count - 1; i++)
+                Gview_Main.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+        }
+
         private void BindTipeBarang()
         {
             DataTable Dtbl_TipeBarang = new DataTable("TipeBarang");
             Dtbl_TipeBarang.Columns.Add("ID");
             Dtbl_TipeBarang.Columns.Add("NAME");
-            Dtbl_TipeBarang.Rows.Add("", "-Pilih Salah Satu-");
+            Dtbl_TipeBarang.Rows.Add("999", "-Pilih Salah Satu-");
             Dtbl_TipeBarang.Rows.Add("0", "Bahan Baku");
             Dtbl_TipeBarang.Rows.Add("1", "MRO");
             Dtbl_TipeBarang.Rows.Add("2", "Barang Jadi");
@@ -50,23 +78,46 @@ namespace SupplyChainManagement_S1.UI.Master
             Txt_KodeBarang.Text = CBarang.auto_number();
 
             Txt_NmBarang.Focus();
+            BindMainData();
+        }
+
+        private void LockForm()
+        {
+            if (Properties.Settings.Default.S_LEVEL == "9")
+                return;
+
+            MessageBox.Show(
+                this,
+                "Perhatian : Hak anda terbatas, anda hanya dapat melihat data saja.",
+                "Informasi",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation);
+
+            Txt_KodeBarang.Enabled = false;
+            Txt_NmBarang.Enabled = false;
+            Txt_MaxStock.Enabled = false;
+            Txt_MinStock.Enabled = false;
+            Cmb_TipeBarang.Enabled = false;
+            BtnSimpan.Enabled = false;
+            BtnUpdate.Enabled = false;
+            BtnHapus.Enabled = false;
+
         }
         /* ---------- [END] Method Utama ---------- */
 
 
-        public Frm_ManajemenBarang(Cls_DbConnection CDbConnection)
+        public Frm_ManajemenBarang()
         {
             InitializeComponent();
             BindTipeBarang();
-
-            CDatabase = CDbConnection;
-            CBarang = new Cls_Barang(CDatabase.Connection);
+            CBarang = new Cls_Barang();
 
         }
 
         private void ManajemenBarang_Load(object sender, EventArgs e)
         {
             RefreshForm();
+            LockForm();
         }
 
         private void BtnSimpan_Click(object sender, EventArgs e)
@@ -91,13 +142,53 @@ namespace SupplyChainManagement_S1.UI.Master
                 Txt_MaxStock.Focus();
                 goto EmptyData;
             }
+            else if ((string)Cmb_TipeBarang.SelectedValue == "999")
+            {
+                Cmb_TipeBarang.Focus();
+                goto EmptyData;
+            }
             else
             {
-
+                CBarang = new Cls_Barang();
+                CBarang.KodeBarang = CBarang.auto_number();
+                CBarang.NamaBarang = Txt_NmBarang.Text;
+                CBarang.MinStock = Convert.ToInt32(Txt_MinStock.Text);
+                CBarang.MaxStock = Convert.ToInt32(Txt_MaxStock.Text);
+                CBarang.iTipeBarang = Convert.ToInt32((string)Cmb_TipeBarang.SelectedValue);
+                if (CBarang.Tambah_data())
+                {
+                    MessageBox.Show(
+                        this,
+                        "Data Behasil ditambahkan.",
+                        "Informasi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        this,
+                        "Data gagal ditambahkan.",
+                        "Informasi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                RefreshForm();
             }
 
+            return;
             EmptyData:
             MessageBox.Show(null, "Terdapat data yang kosong, silahkan periksa kembali form anda.", "Form Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Txt_Keyword_KeyUp(object sender, KeyEventArgs e)
+        {
+            BindMainData(true);
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshForm();
         }
     }
 }
