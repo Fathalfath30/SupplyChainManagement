@@ -359,6 +359,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnSimpan.TabIndex = 14;
             this.BtnSimpan.Text = "Simpan";
             this.BtnSimpan.UseSelectable = true;
+            this.BtnSimpan.Click += new System.EventHandler(this.BtnSimpan_Click);
             // 
             // BtnUpdate
             // 
@@ -400,7 +401,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Controls.Add(this.groupBox2);
             this.Name = "Frm_ManajemenBarang";
             this.Text = "Manajemen Barang";
-            this.Load += new System.EventHandler(this.Frm_ManajemenBarang_Load);
+            this.Load += new System.EventHandler(this.ManajemenBarang_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Gview_Main)).EndInit();

@@ -91,7 +91,7 @@ namespace SupplyChainManagement_S1.UI
             this.Btn_Batal.TabIndex = 5;
             this.Btn_Batal.Text = "Batal";
             this.Btn_Batal.UseSelectable = true;
-            this.Btn_Batal.Click += new System.EventHandler(this.Btn_Batal_Click_1);
+            this.Btn_Batal.Click += new System.EventHandler(this.Btn_Batal_Click);
             // 
             // Lnbl_Lupa_password
             // 
@@ -101,6 +101,7 @@ namespace SupplyChainManagement_S1.UI
             this.Lnbl_Lupa_password.TabIndex = 6;
             this.Lnbl_Lupa_password.Text = "Lupa Password";
             this.Lnbl_Lupa_password.UseSelectable = true;
+            this.Lnbl_Lupa_password.Click += new System.EventHandler(this.Lnbl_Lupa_password_Click);
             // 
             // Frm_login
             // 
@@ -117,6 +118,7 @@ namespace SupplyChainManagement_S1.UI
             this.Name = "Frm_login";
             this.Resizable = false;
             this.Text = "User Authentication";
+            this.Load += new System.EventHandler(this.Frm_login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

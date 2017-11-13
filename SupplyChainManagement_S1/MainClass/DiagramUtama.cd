@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SupplyChainManagement_S1.MainScript.Cls_DbConnection">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAABAEAAAAGiAQAAAgAgCQAYAAACAAAACAAgAAA=</HashCode>
+      <FileName>MainClass\Cls_DbConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupplyChainManagement_S1.MainScript.Cls_Login">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIQAAAIAAAAAAAAACAAAAAAAAAAE=</HashCode>
+      <FileName>MainClass\Cls_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupplyChainManagement_S1.MainScript.Cls_Security">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEABAAAAAA=</HashCode>
+      <FileName>MainClass\Cls_Security.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupplyChainManagement_S1.MainScript.Cls_Barang">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAABAAAAAKABQAAAACAAAEAACAyAAoQAIIAIAA=</HashCode>
+      <FileName>MainClass\Cls_Barang.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupplyChainManagement_S1.MainScript.Cls_Supplier">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cls_Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SupplyChainManagement_S1.MainScript.Model">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAABAAAAAIAAAAAAAAAAAEAAAACAAgAAAAAIAA=</HashCode>
+      <FileName>MainClass\Model.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

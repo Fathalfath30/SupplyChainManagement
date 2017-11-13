@@ -9,40 +9,73 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using SupplyChainManagement_S1.MainScript;
 
-namespace SupplyChainManagement_S1.UI
+namespace SupplyChainManagement_S1.UI 
 {
     public partial class Frm_login : MetroForm
     {
+        private Cls_DbConnection DbConn;
+        private Cls_Login CLogin;
+
         public Frm_login()
         {
             InitializeComponent();
+            DbConn = new Cls_DbConnection();
+        }
+
+        private void Frm_login_Load(object sender, EventArgs e)
+        {
+            DbConn.Hostname = "localhost";
+            DbConn.Username = "root";
+            DbConn.Password = "";
+            DbConn.Database = "db_prototype";
+
+            DbConn.initClass().OpenConnection();
+            CLogin = new Cls_Login(DbConn);
+
+            Txt_Username.Focus();
+        }
+
+        /// <summary>
+        /// Memindahkan user ke dashboardnya masing - masing
+        /// jika user berhasil login.
+        /// </summary>
+        public void Redirect_user()
+        {
+            switch (Properties.Settings.Default.S_LEVEL)
+            {
+                case "MNF":
+                    new Dashboard.Frm_DashboardManufaktur(DbConn).Show();
+                    this.Hide();
+                    break;
+            }
         }
 
         private void Btn_Login_Click(object sender, EventArgs e)
         {
-            string Username = Txt_Username.Text;
-            string Password = Txt_Password.Text;
+            CLogin.Username = Txt_Username.Text;
+            CLogin.Password = Txt_Password.Text;
 
-            if (Username.Equals("manufaktur", StringComparison.CurrentCultureIgnoreCase) && Password.Equals("manufaktur"))
+            if (CLogin.Do_login())
             {
                 MessageBox.Show(
-                    null,
-                    "Selamat datang, anda login sebagai : Manufaktur",
+                    this,
+                    string.Format("Selamat datang {0}.", Properties.Settings.Default.S_USER_NAME),
                     "Login Berhasil",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information
-                    );
-                new Dashboard.Frm_DashboardManufaktur().Show();
-                this.Hide();
-            }
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                Redirect_user();
+            } 
             else
             {
                 MessageBox.Show(
-                    null,
-                    "Maaf, Username dan Password yang anda masukan tidak sesuai.",
+                    this,
+                    "Maaf, Username atau password yang anda masukan tidak sesuai.\nSilahkan coba lagi.",
                     "Login Gagal",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error
-                    );
-                Txt_Password.Text = "";
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                Txt_Password.Clear();
                 Txt_Password.Focus();
             }
         }
@@ -52,51 +85,21 @@ namespace SupplyChainManagement_S1.UI
             Application.Exit();
         }
 
+        private void Lnbl_Lupa_password_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Maaf, fitur ini masih dalam pengembangan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void Txt_Username_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
-                if (Txt_Username.Text.Trim() == "")
-                {
-                    MessageBox.Show(
-                       null,
-                       "Harap isi Username terlebih dahulu !",
-                       "Form tidak lengkap",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error
-                       );
-                    Txt_Username.Focus();
-                }
-                else
-                {
-                    Txt_Password.Focus();
-                }
-            }
+                Txt_Password.Focus();
         }
 
         private void Txt_Password_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
-                if (Txt_Password.Text.Trim() == "")
-                {
-                    MessageBox.Show(
-                       null,
-                       "Harap isi Password terlebih dahulu !",
-                       "Form tidak lengkap",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error
-                       );
-                    Txt_Password.Focus();
-                }
-                else
-                {
-                    Btn_Login.PerformClick();
-                }
-            }
-        }
-
-        private void Btn_Batal_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
+                Btn_Login.PerformClick();
         }
     }
 }

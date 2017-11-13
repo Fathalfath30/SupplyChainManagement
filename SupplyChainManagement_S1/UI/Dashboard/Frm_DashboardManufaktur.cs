@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using MySql.Data.MySqlClient;
-using SupplyChainManagement_S1.MainClass;
+using SupplyChainManagement_S1.MainScript;
 using System.Globalization;
 using SupplyChainManagement_S1.UI.Master;
 
@@ -16,35 +16,71 @@ namespace SupplyChainManagement_S1.UI.Dashboard
 {
     public partial class Frm_DashboardManufaktur : MetroForm
     {
-        private DataSet TmpDB;
-        private App_Data appDT;
+        private Cls_Barang CBarang;
+        private Cls_DbConnection CDbConnection;
+        private MySqlConnection SqlConn;
 
-        public Frm_DashboardManufaktur()
+        public Frm_DashboardManufaktur(Cls_DbConnection ClsDB)
         {
             InitializeComponent();
-            TmpDB = new DataSet();
-            appDT = new App_Data();
+            CDbConnection = ClsDB;
+            SqlConn = ClsDB.Connection;
 
-            TmpDB.Tables.Add(appDT.TableSupplier());
-            TmpDB.Tables.Add(appDT.TableBarang());
+            CBarang = new Cls_Barang(SqlConn);
+        }
 
+        private void Frm_Manufaktur_Dashboard_Load(object sender, EventArgs e)
+        {
+            Tmr_Refresh_koneksi.Start();
             Tmr_RefreshDT.Start();
             Tmr_Refresh_data.Start();
         }
 
-        private void Frm_DashboardManufaktur_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Frm_DashboardManufaktur_FormClosed(object sender, FormClosedEventArgs e)
+        private void Frm_Manufaktur_Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
         private void Tmr_Refresh_koneksi_Tick(object sender, EventArgs e)
         {
-            
+            if (this.SqlConn.State != ConnectionState.Open)
+            {
+                MLabel_Status_koneksi.Text = "Terputus";
+                MLabel_Status_koneksi.ForeColor = Color.Red;
+                Tmr_Refresh_koneksi.Stop();
+
+                DialogResult Drs = MessageBox.Show(
+                    this, 
+                    "Koneksi dengan database terputus, Apakah anda ingin mencoba kembali ?", 
+                    "Koneksi Terputus", 
+                    MessageBoxButtons.RetryCancel, 
+                    MessageBoxIcon.Information);
+
+                if (Drs == DialogResult.Retry)
+                {
+                    CDbConnection.OpenConnection();
+                    if (SqlConn.State == ConnectionState.Open)
+                    {
+                        SqlConn = CDbConnection.Connection;
+                        Tmr_Refresh_koneksi.Start();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(
+                        this,
+                        "Koneksi dengan database terputus, Apakah anda ingin mencoba kembali ?",
+                        "Koneksi Terputus",
+                        MessageBoxButtons.RetryCancel,
+                        MessageBoxIcon.Information);
+                    Application.Exit();
+                }
+            }
+            else
+            {
+                MLabel_Status_koneksi.Text = "Terhubung";
+                MLabel_Status_koneksi.ForeColor = Color.Lime;
+            }
         }
 
         private void Tmr_RefreshDT_Tick(object sender, EventArgs e)
@@ -56,19 +92,20 @@ namespace SupplyChainManagement_S1.UI.Dashboard
                 Convert.ToInt32(DateTime.Now.ToString("MM")),
                 Convert.ToInt32(DateTime.Now.ToString("dd")));
 
-            MLabel_Tanggal.Text = dTime.ToString("dddd, dd MMMM yyyy", culture);
-        }
+            MLabel_Tanggal.Text = dTime.ToString("dddd, dd MMMM yyyy", culture) ;
 
-        private void Tmr_Refresh_data_Tick(object sender, EventArgs e)
-        {
-            MTile_Supplier.TileCount = TmpDB.Tables["supplier"].Rows.Count;
-            MTile_Barang.TileCount = TmpDB.Tables["barang"].Rows.Count;
         }
 
         private void MTile_Barang_Click(object sender, EventArgs e)
         {
-            new UI.Master.Frm_ManajemenBarang().ShowDialog();
+            Tmr_Refresh_data.Stop();
+            new Frm_ManajemenBarang(CDbConnection).ShowDialog();
+            Tmr_Refresh_data.Start();
+        }
 
+        private void Tmr_Refresh_data_Tick(object sender, EventArgs e)
+        {
+            MTile_Barang.TileCount = CBarang.rowCount();
         }
     }
 }

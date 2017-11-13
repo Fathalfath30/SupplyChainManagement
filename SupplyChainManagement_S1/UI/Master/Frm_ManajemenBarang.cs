@@ -9,79 +9,95 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using SupplyChainManagement_S1.MainScript;
 using MySql.Data.MySqlClient;
-using SupplyChainManagement_S1.MainClass;
 
 namespace SupplyChainManagement_S1.UI.Master
 {
     public partial class Frm_ManajemenBarang : MetroForm
     {
-        private DataSet TmpDB;
-        private App_Data appDT;
+        private Cls_DbConnection CDatabase;
+        private Cls_Barang CBarang;
 
-        private string Generate_id()
+        /* ---------- [START] Method Utama ---------- */
+        private void BindTipeBarang()
         {
-            string Main_id = "";
-            DataRow LastR = TmpDB.Tables["barang"].Rows[TmpDB.Tables["barang"].Rows.Count - 1];
-            // BRG012
-            if (TmpDB.Tables["barang"].Rows.Count > 0)
-            {
-                string TmpId = LastR["ID"].ToString();
-                Main_id = string.Format("BRG{0:000}", Convert.ToInt32(TmpId.Substring(3)) + 1);
-            }
-            else
-            {
-                Main_id = "BRG001";
-            }
-            return Main_id;
+            DataTable Dtbl_TipeBarang = new DataTable("TipeBarang");
+            Dtbl_TipeBarang.Columns.Add("ID");
+            Dtbl_TipeBarang.Columns.Add("NAME");
+            Dtbl_TipeBarang.Rows.Add("", "-Pilih Salah Satu-");
+            Dtbl_TipeBarang.Rows.Add("0", "Bahan Baku");
+            Dtbl_TipeBarang.Rows.Add("1", "MRO");
+            Dtbl_TipeBarang.Rows.Add("2", "Barang Jadi");
+
+            DataSet dSet = new DataSet("DS_TipeBarang");
+            dSet.Tables.Add(Dtbl_TipeBarang);
+
+            DataView Dview = dSet.Tables["TipeBarang"].DefaultView;
+            Cmb_TipeBarang.DataSource = Dview;
+            Cmb_TipeBarang.ValueMember = "ID";
+            Cmb_TipeBarang.DisplayMember = "NAME";
+
         }
 
-        private void BindTipe()
-        {
-            DataSet DSetTipe = new DataSet();
-            DataTable TTipe = new DataTable("tipe_barang");
-        }
-
-        private void BindData()
-        {
-            TmpDB = new DataSet();
-            TmpDB.Tables.Add(appDT.TableBarang());
-            Gview_Main.DataSource = TmpDB.Tables["barang"];
-            Gview_Main.AutoGenerateColumns = false;
-            Gview_Main.Columns["ID"].HeaderText = "ID Barang";
-            Gview_Main.Columns["NAME"].HeaderText = "Nama Barang";
-            
-        }
-
-        /// <summary>
-        /// Me-reset form dan reload form
-        /// </summary>
         private void RefreshForm()
         {
             Txt_Keyword.Text = "";
-            Txt_KodeBarang.Text = Generate_id();
+            Txt_KodeBarang.Text = "";
             Txt_NmBarang.Text = "";
-            Txt_MaxStock.Text = "0";
-            Txt_MinStock.Text = "0";
+            Txt_MinStock.Text = "1";
+            Txt_MaxStock.Text = "100";
+
+            BindTipeBarang();
+            Txt_KodeBarang.Text = CBarang.auto_number();
 
             Txt_NmBarang.Focus();
-
-            BindData();
-            Generate_id();
         }
+        /* ---------- [END] Method Utama ---------- */
 
-        public Frm_ManajemenBarang()
+
+        public Frm_ManajemenBarang(Cls_DbConnection CDbConnection)
         {
             InitializeComponent();
+            BindTipeBarang();
 
-            TmpDB = new DataSet();
-            appDT = new App_Data();
+            CDatabase = CDbConnection;
+            CBarang = new Cls_Barang(CDatabase.Connection);
 
-            TmpDB.Tables.Add(appDT.TableBarang());
         }
 
-        private void Frm_ManajemenBarang_Load(object sender, EventArgs e)
+        private void ManajemenBarang_Load(object sender, EventArgs e)
         {
             RefreshForm();
+        }
+
+        private void BtnSimpan_Click(object sender, EventArgs e)
+        {
+            if (Txt_KodeBarang.Text.Trim() == "")
+            {
+                Txt_KodeBarang.Focus();
+                goto EmptyData;
+            }
+            else if (Txt_NmBarang.Text.Trim() == "")
+            {
+                Txt_NmBarang.Focus();
+                goto EmptyData;
+            }
+            else if (Txt_MinStock.Text.Trim() == "")
+            {
+                Txt_MinStock.Focus();
+                goto EmptyData;
+            }
+            else if (Txt_MaxStock.Text.Trim() == "")
+            {
+                Txt_MaxStock.Focus();
+                goto EmptyData;
+            }
+            else
+            {
+
+            }
+
+            EmptyData:
+            MessageBox.Show(null, "Terdapat data yang kosong, silahkan periksa kembali form anda.", "Form Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

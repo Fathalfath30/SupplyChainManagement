@@ -233,12 +233,10 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             // 
             // Tmr_Refresh_koneksi
             // 
-            this.Tmr_Refresh_koneksi.Interval = 50;
             this.Tmr_Refresh_koneksi.Tick += new System.EventHandler(this.Tmr_Refresh_koneksi_Tick);
             // 
             // Tmr_RefreshDT
             // 
-            this.Tmr_RefreshDT.Interval = 50;
             this.Tmr_RefreshDT.Tick += new System.EventHandler(this.Tmr_RefreshDT_Tick);
             // 
             // MTile_Barang
@@ -354,8 +352,8 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Resizable = false;
             this.Text = "Dashboard Manufaktur";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_DashboardManufaktur_FormClosed);
-            this.Load += new System.EventHandler(this.Frm_DashboardManufaktur_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Manufaktur_Dashboard_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_Manufaktur_Dashboard_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
