@@ -62,6 +62,7 @@ namespace SupplyChainManagement_S1.UI
             this.Txt_Username.Name = "Txt_Username";
             this.Txt_Username.Size = new System.Drawing.Size(286, 20);
             this.Txt_Username.TabIndex = 2;
+            this.Txt_Username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_Username_KeyDown);
             // 
             // Txt_Password
             // 
@@ -70,6 +71,7 @@ namespace SupplyChainManagement_S1.UI
             this.Txt_Password.PasswordChar = '*';
             this.Txt_Password.Size = new System.Drawing.Size(286, 20);
             this.Txt_Password.TabIndex = 3;
+            this.Txt_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_Password_KeyDown);
             // 
             // Btn_Login
             // 
@@ -89,6 +91,7 @@ namespace SupplyChainManagement_S1.UI
             this.Btn_Batal.TabIndex = 5;
             this.Btn_Batal.Text = "Batal";
             this.Btn_Batal.UseSelectable = true;
+            this.Btn_Batal.Click += new System.EventHandler(this.Btn_Batal_Click_1);
             // 
             // Lnbl_Lupa_password
             // 
@@ -114,7 +117,6 @@ namespace SupplyChainManagement_S1.UI
             this.Name = "Frm_login";
             this.Resizable = false;
             this.Text = "User Authentication";
-            this.Load += new System.EventHandler(this.Frm_login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

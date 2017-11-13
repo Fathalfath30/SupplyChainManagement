@@ -231,6 +231,16 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // Tmr_Refresh_koneksi
+            // 
+            this.Tmr_Refresh_koneksi.Interval = 50;
+            this.Tmr_Refresh_koneksi.Tick += new System.EventHandler(this.Tmr_Refresh_koneksi_Tick);
+            // 
+            // Tmr_RefreshDT
+            // 
+            this.Tmr_RefreshDT.Interval = 50;
+            this.Tmr_RefreshDT.Tick += new System.EventHandler(this.Tmr_RefreshDT_Tick);
+            // 
             // MTile_Barang
             // 
             this.MTile_Barang.ActiveControl = null;
@@ -248,6 +258,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Barang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Barang.UseSelectable = true;
             this.MTile_Barang.UseTileImage = true;
+            this.MTile_Barang.Click += new System.EventHandler(this.MTile_Barang_Click);
             // 
             // MTile_Distributor
             // 
@@ -321,6 +332,10 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
             // 
+            // Tmr_Refresh_data
+            // 
+            this.Tmr_Refresh_data.Tick += new System.EventHandler(this.Tmr_Refresh_data_Tick);
+            // 
             // Frm_DashboardManufaktur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +354,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Resizable = false;
             this.Text = "Dashboard Manufaktur";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_DashboardManufaktur_FormClosed);
             this.Load += new System.EventHandler(this.Frm_DashboardManufaktur_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
