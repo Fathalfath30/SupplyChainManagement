@@ -24,18 +24,20 @@ using System.Windows.Forms;
 
 namespace SupplyChainManagement_S1.MainScript
 {
-    public class Cls_Barang : Model
+    public class Cls_Barang
     {
         private string Fld_KdBarang;
         private string Fld_NmBarang;
+        private string Fld_StrTipeBarang;
         private int Fld_MinStock;
         private int Fld_MaxStock;
-        private int Fld_TipeBarang;
+        private int Fld_IntTipeBarang;
+        private string strConn = Properties.Settings.Default.STR_CONN;
 
         public string KodeBarang
         {
             set { Fld_KdBarang = value.Trim(); }
-            get { return Fld_NmBarang.Trim(); }
+            get { return Fld_KdBarang.Trim(); }
         }
 
         public string NamaBarang
@@ -44,10 +46,16 @@ namespace SupplyChainManagement_S1.MainScript
             get { return Fld_NmBarang.Trim(); }
         }
 
+        public string sTipeBarang
+        {
+            set { Fld_StrTipeBarang = value.Trim(); }
+            get { return Fld_StrTipeBarang.Trim(); }
+        }
+
         public int MinStock
         {
             set { Fld_MinStock = value; }
-            get { return MinStock; }
+            get { return Fld_MinStock; }
         }
 
         public int MaxStock
@@ -56,10 +64,10 @@ namespace SupplyChainManagement_S1.MainScript
             get { return Fld_MaxStock; }
         }
 
-        public int TipeBarang
+        public int iTipeBarang
         {
-            set { Fld_TipeBarang = value; }
-            get { return Fld_TipeBarang; }
+            set { Fld_IntTipeBarang = value; }
+            get { return Fld_IntTipeBarang; }
         }
 
         /// <summary>
@@ -68,7 +76,7 @@ namespace SupplyChainManagement_S1.MainScript
         /// <returns></returns>
         public string auto_number()
         {
-            using (MySqlConnection sqlConn = new MySqlConnection(""))
+            using (MySqlConnection sqlConn = new MySqlConnection(strConn))
             {
                 string Main_id = "BRG001";
                 try
@@ -88,7 +96,7 @@ namespace SupplyChainManagement_S1.MainScript
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
 
@@ -103,7 +111,7 @@ namespace SupplyChainManagement_S1.MainScript
         /// <returns>Jumlah data barang</returns>
         public int rowCount()
         {
-            using (MySqlConnection sqlConn = new MySqlConnection(""))
+            using (MySqlConnection sqlConn = new MySqlConnection(strConn))
             {
                 int rCount = 0;
                 try
@@ -120,7 +128,7 @@ namespace SupplyChainManagement_S1.MainScript
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
                 return rCount;
@@ -130,7 +138,29 @@ namespace SupplyChainManagement_S1.MainScript
 
         public bool Tambah_data()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (MySqlConnection SqlConn= new MySqlConnection(strConn))
+                {
+                    string Query;
+                    Query = "INSERT INTO barang (kd_barang, nm_barang, min_stock, max_stock, tipe_barang) VALUES ";
+                    Query += "(@p1, @p2, @p3, @p4, @p5);";
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, SqlConn);
+                    SqlCmd.Parameters.AddWithValue("@p1", KodeBarang);
+                    SqlCmd.Parameters.AddWithValue("@p2", NamaBarang);
+                    SqlCmd.Parameters.AddWithValue("@p3", MinStock);
+                    SqlCmd.Parameters.AddWithValue("@p4", MaxStock);
+                    SqlCmd.Parameters.AddWithValue("@p5", iTipeBarang);
+                    SqlConn.Open();
+                    return (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                return false;
+            }
         }
 
         public bool Update_data()
@@ -143,14 +173,94 @@ namespace SupplyChainManagement_S1.MainScript
             throw new NotImplementedException();
         }
 
-        public List<object> Tampil_data()
+        public List<Cls_Barang> Tampil_data()
         {
-            throw new NotImplementedException();
+            List<Cls_Barang> DbData = new List<Cls_Barang>();
+            try
+            {
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
+                {
+                    string Query;
+                    Query = "SELECT ";
+                    Query += "kd_barang AS 'KODE_BARANG', nm_barang AS 'NAMA_BARANG', min_stock AS 'STOCK_MINIMAL', ";
+                    Query += "max_stock AS 'STOCK_MAXIMAL', tipe_barang AS 'INT_TIPE_BARANG', ";
+                    Query += "(CASE WHEN tipe_barang = 0 THEN 'Bahan Baku' WHEN tipe_barang = 1 THEN 'Barang Jadi' ";
+                    Query += "WHEN tipe_barang = 2 THEN 'MRO' ELSE 'n/a' END) AS 'STR_TIPE_BARANG' ";
+                    Query += "FROM barang";
+
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
+                    sqlConn.Open();
+                    MySqlDataReader sReader = SqlCmd.ExecuteReader();
+                    DbData.Clear();
+
+                    while(sReader.Read())
+                    {
+                        Cls_Barang CBarang = new Cls_Barang();
+                        CBarang.KodeBarang = sReader.GetString("KODE_BARANG");
+                        CBarang.NamaBarang = sReader.GetString("NAMA_BARANG");
+                        CBarang.MinStock = sReader.GetInt32("STOCK_MINIMAL");
+                        CBarang.MaxStock = sReader.GetInt32("STOCK_MAXIMAL");
+                        CBarang.iTipeBarang = sReader.GetInt32("INT_TIPE_BARANG");
+                        CBarang.sTipeBarang = sReader.GetString("STR_TIPE_BARANG");
+                        DbData.Add(CBarang);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
+            return DbData;
         }
 
-        public List<object> Cari_data()
+        public List<Cls_Barang> Cari_data(string keyword)
         {
-            throw new NotImplementedException();
+            List<Cls_Barang> DbData = new List<Cls_Barang>();
+            try
+            {
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
+                {
+                    string Query;
+                    Query = "SELECT * FROM (SELECT ";
+                    Query += "kd_barang AS 'KODE_BARANG', nm_barang AS 'NAMA_BARANG', min_stock AS 'STOCK_MINIMAL', ";
+                    Query += "max_stock AS 'STOCK_MAXIMAL', tipe_barang AS 'INT_TIPE_BARANG', ";
+                    Query += "(CASE WHEN tipe_barang = 0 THEN 'Bahan Baku' WHEN tipe_barang = 1 THEN 'Barang Jadi' ";
+                    Query += "WHEN tipe_barang = 2 THEN 'MRO' ELSE 'n/a' END) AS 'STR_TIPE_BARANG' ";
+                    Query += "FROM barang) AS TmpTable ";
+                    Query += "WHERE KODE_BARANG LIKE '%{0}%' OR STR_TIPE_BARANG LIKE '%{1}%' ";
+                    Query += "OR NAMA_BARANG LIKE '%{2}%' ";
+                    Query += "OR STOCK_MINIMAL LIKE '%{3}%' OR STOCK_MAXIMAL LIKE '%{4}%' ";
+                    MySqlCommand SqlCmd = new MySqlCommand(string.Format(Query,
+                        keyword, keyword, keyword, keyword, keyword), sqlConn);
+                    SqlCmd.Parameters.AddWithValue("@p1", keyword.Trim());
+                    System.Diagnostics.Debug.WriteLine(SqlCmd.CommandText);
+                    sqlConn.Open();
+
+                    MySqlDataReader sReader = SqlCmd.ExecuteReader();
+                    DbData.Clear();
+
+                    while (sReader.Read())
+                    {
+                        Cls_Barang CBarang = new Cls_Barang();
+                        CBarang.KodeBarang = sReader.GetString("KODE_BARANG");
+                        CBarang.NamaBarang = sReader.GetString("NAMA_BARANG");
+                        CBarang.MinStock = sReader.GetInt32("STOCK_MINIMAL");
+                        CBarang.MaxStock = sReader.GetInt32("STOCK_MAXIMAL");
+                        CBarang.iTipeBarang = sReader.GetInt32("INT_TIPE_BARANG");
+                        CBarang.sTipeBarang = sReader.GetString("STR_TIPE_BARANG");
+                        DbData.Add(CBarang);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
+            return DbData;
         }
     }
 }
