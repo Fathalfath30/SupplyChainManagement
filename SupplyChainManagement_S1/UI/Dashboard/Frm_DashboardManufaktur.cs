@@ -16,6 +16,15 @@ namespace SupplyChainManagement_S1.UI.Dashboard
 {
     public partial class Frm_DashboardManufaktur : MetroForm
     {
-        
+
+        public Frm_DashboardManufaktur()
+        {
+            InitializeComponent();
+        }
+
+        private void Frm_DashboardManufaktur_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
