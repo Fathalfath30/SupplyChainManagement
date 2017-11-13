@@ -17,5 +17,8 @@
     <Setting Name="S_TYPE" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="STR_CONN" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=localhost;Port=3306;Database=db_prototype;Uid=root;Pwd=</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

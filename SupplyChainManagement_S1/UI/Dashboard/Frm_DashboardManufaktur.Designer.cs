@@ -231,10 +231,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // Tmr_Refresh_koneksi
-            // 
-            this.Tmr_Refresh_koneksi.Tick += new System.EventHandler(this.Tmr_Refresh_koneksi_Tick);
-            // 
             // Tmr_RefreshDT
             // 
             this.Tmr_RefreshDT.Tick += new System.EventHandler(this.Tmr_RefreshDT_Tick);

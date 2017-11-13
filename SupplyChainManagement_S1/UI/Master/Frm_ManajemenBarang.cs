@@ -14,7 +14,6 @@ namespace SupplyChainManagement_S1.UI.Master
 {
     public partial class Frm_ManajemenBarang : MetroForm
     {
-        private Cls_DbConnection CDatabase;
         private Cls_Barang CBarang;
 
         /* ---------- [START] Method Utama ---------- */
@@ -54,13 +53,11 @@ namespace SupplyChainManagement_S1.UI.Master
         /* ---------- [END] Method Utama ---------- */
 
 
-        public Frm_ManajemenBarang(Cls_DbConnection CDbConnection)
+        public Frm_ManajemenBarang()
         {
             InitializeComponent();
             BindTipeBarang();
-
-            CDatabase = CDbConnection;
-            CBarang = new Cls_Barang(CDatabase.Connection);
+            CBarang = new Cls_Barang();
 
         }
 

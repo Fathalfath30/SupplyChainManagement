@@ -31,7 +31,6 @@ namespace SupplyChainManagement_S1.MainScript
         private int Fld_MinStock;
         private int Fld_MaxStock;
         private int Fld_TipeBarang;
-        private MySqlConnection DatabaseConn;
 
         public string KodeBarang
         {
@@ -63,18 +62,13 @@ namespace SupplyChainManagement_S1.MainScript
             get { return Fld_TipeBarang; }
         }
 
-        public Cls_Barang(MySqlConnection DbConn)
-        {
-            DatabaseConn = DbConn;
-        }
-
         /// <summary>
         /// Mendapatkan Kode Barang.
         /// </summary>
         /// <returns></returns>
         public string auto_number()
         {
-            using (MySqlConnection sqlConn = new MySqlConnection(DatabaseConn.ConnectionString))
+            using (MySqlConnection sqlConn = new MySqlConnection(""))
             {
                 string Main_id = "BRG001";
                 try
@@ -109,7 +103,7 @@ namespace SupplyChainManagement_S1.MainScript
         /// <returns>Jumlah data barang</returns>
         public int rowCount()
         {
-            using (MySqlConnection sqlConn = new MySqlConnection(DatabaseConn.ConnectionString))
+            using (MySqlConnection sqlConn = new MySqlConnection(""))
             {
                 int rCount = 0;
                 try

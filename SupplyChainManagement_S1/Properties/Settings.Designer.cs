@@ -82,5 +82,14 @@ namespace SupplyChainManagement_S1.Properties {
                 this["S_TYPE"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;Port=3306;Database=db_prototype;Uid=root;Pwd=")]
+        public string STR_CONN {
+            get {
+                return ((string)(this["STR_CONN"]));
+            }
+        }
     }
 }

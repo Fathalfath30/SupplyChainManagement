@@ -28,7 +28,7 @@ namespace SupplyChainManagement_S1.MainScript
     {
         private string Fld_Username;
         private string Fld_password;
-        private Cls_DbConnection DbConn;
+        private string strConn = Properties.Settings.Default.STR_CONN;
 
         /// <summary>
         /// Username user.
@@ -50,15 +50,6 @@ namespace SupplyChainManagement_S1.MainScript
         }
 
         /// <summary>
-        /// Constrcutor
-        /// </summary>
-        /// <param name="ClsDbConn"></param>
-        public Cls_Login(Cls_DbConnection ClsDbConn)
-        {
-            DbConn = ClsDbConn;
-        }
-
-        /// <summary>
         /// Method untuk memeriska username dan password supplier
         /// </summary>
         /// <returns>bool</returns>
@@ -66,12 +57,12 @@ namespace SupplyChainManagement_S1.MainScript
         {
             try
             {
-                using (MySqlConnection sqlConn = new MySqlConnection(DbConn.ConnString))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query;
-                    Query = "SELECT kd_supplier AS ID_SUPPLIER, nm_supplier AS NAMA_SUPPLIER, ";
-                    Query += "telp AS TELEPHONE, username AS USERNAME, password AS PASSWORD ";
-                    Query += "FROM supplier WHERE username=@p1 AND password=@p2";
+                    Query = "SELECT kd_supplier AS 'ID_USER', username AS 'USERNAME', password AS 'PASSWORD', ";
+                    Query += "nama_user AS 'NAMA_USER', telp_user 'NOTELP', status_user AS 'STATUS_USER' ";
+                    Query += "FROM user_supplier WHERE username=@p1 AND password=@p2";
 
                     MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
                     SqlCmd.Parameters.AddWithValue("@p1", Username.Trim());
@@ -79,6 +70,24 @@ namespace SupplyChainManagement_S1.MainScript
                     sqlConn.Open();
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
 
+                    if (sReader.Read())
+                    {
+                        Properties.Settings.Default.S_USER_ID = sReader.GetString("ID_USER");
+                        Properties.Settings.Default.S_USER_NAME = sReader.GetString("NAMA_USER");
+                        Properties.Settings.Default.S_USERNAME = sReader.GetString("USERNAME");
+                        Properties.Settings.Default.S_LEVEL = sReader.GetString("STATUS_USER");
+                        Properties.Settings.Default.S_TYPE = "SPL";
+
+                        Properties.Settings.Default.Save();
+
+                        sReader.Close();
+                        return true;
+                    }
+                    else
+                    {
+                        sReader.Close();
+                        return false;
+                    }
 
                 }
             }
@@ -88,7 +97,6 @@ namespace SupplyChainManagement_S1.MainScript
                 Application.Exit();
                 return false;
             }
-            return false;
         }
 
         /// <summary>
@@ -99,7 +107,7 @@ namespace SupplyChainManagement_S1.MainScript
         {
             try
             {
-                using (MySqlConnection sqlConn = new MySqlConnection(DbConn.ConnString))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query;
                     Query = "SELECT kd_manufaktur AS 'ID_USER', username AS 'USERNAME', password AS 'PASSWORD', ";
@@ -112,7 +120,8 @@ namespace SupplyChainManagement_S1.MainScript
                     sqlConn.Open();
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
 
-                    if (sReader.HasRows) {
+                    if (sReader.Read())
+                    {
                         Properties.Settings.Default.S_USER_ID = sReader.GetString("ID_USER");
                         Properties.Settings.Default.S_USER_NAME = sReader.GetString("NAMA_USER");
                         Properties.Settings.Default.S_USERNAME = sReader.GetString("USERNAME");
@@ -150,7 +159,8 @@ namespace SupplyChainManagement_S1.MainScript
             if (Manufaktur_login())
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
