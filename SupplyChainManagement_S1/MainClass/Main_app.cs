@@ -15,15 +15,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
-namespace SupplyChainManagement_S1.MainClass
+namespace SupplyChainManagement_S1.MainScript
 {
+    /// <summary>
+    /// Class Program, class yang akan dijalankan pertama kali 
+    /// pada saat user menggunakan aplikasi ini. 
+    /// </summary>
     public class Main_app
     {
+        /// <summary>
+        /// Method utama yang digunakan untuk mengakses aplikasi.
+        /// </summary>
+        /// <param name="args"></param>
         [STAThread]
         public static void Main(string[] args)
         {
-
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new UI.Frm_login());
         }
     }
 }
