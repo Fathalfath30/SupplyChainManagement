@@ -79,6 +79,7 @@ namespace SupplyChainManagement_S1.UI
             this.Btn_Login.TabIndex = 4;
             this.Btn_Login.Text = "Login";
             this.Btn_Login.UseSelectable = true;
+            this.Btn_Login.Click += new System.EventHandler(this.Btn_Login_Click);
             // 
             // Btn_Batal
             // 
@@ -113,6 +114,7 @@ namespace SupplyChainManagement_S1.UI
             this.Name = "Frm_login";
             this.Resizable = false;
             this.Text = "User Authentication";
+            this.Load += new System.EventHandler(this.Frm_login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

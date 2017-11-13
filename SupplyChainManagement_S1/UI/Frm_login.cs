@@ -13,6 +13,19 @@ namespace SupplyChainManagement_S1.UI
 {
     public partial class Frm_login : MetroForm
     {
-        
+        public Frm_login()
+        {
+            InitializeComponent();
+        }
+
+        private void Frm_login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_Login_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
