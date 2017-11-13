@@ -50,6 +50,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Pembelian = new MetroFramework.Controls.MetroTile();
             this.MTile_Stock = new MetroFramework.Controls.MetroTile();
             this.MTile_Supplier = new MetroFramework.Controls.MetroTile();
+            this.Tmr_Refresh_data = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -329,7 +330,11 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
             // 
-            // Frm_Manufaktur_Dashboard
+            // Tmr_Refresh_data
+            // 
+            this.Tmr_Refresh_data.Tick += new System.EventHandler(this.Tmr_Refresh_data_Tick);
+            // 
+            // Frm_DashboardManufaktur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -343,7 +348,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Controls.Add(this.MTile_Supplier);
             this.MaximizeBox = false;
             this.Movable = false;
-            this.Name = "Frm_Manufaktur_Dashboard";
+            this.Name = "Frm_DashboardManufaktur";
             this.Resizable = false;
             this.Text = "Dashboard Manufaktur";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
@@ -384,5 +389,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private System.Windows.Forms.GroupBox groupBox3;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroTile MTile_Barang;
+        private System.Windows.Forms.Timer Tmr_Refresh_data;
     }
 }

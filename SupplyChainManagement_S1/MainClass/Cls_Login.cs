@@ -59,46 +59,99 @@ namespace SupplyChainManagement_S1.MainScript
         }
 
         /// <summary>
+        /// Method untuk memeriska username dan password supplier
+        /// </summary>
+        /// <returns>bool</returns>
+        private bool Supplier_login()
+        {
+            try
+            {
+                using (MySqlConnection sqlConn = new MySqlConnection(DbConn.ConnString))
+                {
+                    string Query;
+                    Query = "SELECT kd_supplier AS ID_SUPPLIER, nm_supplier AS NAMA_SUPPLIER, ";
+                    Query += "telp AS TELEPHONE, username AS USERNAME, password AS PASSWORD ";
+                    Query += "FROM supplier WHERE username=@p1 AND password=@p2";
+
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
+                    SqlCmd.Parameters.AddWithValue("@p1", Username.Trim());
+                    SqlCmd.Parameters.AddWithValue("@p2", Password.Trim());
+                    sqlConn.Open();
+                    MySqlDataReader sReader = SqlCmd.ExecuteReader();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Fatal Error :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                return false;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Method untuk memeriska username dan password manufaktur
+        /// </summary>
+        /// <returns>bool</returns>
+        private bool Manufaktur_login()
+        {
+            try
+            {
+                using (MySqlConnection sqlConn = new MySqlConnection(DbConn.ConnString))
+                {
+                    string Query;
+                    Query = "SELECT kd_manufaktur AS 'ID_USER', username AS 'USERNAME', password AS 'PASSWORD', ";
+                    Query += "nama_user AS 'NAMA_USER', telp_user 'NOTELP', status_user AS 'STATUS_USER' ";
+                    Query += "FROM user_manufaktur WHERE username=@p1 AND password=@p2";
+
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
+                    SqlCmd.Parameters.AddWithValue("@p1", Username.Trim());
+                    SqlCmd.Parameters.AddWithValue("@p2", Password.Trim());
+                    sqlConn.Open();
+                    MySqlDataReader sReader = SqlCmd.ExecuteReader();
+
+                    if (sReader.HasRows) {
+                        Properties.Settings.Default.S_USER_ID = sReader.GetString("ID_USER");
+                        Properties.Settings.Default.S_USER_NAME = sReader.GetString("NAMA_USER");
+                        Properties.Settings.Default.S_USERNAME = sReader.GetString("USERNAME");
+                        Properties.Settings.Default.S_LEVEL = sReader.GetString("STATUS_USER");
+                        Properties.Settings.Default.S_TYPE = "MNF";
+
+                        Properties.Settings.Default.Save();
+
+                        sReader.Close();
+                        return true;
+                    }
+                    else
+                    {
+                        sReader.Close();
+                        return false;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Fatal Error :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Memeriksa apakah username dan password tersimpan di dalam 
         /// database.
         /// </summary>
         /// <returns></returns>
         public bool Do_login()
         {
-            try
+            if (Manufaktur_login())
             {
-                string Query = "SELECT" +
-                      " id_user AS 'ID_USER', nama_user AS 'NAMA_USER', username AS 'USERNAME', password AS 'PASSWORD', level_user AS 'LEVEL_USER'" +
-                      " FROM user WHERE username=@p1 AND password=@p2 LIMIT 1";
-                MySqlConnection MySqlConn = DbConn.Connection;
-                MySqlCommand MySqlCmd = new MySqlCommand(Query, MySqlConn);
-                MySqlCmd.Parameters.AddWithValue("@p1", Username);
-                MySqlCmd.Parameters.AddWithValue("@p2", Password);
-
-                if (MySqlConn.State == ConnectionState.Closed)
-                    MySqlConn.Open();
-
-                MySqlDataReader MySqlReader = MySqlCmd.ExecuteReader();
-                if (MySqlReader.Read())
-                {
-                    Properties.Settings.Default.S_USER_ID = MySqlReader.GetString("ID_USER");
-                    Properties.Settings.Default.S_USER_NAME = MySqlReader.GetString("NAMA_USER");
-                    Properties.Settings.Default.S_USERNAME = MySqlReader.GetString("USERNAME");
-                    Properties.Settings.Default.S_LEVEL = MySqlReader.GetString("LEVEL_USER");
-                    Properties.Settings.Default.Save();
-
-                    MySqlReader.Close();
-                    return true;
-                }
-                else
-                {
-                    MySqlReader.Close();
-                    return false;
-                }
-            }
-            catch (Exception ex)
+                return true;
+            } else
             {
-                MessageBox.Show(null, string.Format("Fatal Error :\n{0}",ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

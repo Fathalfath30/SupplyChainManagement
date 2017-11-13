@@ -29,7 +29,7 @@ namespace SupplyChainManagement_S1.UI
             DbConn.Password = "";
             DbConn.Database = "db_prototype";
 
-            DbConn.OpenConnection();
+            DbConn.initClass().OpenConnection();
             CLogin = new Cls_Login(DbConn);
 
             Txt_Username.Focus();
@@ -41,10 +41,10 @@ namespace SupplyChainManagement_S1.UI
         /// </summary>
         public void Redirect_user()
         {
-            switch (Convert.ToInt32(Properties.Settings.Default.S_LEVEL))
+            switch (Properties.Settings.Default.S_LEVEL)
             {
-                case 1:
-                    new Dashboard.Frm_Manufaktur_Dashboard(DbConn).Show();
+                case "MNF":
+                    new Dashboard.Frm_DashboardManufaktur(DbConn).Show();
                     this.Hide();
                     break;
             }

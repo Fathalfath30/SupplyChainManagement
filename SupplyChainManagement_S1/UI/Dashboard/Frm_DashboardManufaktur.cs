@@ -16,20 +16,24 @@ namespace SupplyChainManagement_S1.UI.Dashboard
 {
     public partial class Frm_DashboardManufaktur : MetroForm
     {
-        Cls_DbConnection CDbConnection;
-        MySqlConnection SqlConn;
+        private Cls_Barang CBarang;
+        private Cls_DbConnection CDbConnection;
+        private MySqlConnection SqlConn;
 
         public Frm_DashboardManufaktur(Cls_DbConnection ClsDB)
         {
             InitializeComponent();
             CDbConnection = ClsDB;
             SqlConn = ClsDB.Connection;
+
+            CBarang = new Cls_Barang(SqlConn);
         }
 
         private void Frm_Manufaktur_Dashboard_Load(object sender, EventArgs e)
         {
             Tmr_Refresh_koneksi.Start();
             Tmr_RefreshDT.Start();
+            Tmr_Refresh_data.Start();
         }
 
         private void Frm_Manufaktur_Dashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -94,7 +98,14 @@ namespace SupplyChainManagement_S1.UI.Dashboard
 
         private void MTile_Barang_Click(object sender, EventArgs e)
         {
-            new Frm_ManajemenBarang().ShowDialog();
+            Tmr_Refresh_data.Stop();
+            new Frm_ManajemenBarang(CDbConnection).ShowDialog();
+            Tmr_Refresh_data.Start();
+        }
+
+        private void Tmr_Refresh_data_Tick(object sender, EventArgs e)
+        {
+            MTile_Barang.TileCount = CBarang.rowCount();
         }
     }
 }

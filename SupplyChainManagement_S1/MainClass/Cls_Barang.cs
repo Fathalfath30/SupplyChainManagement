@@ -31,6 +31,7 @@ namespace SupplyChainManagement_S1.MainScript
         private int Fld_MinStock;
         private int Fld_MaxStock;
         private int Fld_TipeBarang;
+        private MySqlConnection DatabaseConn;
 
         public string KodeBarang
         {
@@ -62,14 +63,75 @@ namespace SupplyChainManagement_S1.MainScript
             get { return Fld_TipeBarang; }
         }
 
-        public string auto_number()
+        public Cls_Barang(MySqlConnection DbConn)
         {
-            throw new NotImplementedException();
+            DatabaseConn = DbConn;
         }
 
+        /// <summary>
+        /// Mendapatkan Kode Barang.
+        /// </summary>
+        /// <returns></returns>
+        public string auto_number()
+        {
+            using (MySqlConnection sqlConn = new MySqlConnection(DatabaseConn.ConnectionString))
+            {
+                string Main_id = "BRG001";
+                try
+                {
+                    string Query = "SELECT RIGHT(kd_barang, 3) AS KODE_BARANG FROM barang ORDER BY kd_barang DESC LIMIT 1";
+                    MySqlCommand MySqlCmd = new MySqlCommand(Query, sqlConn);
+                    sqlConn.Open();
+                    MySqlDataReader MysqlReader = MySqlCmd.ExecuteReader();
+                    if (MysqlReader.Read())
+                    {
+                        int Last_id = MysqlReader.GetInt32("KODE_BARANG");
+                        Main_id = string.Format("BRG{0:000}", Last_id + 1);
+                        return Main_id;
+                    }
+                    MysqlReader.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+
+                return Main_id;
+            }
+
+        }
+
+        /// <summary>
+        /// Mendapatkan Jumlah data barang
+        /// </summary>
+        /// <returns>Jumlah data barang</returns>
         public int rowCount()
         {
-            throw new NotImplementedException();
+            using (MySqlConnection sqlConn = new MySqlConnection(DatabaseConn.ConnectionString))
+            {
+                int rCount = 0;
+                try
+                {
+                    string Query = "SELECT COUNT(kd_barang) AS ROW_COUNT FROM barang;";
+                    MySqlCommand MySqlCmd = new MySqlCommand(Query, sqlConn);
+                    sqlConn.Open();
+                    MySqlDataReader MysqlReader = MySqlCmd.ExecuteReader();
+                    if (MysqlReader.Read())
+                        rCount = MysqlReader.GetInt32("ROW_COUNT");
+
+                    MysqlReader.Close();
+                    return rCount;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                return rCount;
+            }
+
         }
 
         public bool Tambah_data()

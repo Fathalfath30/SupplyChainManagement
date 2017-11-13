@@ -70,5 +70,17 @@ namespace SupplyChainManagement_S1.Properties {
                 this["S_LEVEL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string S_TYPE {
+            get {
+                return ((string)(this["S_TYPE"]));
+            }
+            set {
+                this["S_TYPE"] = value;
+            }
+        }
     }
 }

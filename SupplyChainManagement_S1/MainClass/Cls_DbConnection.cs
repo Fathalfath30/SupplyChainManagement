@@ -31,6 +31,11 @@ namespace SupplyChainManagement_S1.MainScript
         private MySqlConnection Fld_SqlConnection;
 
         /// <summary>
+        /// String koneksi.
+        /// </summary>
+        private string Fld_ConnString;
+
+        /// <summary>
         /// Nama host dari Server MySql
         /// </summary>
         private string Fld_SqlHostname;
@@ -116,6 +121,15 @@ namespace SupplyChainManagement_S1.MainScript
             set { this.Fld_SqlPort = value; }
         }
 
+        /// <summary>
+        /// String koneksi
+        /// </summary>
+        public string ConnString
+        {
+            set { Fld_ConnString = value.Trim(); }
+            get { return Fld_ConnString.Trim(); }
+        }
+
         public Cls_DbConnection()
         {
             Fld_SqlConnection = new MySqlConnection();
@@ -127,6 +141,12 @@ namespace SupplyChainManagement_S1.MainScript
                 this.Fld_SqlConnection.Close();
         }
 
+        public Cls_DbConnection initClass()
+        {
+            Fld_ConnString = string.Format("Server={0};Port={1};Database={2};Uid={3};Pwd={4}", Hostname, Port, Database, Username, Password);
+            return this;
+        }
+
         /// <summary>
         /// Membuka koneksi dengan database server.
         /// </summary>
@@ -136,14 +156,14 @@ namespace SupplyChainManagement_S1.MainScript
             {
                 try
                 {
-                    string ConnStr = string.Format("Server={0};Port={1};Database={2};Uid={3};Pwd={4}", Hostname, Port, Database, Username, Password);
-                    Fld_SqlConnection.ConnectionString = ConnStr;
+                    Fld_SqlConnection.ConnectionString = Fld_ConnString;
                     Fld_SqlConnection.Open();
-                    MessageBox.Show(null, "Berhasil terkoneksi dengan database server", "Koneksi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show(null, "Berhasil terkoneksi dengan database server", "Koneksi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (MySqlException ex)
                 {
                     DialogResult DlgResult = MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+
                     switch (DlgResult)
                     {
                         case DialogResult.Retry:
