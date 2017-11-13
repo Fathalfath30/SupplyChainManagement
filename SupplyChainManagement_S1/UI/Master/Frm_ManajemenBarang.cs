@@ -14,6 +14,14 @@ namespace SupplyChainManagement_S1.UI.Master
 {
     public partial class Frm_ManajemenBarang : MetroForm
     {
-        
+        public Frm_ManajemenBarang()
+        {
+            InitializeComponent();
+        }
+
+        private void Frm_ManajemenBarang_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
