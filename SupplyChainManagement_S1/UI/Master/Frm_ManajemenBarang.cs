@@ -27,8 +27,8 @@ namespace SupplyChainManagement_S1.UI.Master
             {
                 Gview_Main.DataSource = CBarang.Tampil_data();
             }
-
-
+            Gview_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Gview_Main.ReadOnly = true;
             Gview_Main.AutoGenerateColumns = false;
             Gview_Main.AllowDrop = false;
             Gview_Main.AllowUserToAddRows = false;
@@ -190,5 +190,115 @@ namespace SupplyChainManagement_S1.UI.Master
         {
             RefreshForm();
         }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            if (Txt_KodeBarang.Text.Trim() == "")
+            {
+                Txt_KodeBarang.Focus();
+                goto EmptyData;
+            }
+            else if (Txt_NmBarang.Text.Trim() == "")
+            {
+                Txt_NmBarang.Focus();
+                goto EmptyData;
+            }
+            else if (Txt_MinStock.Text.Trim() == "")
+            {
+                Txt_MinStock.Focus();
+                goto EmptyData;
+            }
+            else if (Txt_MaxStock.Text.Trim() == "")
+            {
+                Txt_MaxStock.Focus();
+                goto EmptyData;
+            }
+            else if ((string)Cmb_TipeBarang.SelectedValue == "999")
+            {
+                Cmb_TipeBarang.Focus();
+                goto EmptyData;
+            }
+            else
+            {
+                CBarang = new Cls_Barang();
+                CBarang.KodeBarang = Txt_KodeBarang.Text;
+                CBarang.NamaBarang = Txt_NmBarang.Text;
+                CBarang.MinStock = Convert.ToInt32(Txt_MinStock.Text);
+                CBarang.MaxStock = Convert.ToInt32(Txt_MaxStock.Text);
+                CBarang.iTipeBarang = Convert.ToInt32((string)Cmb_TipeBarang.SelectedValue);
+                if (CBarang.Update_data())
+                {
+                    MessageBox.Show(
+                        this,
+                        "Data Behasil di update.",
+                        "Informasi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        this,
+                        "Data gagal di update.",
+                        "Informasi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                RefreshForm();
+            }
+
+            return;
+            EmptyData:
+            MessageBox.Show(null, "Terdapat data yang kosong, silahkan periksa kembali form anda.", "Form Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        
+        private void Gview_Main_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Gview_Main.SelectedCells.Count > 0)
+            {
+                DataGridViewRow R = Gview_Main.Rows[e.RowIndex];
+                Txt_KodeBarang.Text = R.Cells["KodeBarang"].Value.ToString();
+                Txt_NmBarang.Text = R.Cells["NamaBarang"].Value.ToString();
+                Txt_MinStock.Text = R.Cells["MinStock"].Value.ToString();
+                Txt_MaxStock.Text = R.Cells["MaxStock"].Value.ToString();
+                Cmb_TipeBarang.SelectedValue = R.Cells["iTipeBarang"].Value.ToString();
+            }
+        }
+
+        private void BtnHapus_Click(object sender, EventArgs e)
+        {
+            DialogResult Drs = MessageBox.Show(
+                this,
+                "Apakah anda yakin ingin menghapus data ini ?",
+                "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (Drs == DialogResult.Yes)
+            {
+                CBarang = new Cls_Barang();
+                CBarang.KodeBarang = Txt_KodeBarang.Text;
+                if (CBarang.Hapus_data())
+                {
+                    MessageBox.Show(
+                        this,
+                        "Data Behasil di hapus.",
+                        "Informasi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        this,
+                        "Data gagal di hapus.",
+                        "Informasi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                RefreshForm();
+            }
+         }
     }
 }

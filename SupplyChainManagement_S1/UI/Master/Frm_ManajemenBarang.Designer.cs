@@ -80,6 +80,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Gview_Main.Name = "Gview_Main";
             this.Gview_Main.Size = new System.Drawing.Size(649, 291);
             this.Gview_Main.TabIndex = 11;
+            this.Gview_Main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Gview_Main_CellClick);
             // 
             // groupBox3
             // 
@@ -370,6 +371,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnUpdate.TabIndex = 15;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseSelectable = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnHapus
             // 
@@ -379,6 +381,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnHapus.TabIndex = 16;
             this.BtnHapus.Text = "Hapus";
             this.BtnHapus.UseSelectable = true;
+            this.BtnHapus.Click += new System.EventHandler(this.BtnHapus_Click);
             // 
             // BtnRefresh
             // 
