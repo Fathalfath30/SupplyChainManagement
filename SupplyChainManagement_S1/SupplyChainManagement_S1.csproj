@@ -64,7 +64,6 @@
     <Compile Include="MainClass\Cls_Barang.cs" />
     <Compile Include="MainClass\Cls_Security.cs" />
     <Compile Include="MainClass\Cls_Login.cs" />
-    <Compile Include="MainClass\Cls_DbConnection.cs" />
     <Compile Include="MainClass\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainClass\Program.cs" />
@@ -107,7 +106,6 @@
       <DependentUpon>Frm_ManajemenBarang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="MainClass\DiagramUtama.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -26,9 +26,10 @@ namespace SupplyChainManagement_S1.UI.Dashboard
 
         private void Frm_Manufaktur_Dashboard_Load(object sender, EventArgs e)
         {
-            Tmr_Refresh_koneksi.Start();
             Tmr_RefreshDT.Start();
             Tmr_Refresh_data.Start();
+
+            MTile_Barang.Focus();
         }
 
         private void Frm_Manufaktur_Dashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -59,6 +60,12 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private void Tmr_Refresh_data_Tick(object sender, EventArgs e)
         {
             MTile_Barang.TileCount = CBarang.rowCount();
+            MTile_Barang.Refresh();
+        }
+
+        private void Frm_DashboardManufaktur_Shown(object sender, EventArgs e)
+        {
+            Activate();
         }
     }
 }

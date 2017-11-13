@@ -33,9 +33,19 @@ namespace SupplyChainManagement_S1.MainScript
         [STAThread]
         public static void Main(string[] args)
         {
+            Properties.Settings.Default.S_USER_ID = "MNF001";
+            Properties.Settings.Default.S_USER_NAME = "Admin Manufaktur A";
+            Properties.Settings.Default.S_USERNAME = "manufaktur01";
+            Properties.Settings.Default.S_LEVEL = "9";
+            Properties.Settings.Default.S_TYPE = "MNF";
+            Properties.Settings.Default.Save();
+
+            // var StartupForm = new UI.Dashboard.Frm_DashboardManufaktur();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Frm_login());
+            Application.Run(new UI.Dashboard.Frm_DashboardManufaktur());
+            // StartupForm.Focus();
         }
     }
 }

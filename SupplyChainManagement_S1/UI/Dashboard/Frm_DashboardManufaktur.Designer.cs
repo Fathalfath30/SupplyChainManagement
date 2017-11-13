@@ -43,7 +43,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.Tmr_Refresh_koneksi = new System.Windows.Forms.Timer(this.components);
             this.Tmr_RefreshDT = new System.Windows.Forms.Timer(this.components);
             this.MTile_Barang = new MetroFramework.Controls.MetroTile();
             this.MTile_Distributor = new MetroFramework.Controls.MetroTile();
@@ -350,6 +349,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Manufaktur_Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Frm_Manufaktur_Dashboard_Load);
+            this.Shown += new System.EventHandler(this.Frm_DashboardManufaktur_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -376,7 +376,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private MetroFramework.Controls.MetroTile MTile_Distributor;
         private MetroFramework.Controls.MetroTile MTile_Pembelian;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Timer Tmr_Refresh_koneksi;
         private System.Windows.Forms.Timer Tmr_RefreshDT;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox4;
