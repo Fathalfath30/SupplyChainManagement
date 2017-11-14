@@ -333,11 +333,20 @@ namespace SupplyChainManagement_S1.MainClass
                     sqlConn.Open();
 
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
-                    int Rows = 0;
                     if (sReader.Read())
                     {
                         dataSp[0, 0] = sReader.GetString("KODE_BARANG");
                         dataSp[0, 1] = sReader.GetString("NAMA_BARANG");
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            null, 
+                            "Kode tersebut tidak ada", 
+                            "Error", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Error
+                            );
                     }
                     sqlConn.Dispose();
                     sReader.Dispose();

@@ -68,6 +68,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainClass\Program.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="UI\Dashboard\Frm_DashboardDistributor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dashboard\Frm_DashboardDistributor.Designer.cs">
+      <DependentUpon>Frm_DashboardDistributor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dashboard\Frm_DashboardSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dashboard\Frm_DashboardSupplier.Designer.cs">
+      <DependentUpon>Frm_DashboardSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Dashboard\Frm_DashboardDistributor.resx">
+      <DependentUpon>Frm_DashboardDistributor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dashboard\Frm_DashboardSupplier.resx">
+      <DependentUpon>Frm_DashboardSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_login.resx">
       <DependentUpon>Frm_login.cs</DependentUpon>
     </EmbeddedResource>

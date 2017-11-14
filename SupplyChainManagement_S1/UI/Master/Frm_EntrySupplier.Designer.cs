@@ -43,6 +43,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnHapus = new MetroFramework.Controls.MetroButton();
             this.BtnRefresh = new MetroFramework.Controls.MetroButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnCari = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.Txt_StockTersedia = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
@@ -52,7 +53,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnTambah = new MetroFramework.Controls.MetroButton();
             this.BtnHapus2 = new MetroFramework.Controls.MetroButton();
             this.BtnReset = new MetroFramework.Controls.MetroButton();
-            this.BtnCari = new MetroFramework.Controls.MetroButton();
+            this.BtnUpdate2 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Gview_Barang)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -301,6 +302,16 @@ namespace SupplyChainManagement_S1.UI.Master
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Supplier";
             // 
+            // BtnCari
+            // 
+            this.BtnCari.Location = new System.Drawing.Point(192, 43);
+            this.BtnCari.Name = "BtnCari";
+            this.BtnCari.Size = new System.Drawing.Size(81, 23);
+            this.BtnCari.TabIndex = 10;
+            this.BtnCari.Text = "Cari";
+            this.BtnCari.UseSelectable = true;
+            this.BtnCari.Click += new System.EventHandler(this.BtnCari_Click);
+            // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
@@ -412,7 +423,6 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Txt_KodeBarang.Name = "Txt_KodeBarang";
             this.Txt_KodeBarang.PasswordChar = '\0';
             this.Txt_KodeBarang.PromptText = "Kode Barang";
-            this.Txt_KodeBarang.ReadOnly = true;
             this.Txt_KodeBarang.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.Txt_KodeBarang.SelectedText = "";
             this.Txt_KodeBarang.SelectionLength = 0;
@@ -424,48 +434,53 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Txt_KodeBarang.WaterMark = "Kode Barang";
             this.Txt_KodeBarang.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Txt_KodeBarang.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.Txt_KodeBarang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_KodeBarang_KeyDown);
             // 
             // BtnTambah
             // 
             this.BtnTambah.Location = new System.Drawing.Point(306, 251);
             this.BtnTambah.Name = "BtnTambah";
-            this.BtnTambah.Size = new System.Drawing.Size(90, 29);
+            this.BtnTambah.Size = new System.Drawing.Size(71, 29);
             this.BtnTambah.TabIndex = 23;
             this.BtnTambah.Text = "Tambah";
             this.BtnTambah.UseSelectable = true;
+            this.BtnTambah.Click += new System.EventHandler(this.BtnTambah_Click);
             // 
             // BtnHapus2
             // 
-            this.BtnHapus2.Location = new System.Drawing.Point(402, 251);
+            this.BtnHapus2.Location = new System.Drawing.Point(460, 251);
             this.BtnHapus2.Name = "BtnHapus2";
-            this.BtnHapus2.Size = new System.Drawing.Size(90, 29);
+            this.BtnHapus2.Size = new System.Drawing.Size(71, 29);
             this.BtnHapus2.TabIndex = 24;
             this.BtnHapus2.Text = "Hapus";
             this.BtnHapus2.UseSelectable = true;
             // 
             // BtnReset
             // 
-            this.BtnReset.Location = new System.Drawing.Point(519, 251);
+            this.BtnReset.Location = new System.Drawing.Point(538, 251);
             this.BtnReset.Name = "BtnReset";
-            this.BtnReset.Size = new System.Drawing.Size(90, 29);
+            this.BtnReset.Size = new System.Drawing.Size(71, 29);
             this.BtnReset.TabIndex = 25;
             this.BtnReset.Text = "Reset";
             this.BtnReset.UseSelectable = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
-            // BtnCari
+            // BtnUpdate2
             // 
-            this.BtnCari.Location = new System.Drawing.Point(192, 43);
-            this.BtnCari.Name = "BtnCari";
-            this.BtnCari.Size = new System.Drawing.Size(81, 23);
-            this.BtnCari.TabIndex = 10;
-            this.BtnCari.Text = "Cari";
-            this.BtnCari.UseSelectable = true;
+            this.BtnUpdate2.Location = new System.Drawing.Point(383, 251);
+            this.BtnUpdate2.Name = "BtnUpdate2";
+            this.BtnUpdate2.Size = new System.Drawing.Size(71, 29);
+            this.BtnUpdate2.TabIndex = 26;
+            this.BtnUpdate2.Text = "Update";
+            this.BtnUpdate2.UseSelectable = true;
+            this.BtnUpdate2.Click += new System.EventHandler(this.BtnUpdate2_Click);
             // 
             // Frm_EntrySupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 519);
+            this.Controls.Add(this.BtnUpdate2);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnHapus2);
             this.Controls.Add(this.BtnTambah);
@@ -518,5 +533,6 @@ namespace SupplyChainManagement_S1.UI.Master
         private MetroFramework.Controls.MetroButton BtnHapus2;
         private MetroFramework.Controls.MetroButton BtnReset;
         private MetroFramework.Controls.MetroButton BtnCari;
+        private MetroFramework.Controls.MetroButton BtnUpdate2;
     }
 }

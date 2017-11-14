@@ -44,7 +44,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Tmr_RefreshDT = new System.Windows.Forms.Timer(this.components);
             this.MTile_Barang = new MetroFramework.Controls.MetroTile();
             this.MTile_Distributor = new MetroFramework.Controls.MetroTile();
-            this.MTile_Pembelian = new MetroFramework.Controls.MetroTile();
+            this.MTile_BahanBaku = new MetroFramework.Controls.MetroTile();
             this.MTile_Stock = new MetroFramework.Controls.MetroTile();
             this.MTile_Supplier = new MetroFramework.Controls.MetroTile();
             this.Tmr_Refresh_data = new System.Windows.Forms.Timer(this.components);
@@ -248,23 +248,23 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Distributor.UseSelectable = true;
             this.MTile_Distributor.UseTileImage = true;
             // 
-            // MTile_Pembelian
+            // MTile_BahanBaku
             // 
-            this.MTile_Pembelian.ActiveControl = null;
-            this.MTile_Pembelian.AutoSize = true;
-            this.MTile_Pembelian.Location = new System.Drawing.Point(23, 482);
-            this.MTile_Pembelian.Name = "MTile_Pembelian";
-            this.MTile_Pembelian.Size = new System.Drawing.Size(258, 98);
-            this.MTile_Pembelian.Style = MetroFramework.MetroColorStyle.Green;
-            this.MTile_Pembelian.TabIndex = 3;
-            this.MTile_Pembelian.Text = "Pembelian";
-            this.MTile_Pembelian.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.MTile_Pembelian.TileCount = 9999;
-            this.MTile_Pembelian.TileImage = global::SupplyChainManagement_S1.Properties.Resources.po;
-            this.MTile_Pembelian.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.MTile_Pembelian.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.MTile_Pembelian.UseSelectable = true;
-            this.MTile_Pembelian.UseTileImage = true;
+            this.MTile_BahanBaku.ActiveControl = null;
+            this.MTile_BahanBaku.AutoSize = true;
+            this.MTile_BahanBaku.Location = new System.Drawing.Point(23, 482);
+            this.MTile_BahanBaku.Name = "MTile_BahanBaku";
+            this.MTile_BahanBaku.Size = new System.Drawing.Size(258, 98);
+            this.MTile_BahanBaku.Style = MetroFramework.MetroColorStyle.Green;
+            this.MTile_BahanBaku.TabIndex = 3;
+            this.MTile_BahanBaku.Text = "Pesan Bahan Baku";
+            this.MTile_BahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MTile_BahanBaku.TileCount = 9999;
+            this.MTile_BahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.po;
+            this.MTile_BahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.MTile_BahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.MTile_BahanBaku.UseSelectable = true;
+            this.MTile_BahanBaku.UseTileImage = true;
             // 
             // MTile_Stock
             // 
@@ -315,7 +315,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Controls.Add(this.MTile_Barang);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.MTile_Distributor);
-            this.Controls.Add(this.MTile_Pembelian);
+            this.Controls.Add(this.MTile_BahanBaku);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.MTile_Stock);
             this.Controls.Add(this.MTile_Supplier);
@@ -350,7 +350,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel MLabel_Tanggal;
         private MetroFramework.Controls.MetroTile MTile_Distributor;
-        private MetroFramework.Controls.MetroTile MTile_Pembelian;
+        private MetroFramework.Controls.MetroTile MTile_BahanBaku;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer Tmr_RefreshDT;
         private System.Windows.Forms.DataGridView dataGridView1;

@@ -115,6 +115,11 @@ namespace SupplyChainManagement_S1.MainClass
             return row;
         }
 
+        public bool Tambah_detail()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Tambah_data()
         {
             throw new NotImplementedException();
