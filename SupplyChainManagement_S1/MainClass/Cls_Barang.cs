@@ -158,7 +158,7 @@ namespace SupplyChainManagement_S1.MainClass
 
                     bool respon = (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
                     sqlConn.Dispose();
-                    
+
                     return respon;
                 }
             }
@@ -245,7 +245,7 @@ namespace SupplyChainManagement_S1.MainClass
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
                     DbData.Clear();
 
-                    while(sReader.Read())
+                    while (sReader.Read())
                     {
                         Cls_Barang CBarang = new Cls_Barang();
                         CBarang.KodeBarang = sReader.GetString("KODE_BARANG");
@@ -317,6 +317,38 @@ namespace SupplyChainManagement_S1.MainClass
             }
 
             return DbData;
+        }
+
+        public string[,] CariBarang(string keyword)
+        {
+            string[,] dataSp = new string[1, 2];
+            try
+            {
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
+                {
+                    string Query;
+                    Query = "SELECT kd_barang AS 'KODE_BARANG', nm_barang AS 'NAMA_BARANG' FROM barang ";
+                    Query += "WHERE kd_barang='{0}' LIMIT 1;";
+                    MySqlCommand SqlCmd = new MySqlCommand(string.Format(Query, keyword), sqlConn);
+                    sqlConn.Open();
+
+                    MySqlDataReader sReader = SqlCmd.ExecuteReader();
+                    int Rows = 0;
+                    if (sReader.Read())
+                    {
+                        dataSp[0, 0] = sReader.GetString("KODE_BARANG");
+                        dataSp[0, 1] = sReader.GetString("NAMA_BARANG");
+                    }
+                    sqlConn.Dispose();
+                    sReader.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Telah terjadi kesalahan :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            return dataSp;
         }
     }
 }

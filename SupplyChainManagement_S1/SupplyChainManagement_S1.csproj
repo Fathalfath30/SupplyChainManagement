@@ -86,6 +86,12 @@
     <Compile Include="UI\Master\Frm_ManajemenBarang.Designer.cs">
       <DependentUpon>Frm_ManajemenBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Master\Frm_EntrySupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Master\Frm_EntrySupplier.Designer.cs">
+      <DependentUpon>Frm_EntrySupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Master\Frm_TampilSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Master\Frm_ManajemenBarang.resx">
       <DependentUpon>Frm_ManajemenBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Master\Frm_EntrySupplier.resx">
+      <DependentUpon>Frm_EntrySupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Master\Frm_TampilSupplier.resx">
       <DependentUpon>Frm_TampilSupplier.cs</DependentUpon>

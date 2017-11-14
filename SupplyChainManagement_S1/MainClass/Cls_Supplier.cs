@@ -43,8 +43,8 @@ namespace SupplyChainManagement_S1.MainClass
         }
         public string KodeBarang
         {
-            set { _NamaSupplier = value.Trim(); }
-            get { return _NamaSupplier.Trim(); }
+            set { _KodeBarang = value.Trim(); }
+            get { return _KodeBarang.Trim(); }
         }
         public string NamaSupplier
         {
@@ -179,7 +179,51 @@ namespace SupplyChainManagement_S1.MainClass
 
         public List<Cls_Supplier> Cari_data(string keyword)
         {
-            throw new NotImplementedException();
+            List<Cls_Supplier> appData = new List<Cls_Supplier>();
+
+            try
+            {
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
+                {
+                    string Query;
+                    Query = "SELECT a.kd_supplier AS 'KODE_SUPPLIER', nm_supplier AS 'NAMA_SUPPLIER', ";
+                    Query += "kota AS 'KOTA_SUPPLIER', c.kd_barang AS 'KODE_BARANG', nm_barang AS 'NAMA_BARANG', ";
+                    Query += "stock_tersedia AS 'STOCK_TERSEDIA', harga_satuan AS 'HARGA_SATUAN', telp AS 'NOMOR_TELEPHONE' ";
+                    Query += "FROM supplier a ";
+                    Query += "INNER JOIN detil_supplier b ON a.kd_supplier = b.kd_supplier ";
+                    Query += "INNER JOIN barang c ON b.kd_barang = c.kd_barang ";
+                    Query += "WHERE a.kd_supplier LIKE '%{0}%' OR nm_supplier LIKE '%{0}%' OR c.kd_barang LIKE '%{0}%' OR ";
+                    Query += "nm_barang LIKE '%{0}%' OR stock_tersedia LIKE '%{0}%' OR harga_satuan LIKE '%{0}%' OR telp LIKE '%{0}%' ";
+                    Query += "ORDER BY nm_supplier ASC; ";
+                    MySqlCommand SqlCmd = new MySqlCommand(string.Format(Query, keyword), sqlConn);
+                    sqlConn.Open();
+                    MySqlDataReader sReader = SqlCmd.ExecuteReader();
+                    appData.Clear();
+                    while (sReader.Read())
+                    {
+                        Cls_Supplier CSupplier = new Cls_Supplier();
+                        CSupplier.KodeSupplier = sReader.GetString("KODE_SUPPLIER");
+                        CSupplier.KodeBarang = sReader.GetString("KODE_BARANG");
+                        CSupplier.NamaSupplier = sReader.GetString("NAMA_SUPPLIER");
+                        CSupplier.NamaBarang = sReader.GetString("NAMA_BARANG");
+                        CSupplier.StockTersedia = sReader.GetInt32("STOCK_TERSEDIA");
+                        CSupplier.HargaBarang = sReader.GetInt32("HARGA_SATUAN");
+                        CSupplier.Kota = sReader.GetString("KOTA_SUPPLIER");
+                        CSupplier.Telp = sReader.GetString("NOMOR_TELEPHONE");
+                        appData.Add(CSupplier);
+                    }
+                    sqlConn.Dispose();
+                    sReader.Dispose();
+                }
+
+                return appData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, string.Format("Fatal Error :\n{0}", ex.Message), "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                return null;
+            }
         }
     }
 }
