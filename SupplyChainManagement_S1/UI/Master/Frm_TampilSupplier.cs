@@ -9,10 +9,12 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using SupplyChainManagement_S1.MainClass;
 using MySql.Data.MySqlClient;
+using System.Threading;
+using System.Globalization;
 
 namespace SupplyChainManagement_S1.UI.Master
 {
-    public partial class Frm_ManajemenSupplier : MetroForm
+    public partial class Frm_TampilSupplier : MetroForm
     {
         private Cls_Supplier CSupplier;
 
@@ -34,13 +36,14 @@ namespace SupplyChainManagement_S1.UI.Master
             Gview_Main.AllowUserToAddRows = false;
             Gview_Main.AllowUserToDeleteRows = false;
 
-            Gview_Main.Columns["KodeSupplier"].HeaderText = "Kode Barang";
-            Gview_Main.Columns["KodeBarang"].HeaderText = "Nama Barang";
-            Gview_Main.Columns["NamaSupplier"].HeaderText = "Tipe Barang";
-            Gview_Main.Columns["NamaBarang"].HeaderText = "Stock Minimal";
-            Gview_Main.Columns["StockTersedia"].HeaderText = "Stock Maximal";
+            Gview_Main.Columns["KodeSupplier"].HeaderText = "Kode Supplier";
+            Gview_Main.Columns["KodeBarang"].HeaderText = "Kode Barang";
+            Gview_Main.Columns["NamaSupplier"].HeaderText = "Nama Supplier";
+            Gview_Main.Columns["NamaBarang"].HeaderText = "Nama Barang";
+            Gview_Main.Columns["StockTersedia"].HeaderText = "Stock Tersedia";
             Gview_Main.Columns["HargaBarang"].HeaderText = "Harga Barang";
             Gview_Main.Columns["HargaBarang"].DefaultCellStyle.Format = "c";
+
             for (int i = 0; i < Gview_Main.Columns.Count - 1; i++)
                 Gview_Main.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
@@ -48,7 +51,7 @@ namespace SupplyChainManagement_S1.UI.Master
 
         private void RefreshForm()
         {
-
+            BindMainData();
         }
 
         private void LockForm()
@@ -65,7 +68,7 @@ namespace SupplyChainManagement_S1.UI.Master
 
         }
         /* ---------- [END] Method Utama ---------- */
-        public Frm_ManajemenSupplier()
+        public Frm_TampilSupplier()
         {
             InitializeComponent();
             CSupplier = new Cls_Supplier();
@@ -73,7 +76,9 @@ namespace SupplyChainManagement_S1.UI.Master
 
         private void Frm_ManajemenSupplier_Load(object sender, EventArgs e)
         {
-
+            RefreshForm();
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
         }
     }
 }

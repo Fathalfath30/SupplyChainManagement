@@ -1,6 +1,6 @@
 namespace SupplyChainManagement_S1.UI.Master
 {
-    partial class Frm_ManajemenSupplier
+    partial class Frm_TampilSupplier
     {
         /// <summary>
         /// Required designer variable.
