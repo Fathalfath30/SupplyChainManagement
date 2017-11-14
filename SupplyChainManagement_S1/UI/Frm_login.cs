@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using SupplyChainManagement_S1.MainScript;
+using SupplyChainManagement_S1.MainClass;
 
 namespace SupplyChainManagement_S1.UI 
 {

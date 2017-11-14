@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using MySql.Data.MySqlClient;
-using SupplyChainManagement_S1.MainScript;
+using SupplyChainManagement_S1.MainClass;
 using System.Globalization;
 using SupplyChainManagement_S1.UI.Master;
 
@@ -17,11 +17,13 @@ namespace SupplyChainManagement_S1.UI.Dashboard
     public partial class Frm_DashboardManufaktur : MetroForm
     {
         private Cls_Barang CBarang;
+        private Cls_Supplier CSupplier;
 
         public Frm_DashboardManufaktur()
         {
             InitializeComponent();
             CBarang = new Cls_Barang();
+            CSupplier = new Cls_Supplier();
         }
 
         private void Frm_Manufaktur_Dashboard_Load(object sender, EventArgs e)
@@ -61,6 +63,9 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         {
             MTile_Barang.TileCount = CBarang.rowCount();
             MTile_Barang.Refresh();
+
+            MTile_Supplier.TileCount = CSupplier.rowCount();
+            MTile_Supplier.Refresh();
         }
 
         private void Frm_DashboardManufaktur_Shown(object sender, EventArgs e)
