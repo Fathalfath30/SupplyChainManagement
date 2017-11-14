@@ -301,6 +301,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
+            this.MTile_Supplier.Click += new System.EventHandler(this.MTile_Supplier_Click);
             // 
             // Tmr_Refresh_data
             // 

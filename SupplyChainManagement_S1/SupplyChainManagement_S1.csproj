@@ -86,11 +86,11 @@
     <Compile Include="UI\Master\Frm_ManajemenBarang.Designer.cs">
       <DependentUpon>Frm_ManajemenBarang.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Master\Frm_ManajemenSupplier.cs">
+    <Compile Include="UI\Master\Frm_TampilSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Master\Frm_ManajemenSupplier.Designer.cs">
-      <DependentUpon>Frm_ManajemenSupplier.cs</DependentUpon>
+    <Compile Include="UI\Master\Frm_TampilSupplier.Designer.cs">
+      <DependentUpon>Frm_TampilSupplier.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,8 +111,8 @@
     <EmbeddedResource Include="UI\Master\Frm_ManajemenBarang.resx">
       <DependentUpon>Frm_ManajemenBarang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Master\Frm_ManajemenSupplier.resx">
-      <DependentUpon>Frm_ManajemenSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Master\Frm_TampilSupplier.resx">
+      <DependentUpon>Frm_TampilSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />

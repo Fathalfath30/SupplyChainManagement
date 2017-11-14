@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using SupplyChainManagement_S1.MainClass;
 using System.Globalization;
 using SupplyChainManagement_S1.UI.Master;
+using System.Threading;
 
 namespace SupplyChainManagement_S1.UI.Dashboard
 {
@@ -37,18 +38,19 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private void Frm_Manufaktur_Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
         }
 
         private void Tmr_RefreshDT_Tick(object sender, EventArgs e)
         {
-            CultureInfo culture = new CultureInfo("id-ID");
             MLabel_Jam.Text = DateTime.Now.ToString("HH:mm:ss");
             DateTime dTime = new DateTime(
                 Convert.ToInt32(DateTime.Now.ToString("yyyy")),
                 Convert.ToInt32(DateTime.Now.ToString("MM")),
                 Convert.ToInt32(DateTime.Now.ToString("dd")));
 
-            MLabel_Tanggal.Text = dTime.ToString("dddd, dd MMMM yyyy", culture) ;
+            MLabel_Tanggal.Text = dTime.ToString("dddd, dd MMMM yyyy") ;
 
         }
 
@@ -71,6 +73,14 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private void Frm_DashboardManufaktur_Shown(object sender, EventArgs e)
         {
             Activate();
+        }
+
+        private void MTile_Supplier_Click(object sender, EventArgs e)
+        {
+
+            Tmr_Refresh_data.Stop();
+            new Frm_TampilSupplier().ShowDialog();
+            Tmr_Refresh_data.Start();
         }
     }
 }

@@ -141,7 +141,7 @@ namespace SupplyChainManagement_S1.MainClass
                     string Query;
                     Query = "SELECT a.kd_supplier AS 'KODE_SUPPLIER', nm_supplier AS 'NAMA_SUPPLIER', ";
                     Query += "kota AS 'KOTA_SUPPLIER', c.kd_barang AS 'KODE_BARANG', nm_barang AS 'NAMA_BARANG', ";
-                    Query += "stock_tersedia AS 'STOCK_TERSEDIA', harga_satuan AS 'HARGA_SATUAN' ";
+                    Query += "stock_tersedia AS 'STOCK_TERSEDIA', harga_satuan AS 'HARGA_SATUAN', telp AS 'NOMOR_TELEPHONE' ";
                     Query += "FROM supplier a ";
                     Query += "INNER JOIN detil_supplier b ON a.kd_supplier = b.kd_supplier ";
                     Query += "INNER JOIN barang c ON b.kd_barang = c.kd_barang ";
@@ -149,6 +149,7 @@ namespace SupplyChainManagement_S1.MainClass
                     MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
                     sqlConn.Open();
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
+                    appData.Clear();
                     while (sReader.Read())
                     {
                         Cls_Supplier CSupplier = new Cls_Supplier();
@@ -158,6 +159,9 @@ namespace SupplyChainManagement_S1.MainClass
                         CSupplier.NamaBarang = sReader.GetString("NAMA_BARANG");
                         CSupplier.StockTersedia = sReader.GetInt32("STOCK_TERSEDIA");
                         CSupplier.HargaBarang = sReader.GetInt32("HARGA_SATUAN");
+                        CSupplier.Kota = sReader.GetString("KOTA_SUPPLIER");
+                        CSupplier.Telp = sReader.GetString("NOMOR_TELEPHONE");
+                        appData.Add(CSupplier);   
                     }
                     sqlConn.Dispose();
                     sReader.Dispose();
