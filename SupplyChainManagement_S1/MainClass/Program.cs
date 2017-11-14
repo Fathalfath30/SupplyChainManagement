@@ -17,8 +17,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Globalization;
+using System.Threading;
 
-namespace SupplyChainManagement_S1.MainScript
+namespace SupplyChainManagement_S1.MainClass
 {
     /// <summary>
     /// Class Program, class yang akan dijalankan pertama kali 
@@ -46,6 +48,8 @@ namespace SupplyChainManagement_S1.MainScript
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UI.Dashboard.Frm_DashboardManufaktur());
             // StartupForm.Focus();
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
         }
     }
 }

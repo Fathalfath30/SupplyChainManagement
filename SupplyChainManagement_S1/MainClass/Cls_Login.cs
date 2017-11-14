@@ -22,7 +22,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
-namespace SupplyChainManagement_S1.MainScript
+namespace SupplyChainManagement_S1.MainClass
 {
     public class Cls_Login
     {

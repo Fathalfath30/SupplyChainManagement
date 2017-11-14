@@ -34,8 +34,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.MLabel_Jam = new MetroFramework.Controls.MetroLabel();
-            this.MLabel_Status_koneksi = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -64,8 +62,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Controls.Add(this.MLabel_Jam);
-            this.groupBox1.Controls.Add(this.MLabel_Status_koneksi);
-            this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Location = new System.Drawing.Point(23, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(258, 101);
@@ -76,7 +72,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             // MLabel_Tanggal
             // 
             this.MLabel_Tanggal.AutoSize = true;
-            this.MLabel_Tanggal.Location = new System.Drawing.Point(85, 47);
+            this.MLabel_Tanggal.Location = new System.Drawing.Point(79, 50);
             this.MLabel_Tanggal.Name = "MLabel_Tanggal";
             this.MLabel_Tanggal.Size = new System.Drawing.Size(167, 19);
             this.MLabel_Tanggal.TabIndex = 5;
@@ -85,7 +81,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(18, 47);
+            this.metroLabel5.Location = new System.Drawing.Point(12, 50);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(61, 19);
             this.metroLabel5.TabIndex = 4;
@@ -94,7 +90,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(39, 28);
+            this.metroLabel4.Location = new System.Drawing.Point(33, 31);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(40, 19);
             this.metroLabel4.TabIndex = 3;
@@ -103,30 +99,11 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             // MLabel_Jam
             // 
             this.MLabel_Jam.AutoSize = true;
-            this.MLabel_Jam.Location = new System.Drawing.Point(85, 28);
+            this.MLabel_Jam.Location = new System.Drawing.Point(79, 31);
             this.MLabel_Jam.Name = "MLabel_Jam";
             this.MLabel_Jam.Size = new System.Drawing.Size(48, 19);
             this.MLabel_Jam.TabIndex = 2;
             this.MLabel_Jam.Text = "00 : 00";
-            // 
-            // MLabel_Status_koneksi
-            // 
-            this.MLabel_Status_koneksi.AutoSize = true;
-            this.MLabel_Status_koneksi.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.MLabel_Status_koneksi.Location = new System.Drawing.Point(85, 66);
-            this.MLabel_Status_koneksi.Name = "MLabel_Status_koneksi";
-            this.MLabel_Status_koneksi.Size = new System.Drawing.Size(80, 19);
-            this.MLabel_Status_koneksi.TabIndex = 1;
-            this.MLabel_Status_koneksi.Text = "Terhubung";
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(29, 66);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(50, 19);
-            this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Status :";
             // 
             // groupBox2
             // 
@@ -324,6 +301,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
+            this.MTile_Supplier.Click += new System.EventHandler(this.MTile_Supplier_Click);
             // 
             // Tmr_Refresh_data
             // 
@@ -367,8 +345,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private MetroFramework.Controls.MetroTile MTile_Supplier;
         private MetroFramework.Controls.MetroTile MTile_Stock;
         private System.Windows.Forms.GroupBox groupBox1;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel MLabel_Status_koneksi;
         private MetroFramework.Controls.MetroLabel MLabel_Jam;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
