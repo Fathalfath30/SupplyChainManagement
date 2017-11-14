@@ -22,9 +22,9 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 
-namespace SupplyChainManagement_S1.MainScript
+namespace SupplyChainManagement_S1.MainClass
 {
-    public class Cls_Barang
+    public class Cls_Barang : Model<Cls_Barang>
     {
         private string Fld_KdBarang;
         private string Fld_NmBarang;
