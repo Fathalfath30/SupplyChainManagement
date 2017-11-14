@@ -76,22 +76,23 @@ namespace SupplyChainManagement_S1.MainClass
         /// <returns></returns>
         public string auto_number()
         {
-            using (MySqlConnection SqlConn = new MySqlConnection(strConn))
+            using (MySqlConnection sqlConn = new MySqlConnection(strConn))
             {
                 string Main_id = "BRG001";
                 try
                 {
                     string Query = "SELECT RIGHT(kd_barang, 3) AS KODE_BARANG FROM barang ORDER BY kd_barang DESC LIMIT 1";
-                    MySqlCommand MySqlCmd = new MySqlCommand(Query, SqlConn);
-                    SqlConn.Open();
-                    MySqlDataReader MysqlReader = MySqlCmd.ExecuteReader();
-                    if (MysqlReader.Read())
+                    MySqlCommand MySqlCmd = new MySqlCommand(Query, sqlConn);
+                    sqlConn.Open();
+                    MySqlDataReader sReader = MySqlCmd.ExecuteReader();
+                    if (sReader.Read())
                     {
-                        int Last_id = MysqlReader.GetInt32("KODE_BARANG");
+                        int Last_id = sReader.GetInt32("KODE_BARANG");
                         Main_id = string.Format("BRG{0:000}", Last_id + 1);
                         return Main_id;
                     }
-                    MysqlReader.Close();
+                    sqlConn.Dispose();
+                    sReader.Dispose();
 
                 }
                 catch (Exception ex)
@@ -111,19 +112,21 @@ namespace SupplyChainManagement_S1.MainClass
         /// <returns>Jumlah data barang</returns>
         public int rowCount()
         {
-            using (MySqlConnection SqlConn = new MySqlConnection(strConn))
+            using (MySqlConnection sqlConn = new MySqlConnection(strConn))
             {
                 int rCount = 0;
                 try
                 {
                     string Query = "SELECT COUNT(kd_barang) AS ROW_COUNT FROM barang;";
-                    MySqlCommand MySqlCmd = new MySqlCommand(Query, SqlConn);
-                    SqlConn.Open();
-                    MySqlDataReader MysqlReader = MySqlCmd.ExecuteReader();
-                    if (MysqlReader.Read())
-                        rCount = MysqlReader.GetInt32("ROW_COUNT");
+                    MySqlCommand MySqlCmd = new MySqlCommand(Query, sqlConn);
+                    sqlConn.Open();
+                    MySqlDataReader sReader = MySqlCmd.ExecuteReader();
+                    if (sReader.Read())
+                        rCount = sReader.GetInt32("ROW_COUNT");
 
-                    MysqlReader.Close();
+                    sqlConn.Dispose();
+                    sReader.Dispose();
+
                     return rCount;
                 }
                 catch (Exception ex)
@@ -140,19 +143,23 @@ namespace SupplyChainManagement_S1.MainClass
         {
             try
             {
-                using (MySqlConnection SqlConn= new MySqlConnection(strConn))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query;
                     Query = "INSERT INTO barang (kd_barang, nm_barang, min_stock, max_stock, tipe_barang) VALUES ";
                     Query += "(@p1, @p2, @p3, @p4, @p5);";
-                    MySqlCommand SqlCmd = new MySqlCommand(Query, SqlConn);
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
                     SqlCmd.Parameters.AddWithValue("@p1", KodeBarang);
                     SqlCmd.Parameters.AddWithValue("@p2", NamaBarang);
                     SqlCmd.Parameters.AddWithValue("@p3", MinStock);
                     SqlCmd.Parameters.AddWithValue("@p4", MaxStock);
                     SqlCmd.Parameters.AddWithValue("@p5", iTipeBarang);
-                    SqlConn.Open();
-                    return (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                    sqlConn.Open();
+
+                    bool respon = (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                    sqlConn.Dispose();
+                    
+                    return respon;
                 }
             }
             catch (Exception ex)
@@ -167,19 +174,22 @@ namespace SupplyChainManagement_S1.MainClass
         {
             try
             {
-                using (MySqlConnection SqlConn = new MySqlConnection(strConn))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query;
                     Query = "UPDATE barang SET nm_barang=@p2, min_stock=@p3, max_stock=@p4, tipe_barang=@p5  ";
                     Query += "WHERE kd_barang=@p1";
-                    MySqlCommand SqlCmd = new MySqlCommand(Query, SqlConn);
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
                     SqlCmd.Parameters.AddWithValue("@p1", KodeBarang);
                     SqlCmd.Parameters.AddWithValue("@p2", NamaBarang);
                     SqlCmd.Parameters.AddWithValue("@p3", MinStock);
                     SqlCmd.Parameters.AddWithValue("@p4", MaxStock);
                     SqlCmd.Parameters.AddWithValue("@p5", iTipeBarang);
-                    SqlConn.Open();
-                    return (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                    sqlConn.Open();
+
+                    bool respon = (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                    sqlConn.Dispose();
+                    return respon;
                 }
             }
             catch (Exception ex)
@@ -194,13 +204,17 @@ namespace SupplyChainManagement_S1.MainClass
         {
             try
             {
-                using (MySqlConnection SqlConn = new MySqlConnection(strConn))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query = "DELETE FROM barang WHERE kd_barang=@p1";
-                    MySqlCommand SqlCmd = new MySqlCommand(Query, SqlConn);
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
                     SqlCmd.Parameters.AddWithValue("@p1", KodeBarang);
-                    SqlConn.Open();
-                    return (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                    sqlConn.Open();
+
+                    bool respon = (SqlCmd.ExecuteNonQuery() > 0) ? true : false;
+                    sqlConn.Dispose();
+
+                    return respon;
                 }
             }
             catch (Exception ex)
@@ -216,7 +230,7 @@ namespace SupplyChainManagement_S1.MainClass
             List<Cls_Barang> DbData = new List<Cls_Barang>();
             try
             {
-                using (MySqlConnection SqlConn = new MySqlConnection(strConn))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query;
                     Query = "SELECT ";
@@ -226,8 +240,8 @@ namespace SupplyChainManagement_S1.MainClass
                     Query += "WHEN tipe_barang = 2 THEN 'MRO' ELSE 'n/a' END) AS 'STR_TIPE_BARANG' ";
                     Query += "FROM barang";
 
-                    MySqlCommand SqlCmd = new MySqlCommand(Query, SqlConn);
-                    SqlConn.Open();
+                    MySqlCommand SqlCmd = new MySqlCommand(Query, sqlConn);
+                    sqlConn.Open();
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
                     DbData.Clear();
 
@@ -242,6 +256,8 @@ namespace SupplyChainManagement_S1.MainClass
                         CBarang.sTipeBarang = sReader.GetString("STR_TIPE_BARANG");
                         DbData.Add(CBarang);
                     }
+                    sqlConn.Dispose();
+                    sReader.Dispose();
                 }
             }
             catch (Exception ex)
@@ -258,7 +274,7 @@ namespace SupplyChainManagement_S1.MainClass
             List<Cls_Barang> DbData = new List<Cls_Barang>();
             try
             {
-                using (MySqlConnection SqlConn = new MySqlConnection(strConn))
+                using (MySqlConnection sqlConn = new MySqlConnection(strConn))
                 {
                     string Query;
                     Query = "SELECT * FROM (SELECT ";
@@ -271,10 +287,10 @@ namespace SupplyChainManagement_S1.MainClass
                     Query += "OR NAMA_BARANG LIKE '%{2}%' ";
                     Query += "OR STOCK_MINIMAL LIKE '%{3}%' OR STOCK_MAXIMAL LIKE '%{4}%' ";
                     MySqlCommand SqlCmd = new MySqlCommand(string.Format(Query,
-                        keyword, keyword, keyword, keyword, keyword), SqlConn);
+                        keyword, keyword, keyword, keyword, keyword), sqlConn);
                     SqlCmd.Parameters.AddWithValue("@p1", keyword.Trim());
                     System.Diagnostics.Debug.WriteLine(SqlCmd.CommandText);
-                    SqlConn.Open();
+                    sqlConn.Open();
 
                     MySqlDataReader sReader = SqlCmd.ExecuteReader();
                     DbData.Clear();
@@ -290,6 +306,8 @@ namespace SupplyChainManagement_S1.MainClass
                         CBarang.sTipeBarang = sReader.GetString("STR_TIPE_BARANG");
                         DbData.Add(CBarang);
                     }
+                    sqlConn.Dispose();
+                    sReader.Dispose();
                 }
             }
             catch (Exception ex)

@@ -102,7 +102,8 @@ namespace SupplyChainManagement_S1.MainClass
                     {
                         row = sReader.GetInt32("Rows");
                     }
-
+                    sqlConn.Dispose();
+                    sReader.Dispose();
                 }
             }
             catch (Exception ex)
@@ -158,7 +159,8 @@ namespace SupplyChainManagement_S1.MainClass
                         CSupplier.StockTersedia = sReader.GetInt32("STOCK_TERSEDIA");
                         CSupplier.HargaBarang = sReader.GetInt32("HARGA_SATUAN");
                     }
-
+                    sqlConn.Dispose();
+                    sReader.Dispose();
                 }
 
                 return appData;
