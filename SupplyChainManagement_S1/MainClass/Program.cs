@@ -12,11 +12,7 @@
 // Follow me on GithHub : https://github.com/Fathalfath30
 //
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 using System.Globalization;
 using System.Threading;
 
@@ -35,11 +31,13 @@ namespace SupplyChainManagement_S1.MainClass
         [STAThread]
         public static void Main(string[] args)
         {
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Main.Frm_Login());
-            CultureInfo culture = new CultureInfo("id-ID");
-            Thread.CurrentThread.CurrentCulture = culture;  
+            // Application.Run(new UI.Main.Frm_Login());
+            Application.Run(new UI.Manufaktur.Frm_Dashboard());
         }
     }
 }

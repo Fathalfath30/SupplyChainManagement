@@ -58,8 +58,8 @@ namespace SupplyChainManagement_S1.UI.Main
             }
 
         }
-        /* ----- [ GENERATED SCRIPT ] ----- */
 
+        /* ----- [ GENERATED SCRIPT ] ----- */
         /// <summary>
         /// Constructor Form : Frm_Login
         /// </summary>
