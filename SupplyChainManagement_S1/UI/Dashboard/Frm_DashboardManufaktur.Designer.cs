@@ -1,3 +1,4 @@
+#pragma warning disable 0618
 namespace SupplyChainManagement_S1.UI.Dashboard
 {
     partial class Frm_DashboardManufaktur
@@ -365,3 +366,4 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private MetroFramework.Controls.MetroTile MTile_BarangJadi;
     }
 }
+#pragma warning restore 0618
