@@ -1,6 +1,7 @@
-namespace SupplyChainManagement_S1.UI.Dashboard
+#pragma warning disable 0618
+namespace SupplyChainManagement_S1.UI.Manufaktur
 {
-    partial class Frm_DashboardManufaktur
+    partial class Frm_Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -228,7 +229,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Barang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Barang.UseSelectable = true;
             this.MTile_Barang.UseTileImage = true;
-            this.MTile_Barang.Click += new System.EventHandler(this.MTile_Barang_Click);
             // 
             // MTile_Distributor
             // 
@@ -265,7 +265,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_SPBahanBaku.UseSelectable = true;
             this.MTile_SPBahanBaku.UseTileImage = true;
-            this.MTile_SPBahanBaku.Click += new System.EventHandler(this.MTile_SPBahanBaku_Click);
             // 
             // MTile_BarangJadi
             // 
@@ -284,7 +283,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_BarangJadi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_BarangJadi.UseSelectable = true;
             this.MTile_BarangJadi.UseTileImage = true;
-            this.MTile_BarangJadi.Click += new System.EventHandler(this.MTile_BarangJadi_Click);
             // 
             // MTile_Supplier
             // 
@@ -303,13 +301,12 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
-            this.MTile_Supplier.Click += new System.EventHandler(this.MTile_Supplier_Click);
             // 
             // Tmr_Refresh_data
             // 
             this.Tmr_Refresh_data.Tick += new System.EventHandler(this.Tmr_Refresh_data_Tick);
             // 
-            // Frm_DashboardManufaktur
+            // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -323,13 +320,11 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Controls.Add(this.MTile_Supplier);
             this.MaximizeBox = false;
             this.Movable = false;
-            this.Name = "Frm_DashboardManufaktur";
+            this.Name = "Frm_Dashboard";
             this.Resizable = false;
             this.Text = "Dashboard Manufaktur";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Manufaktur_Dashboard_FormClosed);
-            this.Load += new System.EventHandler(this.Frm_Manufaktur_Dashboard_Load);
-            this.Shown += new System.EventHandler(this.Frm_DashboardManufaktur_Shown);
+            this.Load += new System.EventHandler(this.Frm_Dashboard_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -365,3 +360,4 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private MetroFramework.Controls.MetroTile MTile_BarangJadi;
     }
 }
+#pragma warning restore 0618

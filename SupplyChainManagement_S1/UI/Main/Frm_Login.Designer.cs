@@ -1,6 +1,6 @@
-namespace SupplyChainManagement_S1.UI
+namespace SupplyChainManagement_S1.UI.Main
 {
-    partial class Frm_login
+    partial class Frm_Login
     {
         /// <summary>
         /// Required designer variable.
@@ -103,7 +103,7 @@ namespace SupplyChainManagement_S1.UI
             this.Lnbl_Lupa_password.UseSelectable = true;
             this.Lnbl_Lupa_password.Click += new System.EventHandler(this.Lnbl_Lupa_password_Click);
             // 
-            // Frm_login
+            // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,10 +115,10 @@ namespace SupplyChainManagement_S1.UI
             this.Controls.Add(this.Txt_Username);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Name = "Frm_login";
+            this.Name = "Frm_Login";
             this.Resizable = false;
             this.Text = "User Authentication";
-            this.Load += new System.EventHandler(this.Frm_login_Load);
+            this.Load += new System.EventHandler(this.Frm_Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
