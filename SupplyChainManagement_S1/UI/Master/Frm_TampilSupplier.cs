@@ -29,6 +29,7 @@ namespace SupplyChainManagement_S1.UI.Master
             {
                 Gview_Main.DataSource = CSupplier.Tampil_data();
             }
+
             Gview_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Gview_Main.ReadOnly = true;
             Gview_Main.AutoGenerateColumns = false;
@@ -79,6 +80,17 @@ namespace SupplyChainManagement_S1.UI.Master
             RefreshForm();
             CultureInfo culture = new CultureInfo("id-ID");
             Thread.CurrentThread.CurrentCulture = culture;
+        }
+
+        private void BtnTambah_Click(object sender, EventArgs e)
+        {
+            new Frm_EntrySupplier().ShowDialog();
+            RefreshForm();
+        }
+
+        private void Txt_Keyword_KeyUp(object sender, KeyEventArgs e)
+        {
+            BindMainData(true);
         }
     }
 }

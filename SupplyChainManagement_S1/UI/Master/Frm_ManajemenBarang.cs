@@ -15,35 +15,22 @@ namespace SupplyChainManagement_S1.UI.Master
     public partial class Frm_ManajemenBarang : MetroForm
     {
         private Cls_Barang CBarang;
+        private App_Data AData = new App_Data();
 
         /* ---------- [START] Method Utama ---------- */
         private void BindMainData(bool search = false)
         {
-            if (search && Txt_Keyword.Text != "")
+            Gview_Main.Rows.Clear();
+            for (int i = 0; i < AData.Data_Barang.GetLength(0); i++)
             {
-                Gview_Main.DataSource = CBarang.Cari_data(Txt_Keyword.Text);
+                Gview_Main.Rows.Add(
+                    AData.Data_Barang[i, 0],
+                    AData.Data_Barang[i, 1],
+                    AData.Data_Barang[i, 2],
+                    AData.Data_Barang[i, 3],
+                    AData.Data_Barang[i, 4]
+                    );
             }
-            else
-            {
-                Gview_Main.DataSource = CBarang.Tampil_data();
-            }
-            Gview_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Gview_Main.ReadOnly = true;
-            Gview_Main.AutoGenerateColumns = false;
-            Gview_Main.AllowDrop = false;
-            Gview_Main.AllowUserToAddRows = false;
-            Gview_Main.AllowUserToDeleteRows = false;
-
-            Gview_Main.Columns["KodeBarang"].HeaderText = "Kode Barang";
-            Gview_Main.Columns["NamaBarang"].HeaderText = "Nama Barang";
-            Gview_Main.Columns["sTipeBarang"].HeaderText = "Tipe Barang";
-            Gview_Main.Columns["MinStock"].HeaderText = "Stock Minimal";
-            Gview_Main.Columns["MaxStock"].HeaderText = "Stock Maximal";
-            Gview_Main.Columns["iTipeBarang"].Visible = false;
-
-            for (int i = 0; i < Gview_Main.Columns.Count - 1; i++)
-                Gview_Main.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
         }
 
         private void BindTipeBarang()
@@ -75,7 +62,7 @@ namespace SupplyChainManagement_S1.UI.Master
             Txt_MaxStock.Text = "100";
 
             BindTipeBarang();
-            Txt_KodeBarang.Text = CBarang.auto_number();
+            Txt_KodeBarang.Text = "BRG013";
 
             Txt_NmBarang.Focus();
             BindMainData();
@@ -116,8 +103,26 @@ namespace SupplyChainManagement_S1.UI.Master
 
         private void ManajemenBarang_Load(object sender, EventArgs e)
         {
+            Gview_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Gview_Main.ReadOnly = true;
+            Gview_Main.AutoGenerateColumns = false;
+            Gview_Main.AllowDrop = false;
+            Gview_Main.AllowUserToAddRows = false;
+            Gview_Main.AllowUserToDeleteRows = false;
+
+            Gview_Main.Columns.Add("KodeBarang", "Kode Barang");
+            Gview_Main.Columns.Add("NamaBarang", "Nama Barang");
+            Gview_Main.Columns.Add("TipeBarang", "Tipe Barang");
+            Gview_Main.Columns.Add("MinStock", "Stock Minimal");
+            Gview_Main.Columns.Add("MaxStock", "Stock Maximal");
+
+            for (int i = 0; i < Gview_Main.Columns.Count - 1; i++)
+                Gview_Main.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
             RefreshForm();
             LockForm();
+
+            
         }
 
         private void BtnSimpan_Click(object sender, EventArgs e)
@@ -149,30 +154,12 @@ namespace SupplyChainManagement_S1.UI.Master
             }
             else
             {
-                CBarang = new Cls_Barang();
-                CBarang.KodeBarang = CBarang.auto_number();
-                CBarang.NamaBarang = Txt_NmBarang.Text;
-                CBarang.MinStock = Convert.ToInt32(Txt_MinStock.Text);
-                CBarang.MaxStock = Convert.ToInt32(Txt_MaxStock.Text);
-                CBarang.iTipeBarang = Convert.ToInt32((string)Cmb_TipeBarang.SelectedValue);
-                if (CBarang.Tambah_data())
-                {
-                    MessageBox.Show(
+                MessageBox.Show(
                         this,
                         "Data Behasil ditambahkan.",
                         "Informasi",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        this,
-                        "Data gagal ditambahkan.",
-                        "Informasi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
                 RefreshForm();
             }
 
@@ -226,24 +213,12 @@ namespace SupplyChainManagement_S1.UI.Master
                 CBarang.MinStock = Convert.ToInt32(Txt_MinStock.Text);
                 CBarang.MaxStock = Convert.ToInt32(Txt_MaxStock.Text);
                 CBarang.iTipeBarang = Convert.ToInt32((string)Cmb_TipeBarang.SelectedValue);
-                if (CBarang.Update_data())
-                {
-                    MessageBox.Show(
+                MessageBox.Show(
                         this,
                         "Data Behasil di update.",
                         "Informasi",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        this,
-                        "Data gagal di update.",
-                        "Informasi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
                 RefreshForm();
             }
 
@@ -277,26 +252,12 @@ namespace SupplyChainManagement_S1.UI.Master
 
             if (Drs == DialogResult.Yes)
             {
-                CBarang = new Cls_Barang();
-                CBarang.KodeBarang = Txt_KodeBarang.Text;
-                if (CBarang.Hapus_data())
-                {
-                    MessageBox.Show(
+                MessageBox.Show(
                         this,
                         "Data Behasil di hapus.",
                         "Informasi",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        this,
-                        "Data gagal di hapus.",
-                        "Informasi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
                 RefreshForm();
             }
          }

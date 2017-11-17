@@ -68,7 +68,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.groupBox2.Size = new System.Drawing.Size(664, 393);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Stock Bahan Baku Terendah";
+            this.groupBox2.Text = "Data Barang";
             // 
             // Gview_Main
             // 
@@ -148,7 +148,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.groupBox1.Size = new System.Drawing.Size(265, 291);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Keyword :";
+            this.groupBox1.Text = "Form Entry Barang";
             // 
             // metroLabel7
             // 

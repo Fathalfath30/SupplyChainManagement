@@ -30,9 +30,9 @@ namespace SupplyChainManagement_S1.UI.Master
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Gview_Main = new System.Windows.Forms.DataGridView();
-            this.BtnTambah = new MetroFramework.Controls.MetroButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Txt_Keyword = new MetroFramework.Controls.MetroTextBox();
+            this.BtnTambah = new MetroFramework.Controls.MetroButton();
             this.BtnUpdate = new MetroFramework.Controls.MetroButton();
             this.BtnHapus = new MetroFramework.Controls.MetroButton();
             this.BtnKeluar = new MetroFramework.Controls.MetroButton();
@@ -60,15 +60,6 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Gview_Main.Size = new System.Drawing.Size(923, 285);
             this.Gview_Main.TabIndex = 2;
             // 
-            // BtnTambah
-            // 
-            this.BtnTambah.Location = new System.Drawing.Point(23, 453);
-            this.BtnTambah.Name = "BtnTambah";
-            this.BtnTambah.Size = new System.Drawing.Size(117, 35);
-            this.BtnTambah.TabIndex = 3;
-            this.BtnTambah.Text = "Tambah Data";
-            this.BtnTambah.UseSelectable = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Txt_Keyword);
@@ -93,8 +84,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Txt_Keyword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.Txt_Keyword.CustomButton.UseSelectable = true;
             this.Txt_Keyword.CustomButton.Visible = false;
-            this.Txt_Keyword.Lines = new string[] {
-        "metroTextBox1"};
+            this.Txt_Keyword.Lines = new string[0];
             this.Txt_Keyword.Location = new System.Drawing.Point(11, 22);
             this.Txt_Keyword.MaxLength = 32767;
             this.Txt_Keyword.Name = "Txt_Keyword";
@@ -106,10 +96,20 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Txt_Keyword.ShortcutsEnabled = true;
             this.Txt_Keyword.Size = new System.Drawing.Size(317, 23);
             this.Txt_Keyword.TabIndex = 1;
-            this.Txt_Keyword.Text = "metroTextBox1";
             this.Txt_Keyword.UseSelectable = true;
             this.Txt_Keyword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Txt_Keyword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.Txt_Keyword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_Keyword_KeyUp);
+            // 
+            // BtnTambah
+            // 
+            this.BtnTambah.Location = new System.Drawing.Point(23, 453);
+            this.BtnTambah.Name = "BtnTambah";
+            this.BtnTambah.Size = new System.Drawing.Size(117, 35);
+            this.BtnTambah.TabIndex = 3;
+            this.BtnTambah.Text = "Tambah Data";
+            this.BtnTambah.UseSelectable = true;
+            this.BtnTambah.Click += new System.EventHandler(this.BtnTambah_Click);
             // 
             // BtnUpdate
             // 
@@ -138,7 +138,7 @@ namespace SupplyChainManagement_S1.UI.Master
             this.BtnKeluar.Text = "Keluar";
             this.BtnKeluar.UseSelectable = true;
             // 
-            // Frm_ManajemenSupplier
+            // Frm_TampilSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +148,8 @@ namespace SupplyChainManagement_S1.UI.Master
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnTambah);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Frm_ManajemenSupplier";
+            this.Name = "Frm_TampilSupplier";
+            this.Resizable = false;
             this.Text = "Frm_ManajemenSupplier";
             this.Load += new System.EventHandler(this.Frm_ManajemenSupplier_Load);
             this.groupBox1.ResumeLayout(false);
