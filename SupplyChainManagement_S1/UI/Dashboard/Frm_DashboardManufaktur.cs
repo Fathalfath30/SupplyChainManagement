@@ -1,24 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using MySql.Data.MySqlClient;
 using SupplyChainManagement_S1.MainClass;
 using System.Globalization;
-using SupplyChainManagement_S1.UI.Master;
 using System.Threading;
 
 namespace SupplyChainManagement_S1.UI.Dashboard
 {
     public partial class Frm_DashboardManufaktur : MetroForm
     {
-        private Cls_Barang CBarang;
-        private Cls_Supplier CSupplier;
         private App_Data AData;
 
         private void BindData()
@@ -40,8 +30,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         public Frm_DashboardManufaktur()
         {
             InitializeComponent();
-            CBarang = new Cls_Barang();
-            CSupplier = new Cls_Supplier();
             AData = new App_Data();
         }
 
@@ -90,7 +78,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private void MTile_Barang_Click(object sender, EventArgs e)
         {
             Tmr_Refresh_data.Stop();
-            new Frm_ManajemenBarang().ShowDialog();
             Tmr_Refresh_data.Start();
         }
 
@@ -121,7 +108,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private void MTile_Supplier_Click(object sender, EventArgs e)
         {
             Tmr_Refresh_data.Stop();
-            new Frm_TampilSupplier().ShowDialog();
             Tmr_Refresh_data.Start();
         }
 
@@ -134,7 +120,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         {
 
             Tmr_Refresh_data.Stop();
-            new Frm_SPBahanBaku().ShowDialog();
             Tmr_Refresh_data.Start();
         }
     }

@@ -13,8 +13,6 @@ namespace SupplyChainManagement_S1.UI
 {
     public partial class Frm_login : MetroForm
     {
-        private Cls_Login CLogin;
-
         public Frm_login()
         {
             InitializeComponent();
@@ -22,7 +20,6 @@ namespace SupplyChainManagement_S1.UI
 
         private void Frm_login_Load(object sender, EventArgs e)
         {
-            CLogin = new Cls_Login();
             Txt_Username.Focus();
         }
 
@@ -43,9 +40,6 @@ namespace SupplyChainManagement_S1.UI
 
         private void Btn_Login_Click(object sender, EventArgs e)
         {
-            CLogin.Username = Txt_Username.Text;
-            CLogin.Password = Txt_Password.Text;
-
             if (Txt_Password.Text != "admin")
             {
                 MessageBox.Show(
@@ -66,13 +60,10 @@ namespace SupplyChainManagement_S1.UI
                     break;
 
                 case "distributor":
-                    new Dashboard.Frm_DashboardDistributor().Show();
-                    this.Hide();
+                    
                     break;
 
                 case "supplier":
-                    new Dashboard.Frm_DashboardSupplier().Show();
-                    this.Hide();
                     break;
 
                 default:
@@ -93,7 +84,13 @@ namespace SupplyChainManagement_S1.UI
 
         private void Lnbl_Lupa_password_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Maaf, fitur ini masih dalam pengembangan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                this, 
+                "Maaf, fitur ini masih dalam pengembangan.", 
+                "Informasi", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information
+                );
         }
 
         private void Txt_Username_KeyDown(object sender, KeyEventArgs e)
