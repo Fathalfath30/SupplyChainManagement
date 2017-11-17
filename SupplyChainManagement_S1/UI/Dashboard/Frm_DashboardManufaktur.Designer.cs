@@ -208,10 +208,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // Tmr_RefreshDT
-            // 
-            this.Tmr_RefreshDT.Tick += new System.EventHandler(this.Tmr_RefreshDT_Tick);
-            // 
             // MTile_Barang
             // 
             this.MTile_Barang.ActiveControl = null;
@@ -229,7 +225,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Barang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Barang.UseSelectable = true;
             this.MTile_Barang.UseTileImage = true;
-            this.MTile_Barang.Click += new System.EventHandler(this.MTile_Barang_Click);
             // 
             // MTile_Distributor
             // 
@@ -266,7 +261,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_SPBahanBaku.UseSelectable = true;
             this.MTile_SPBahanBaku.UseTileImage = true;
-            this.MTile_SPBahanBaku.Click += new System.EventHandler(this.MTile_SPBahanBaku_Click);
             // 
             // MTile_BarangJadi
             // 
@@ -285,7 +279,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_BarangJadi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_BarangJadi.UseSelectable = true;
             this.MTile_BarangJadi.UseTileImage = true;
-            this.MTile_BarangJadi.Click += new System.EventHandler(this.MTile_BarangJadi_Click);
             // 
             // MTile_Supplier
             // 
@@ -303,12 +296,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Supplier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
-            this.MTile_Supplier.UseTileImage = true;
-            this.MTile_Supplier.Click += new System.EventHandler(this.MTile_Supplier_Click);
-            // 
-            // Tmr_Refresh_data
-            // 
-            this.Tmr_Refresh_data.Tick += new System.EventHandler(this.Tmr_Refresh_data_Tick);
+            this.MTile_Supplier.UseTileImage = true; 
             // 
             // Frm_DashboardManufaktur
             // 
@@ -328,9 +316,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Resizable = false;
             this.Text = "Dashboard Manufaktur";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Manufaktur_Dashboard_FormClosed);
-            this.Load += new System.EventHandler(this.Frm_Manufaktur_Dashboard_Load);
-            this.Shown += new System.EventHandler(this.Frm_DashboardManufaktur_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
