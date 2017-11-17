@@ -98,7 +98,7 @@ namespace SupplyChainManagement_S1.UI.Main
             this.Lnbl_Lupa_password.Text = "Lupa Password";
             this.Lnbl_Lupa_password.UseSelectable = true;
             // 
-            // Frm_login
+            // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,9 +110,10 @@ namespace SupplyChainManagement_S1.UI.Main
             this.Controls.Add(this.Txt_Username);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Name = "Frm_login";
+            this.Name = "Frm_Login";
             this.Resizable = false;
             this.Text = "User Authentication";
+            this.Load += new System.EventHandler(this.Frm_Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

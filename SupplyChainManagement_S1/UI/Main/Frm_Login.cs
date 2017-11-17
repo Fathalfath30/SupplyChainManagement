@@ -17,5 +17,10 @@ namespace SupplyChainManagement_S1.UI.Main
         {
             InitializeComponent();
         }
+
+        private void Frm_Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
