@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainClass\App_Data.cs" />
     <Compile Include="MainClass\Cls_Barang.cs" />
     <Compile Include="MainClass\Cls_Security.cs" />
     <Compile Include="MainClass\Cls_Login.cs" />
@@ -104,6 +105,12 @@
     <Compile Include="UI\Master\Frm_EntrySupplier.Designer.cs">
       <DependentUpon>Frm_EntrySupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Master\Frm_SPBahanBaku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Master\Frm_SPBahanBaku.Designer.cs">
+      <DependentUpon>Frm_SPBahanBaku.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Master\Frm_TampilSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Master\Frm_EntrySupplier.resx">
       <DependentUpon>Frm_EntrySupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Master\Frm_SPBahanBaku.resx">
+      <DependentUpon>Frm_SPBahanBaku.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Master\Frm_TampilSupplier.resx">
       <DependentUpon>Frm_TampilSupplier.cs</DependentUpon>

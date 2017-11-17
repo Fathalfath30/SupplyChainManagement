@@ -35,7 +35,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.MLabel_Jam = new MetroFramework.Controls.MetroLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Gview_Main = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
@@ -44,13 +44,13 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Tmr_RefreshDT = new System.Windows.Forms.Timer(this.components);
             this.MTile_Barang = new MetroFramework.Controls.MetroTile();
             this.MTile_Distributor = new MetroFramework.Controls.MetroTile();
-            this.MTile_BahanBaku = new MetroFramework.Controls.MetroTile();
-            this.MTile_Stock = new MetroFramework.Controls.MetroTile();
+            this.MTile_SPBahanBaku = new MetroFramework.Controls.MetroTile();
+            this.MTile_BarangJadi = new MetroFramework.Controls.MetroTile();
             this.MTile_Supplier = new MetroFramework.Controls.MetroTile();
             this.Tmr_Refresh_data = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Gview_Main)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +111,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.Gview_Main);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(287, 63);
@@ -119,16 +119,16 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.groupBox2.Size = new System.Drawing.Size(695, 327);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Stock Bahan Baku Terendah";
+            this.groupBox2.Text = "Bahan Baku Siap Dikirim";
             // 
-            // dataGridView1
+            // Gview_Main
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 93);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(682, 215);
-            this.dataGridView1.TabIndex = 11;
+            this.Gview_Main.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Gview_Main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Gview_Main.Location = new System.Drawing.Point(7, 93);
+            this.Gview_Main.Name = "Gview_Main";
+            this.Gview_Main.Size = new System.Drawing.Size(682, 215);
+            this.Gview_Main.TabIndex = 11;
             // 
             // groupBox4
             // 
@@ -248,41 +248,43 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.MTile_Distributor.UseSelectable = true;
             this.MTile_Distributor.UseTileImage = true;
             // 
-            // MTile_BahanBaku
+            // MTile_SPBahanBaku
             // 
-            this.MTile_BahanBaku.ActiveControl = null;
-            this.MTile_BahanBaku.AutoSize = true;
-            this.MTile_BahanBaku.Location = new System.Drawing.Point(23, 482);
-            this.MTile_BahanBaku.Name = "MTile_BahanBaku";
-            this.MTile_BahanBaku.Size = new System.Drawing.Size(258, 98);
-            this.MTile_BahanBaku.Style = MetroFramework.MetroColorStyle.Green;
-            this.MTile_BahanBaku.TabIndex = 3;
-            this.MTile_BahanBaku.Text = "Pesan Bahan Baku";
-            this.MTile_BahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.MTile_BahanBaku.TileCount = 9999;
-            this.MTile_BahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.po;
-            this.MTile_BahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.MTile_BahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.MTile_BahanBaku.UseSelectable = true;
-            this.MTile_BahanBaku.UseTileImage = true;
+            this.MTile_SPBahanBaku.ActiveControl = null;
+            this.MTile_SPBahanBaku.AutoSize = true;
+            this.MTile_SPBahanBaku.Location = new System.Drawing.Point(23, 482);
+            this.MTile_SPBahanBaku.Name = "MTile_SPBahanBaku";
+            this.MTile_SPBahanBaku.Size = new System.Drawing.Size(258, 98);
+            this.MTile_SPBahanBaku.Style = MetroFramework.MetroColorStyle.Green;
+            this.MTile_SPBahanBaku.TabIndex = 3;
+            this.MTile_SPBahanBaku.Text = "Pesan Bahan Baku";
+            this.MTile_SPBahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MTile_SPBahanBaku.TileCount = 9999;
+            this.MTile_SPBahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.po;
+            this.MTile_SPBahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.MTile_SPBahanBaku.UseSelectable = true;
+            this.MTile_SPBahanBaku.UseTileImage = true;
+            this.MTile_SPBahanBaku.Click += new System.EventHandler(this.MTile_SPBahanBaku_Click);
             // 
-            // MTile_Stock
+            // MTile_BarangJadi
             // 
-            this.MTile_Stock.ActiveControl = null;
-            this.MTile_Stock.AutoSize = true;
-            this.MTile_Stock.Location = new System.Drawing.Point(23, 378);
-            this.MTile_Stock.Name = "MTile_Stock";
-            this.MTile_Stock.Size = new System.Drawing.Size(258, 98);
-            this.MTile_Stock.Style = MetroFramework.MetroColorStyle.Silver;
-            this.MTile_Stock.TabIndex = 1;
-            this.MTile_Stock.Text = "Stock";
-            this.MTile_Stock.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.MTile_Stock.TileCount = 9999;
-            this.MTile_Stock.TileImage = global::SupplyChainManagement_S1.Properties.Resources.product;
-            this.MTile_Stock.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.MTile_Stock.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.MTile_Stock.UseSelectable = true;
-            this.MTile_Stock.UseTileImage = true;
+            this.MTile_BarangJadi.ActiveControl = null;
+            this.MTile_BarangJadi.AutoSize = true;
+            this.MTile_BarangJadi.Location = new System.Drawing.Point(23, 378);
+            this.MTile_BarangJadi.Name = "MTile_BarangJadi";
+            this.MTile_BarangJadi.Size = new System.Drawing.Size(258, 98);
+            this.MTile_BarangJadi.Style = MetroFramework.MetroColorStyle.Silver;
+            this.MTile_BarangJadi.TabIndex = 1;
+            this.MTile_BarangJadi.Text = "Barang Jadi";
+            this.MTile_BarangJadi.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MTile_BarangJadi.TileCount = 9999;
+            this.MTile_BarangJadi.TileImage = global::SupplyChainManagement_S1.Properties.Resources.product;
+            this.MTile_BarangJadi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.MTile_BarangJadi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.MTile_BarangJadi.UseSelectable = true;
+            this.MTile_BarangJadi.UseTileImage = true;
+            this.MTile_BarangJadi.Click += new System.EventHandler(this.MTile_BarangJadi_Click);
             // 
             // MTile_Supplier
             // 
@@ -315,9 +317,9 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.Controls.Add(this.MTile_Barang);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.MTile_Distributor);
-            this.Controls.Add(this.MTile_BahanBaku);
+            this.Controls.Add(this.MTile_SPBahanBaku);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.MTile_Stock);
+            this.Controls.Add(this.MTile_BarangJadi);
             this.Controls.Add(this.MTile_Supplier);
             this.MaximizeBox = false;
             this.Movable = false;
@@ -332,7 +334,7 @@ namespace SupplyChainManagement_S1.UI.Dashboard
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Gview_Main)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -343,17 +345,16 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         #endregion
 
         private MetroFramework.Controls.MetroTile MTile_Supplier;
-        private MetroFramework.Controls.MetroTile MTile_Stock;
         private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroLabel MLabel_Jam;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel MLabel_Tanggal;
         private MetroFramework.Controls.MetroTile MTile_Distributor;
-        private MetroFramework.Controls.MetroTile MTile_BahanBaku;
+        private MetroFramework.Controls.MetroTile MTile_SPBahanBaku;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer Tmr_RefreshDT;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Gview_Main;
         private System.Windows.Forms.GroupBox groupBox4;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
@@ -361,5 +362,6 @@ namespace SupplyChainManagement_S1.UI.Dashboard
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroTile MTile_Barang;
         private System.Windows.Forms.Timer Tmr_Refresh_data;
+        private MetroFramework.Controls.MetroTile MTile_BarangJadi;
     }
 }

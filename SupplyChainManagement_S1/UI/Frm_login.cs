@@ -46,28 +46,43 @@ namespace SupplyChainManagement_S1.UI
             CLogin.Username = Txt_Username.Text;
             CLogin.Password = Txt_Password.Text;
 
-            if (CLogin.Do_login())
+            if (Txt_Password.Text != "admin")
             {
                 MessageBox.Show(
                     this,
-                    string.Format("Selamat datang {0}.", Properties.Settings.Default.S_USER_NAME),
-                    "Login Berhasil",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                Redirect_user();
-            } 
-            else
-            {
-                MessageBox.Show(
-                    this,
-                    "Maaf, Username atau password yang anda masukan tidak sesuai.\nSilahkan coba lagi.",
+                    "Password salah",
                     "Login Gagal",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
-                Txt_Password.Clear();
-                Txt_Password.Focus();
+                return;
+            }
+
+            switch (Txt_Username.Text)
+            {
+                case "manufaktur":
+                    new Dashboard.Frm_DashboardManufaktur().Show();
+                    this.Hide();
+                    break;
+
+                case "distributor":
+                    new Dashboard.Frm_DashboardDistributor().Show();
+                    this.Hide();
+                    break;
+
+                case "supplier":
+                    new Dashboard.Frm_DashboardSupplier().Show();
+                    this.Hide();
+                    break;
+
+                default:
+                    MessageBox.Show(
+                        this,
+                        "Username salah",
+                        "Login Berhasil",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    break;
             }
         }
 
