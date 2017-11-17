@@ -208,6 +208,10 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // Tmr_RefreshDT
+            // 
+            this.Tmr_RefreshDT.Tick += new System.EventHandler(this.Tmr_RefreshDT_Tick);
+            // 
             // MTile_Barang
             // 
             this.MTile_Barang.ActiveControl = null;
@@ -297,6 +301,10 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
+            // 
+            // Tmr_Refresh_data
+            // 
+            this.Tmr_Refresh_data.Tick += new System.EventHandler(this.Tmr_Refresh_data_Tick);
             // 
             // Frm_Dashboard
             // 
