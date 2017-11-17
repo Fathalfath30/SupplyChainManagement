@@ -37,7 +37,7 @@ namespace SupplyChainManagement_S1.MainClass
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Frm_login());
+            Application.Run(new UI.Main.Frm_Login());
             CultureInfo culture = new CultureInfo("id-ID");
             Thread.CurrentThread.CurrentCulture = culture;  
         }
