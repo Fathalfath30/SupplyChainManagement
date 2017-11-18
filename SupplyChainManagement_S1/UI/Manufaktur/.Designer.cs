@@ -230,7 +230,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Barang.Text = "Barang";
             this.MTile_Barang.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_Barang.TileCount = 9999;
-            this.MTile_Barang.TileImage = global::SupplyChainManagement_S1.Properties.Resources.goods;
+            this.MTile_Barang.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_goods;
             this.MTile_Barang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Barang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Barang.UseSelectable = true;
@@ -248,7 +248,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Distributor.Text = "Distributor";
             this.MTile_Distributor.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_Distributor.TileCount = 9999;
-            this.MTile_Distributor.TileImage = global::SupplyChainManagement_S1.Properties.Resources.truck;
+            this.MTile_Distributor.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_truck;
             this.MTile_Distributor.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Distributor.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Distributor.UseSelectable = true;
@@ -263,10 +263,10 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_SPBahanBaku.Size = new System.Drawing.Size(258, 98);
             this.MTile_SPBahanBaku.Style = MetroFramework.MetroColorStyle.Green;
             this.MTile_SPBahanBaku.TabIndex = 3;
-            this.MTile_SPBahanBaku.Text = "Pesan Bahan Baku";
+            this.MTile_SPBahanBaku.Text = "Jadwal Produksi";
             this.MTile_SPBahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_SPBahanBaku.TileCount = 9999;
-            this.MTile_SPBahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.po;
+            this.MTile_SPBahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_calendar;
             this.MTile_SPBahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_SPBahanBaku.UseSelectable = true;
@@ -284,7 +284,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_BarangJadi.Text = "Barang Jadi";
             this.MTile_BarangJadi.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_BarangJadi.TileCount = 9999;
-            this.MTile_BarangJadi.TileImage = global::SupplyChainManagement_S1.Properties.Resources.product;
+            this.MTile_BarangJadi.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_product;
             this.MTile_BarangJadi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_BarangJadi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_BarangJadi.UseSelectable = true;
@@ -302,7 +302,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Supplier.Text = "Supplier";
             this.MTile_Supplier.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_Supplier.TileCount = 9999;
-            this.MTile_Supplier.TileImage = global::SupplyChainManagement_S1.Properties.Resources.supplier;
+            this.MTile_Supplier.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_supplier;
             this.MTile_Supplier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
