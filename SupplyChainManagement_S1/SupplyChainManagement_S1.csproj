@@ -106,12 +106,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\UI\goods.png" />
-    <Content Include="Assets\UI\po.png" />
-    <Content Include="Assets\UI\product.png" />
-    <Content Include="Assets\UI\shopping.png" />
-    <Content Include="Assets\UI\supplier.png" />
-    <Content Include="Assets\UI\truck.png" />
+    <None Include="Assets\UI\icon_goods.png" />
+    <Content Include="Assets\UI\icon_calendar.png" />
+    <Content Include="Assets\UI\icon_po.png" />
+    <Content Include="Assets\UI\icon_product.png" />
+    <Content Include="Assets\UI\icon_shopping.png" />
+    <Content Include="Assets\UI\icon_supplier.png" />
+    <Content Include="Assets\UI\icon_truck.png" />
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <ItemGroup>

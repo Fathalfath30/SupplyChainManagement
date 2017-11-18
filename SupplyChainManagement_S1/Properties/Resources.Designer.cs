@@ -63,9 +63,9 @@ namespace SupplyChainManagement_S1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap goods {
+        internal static System.Drawing.Bitmap icon_calendar {
             get {
-                object obj = ResourceManager.GetObject("goods", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_calendar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SupplyChainManagement_S1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap po {
+        internal static System.Drawing.Bitmap icon_goods {
             get {
-                object obj = ResourceManager.GetObject("po", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_goods", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace SupplyChainManagement_S1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap product {
+        internal static System.Drawing.Bitmap icon_po {
             get {
-                object obj = ResourceManager.GetObject("product", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_po", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace SupplyChainManagement_S1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shopping {
+        internal static System.Drawing.Bitmap icon_product {
             get {
-                object obj = ResourceManager.GetObject("shopping", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_product", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace SupplyChainManagement_S1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap supplier {
+        internal static System.Drawing.Bitmap icon_shopping {
             get {
-                object obj = ResourceManager.GetObject("supplier", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_shopping", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,19 @@ namespace SupplyChainManagement_S1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap truck {
+        internal static System.Drawing.Bitmap icon_supplier {
             get {
-                object obj = ResourceManager.GetObject("truck", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_supplier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_truck {
+            get {
+                object obj = ResourceManager.GetObject("icon_truck", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
