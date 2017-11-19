@@ -30,13 +30,14 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Dashboard));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MLabel_Tanggal = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.MLabel_Jam = new MetroFramework.Controls.MetroLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Gview_Main = new System.Windows.Forms.DataGridView();
+            this.Gview_Produksi = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
@@ -50,22 +51,24 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Supplier = new MetroFramework.Controls.MetroTile();
             this.Tmr_Refresh_data = new System.Windows.Forms.Timer(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
+            this.Cmb_Filter_Supplier = new MetroFramework.Controls.MetroComboBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
+            this.Gview_Supplier = new System.Windows.Forms.DataGridView();
+            this.Btn_Logout = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gview_Main)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Gview_Produksi)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Gview_Supplier)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -121,7 +124,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.Gview_Main);
+            this.groupBox2.Controls.Add(this.Gview_Produksi);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(281, 60);
@@ -131,13 +134,13 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Barang Produksi Siap Dikirim";
             // 
-            // Gview_Main
+            // Gview_Produksi
             // 
-            this.Gview_Main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Gview_Main.Location = new System.Drawing.Point(13, 93);
-            this.Gview_Main.Name = "Gview_Main";
-            this.Gview_Main.Size = new System.Drawing.Size(681, 215);
-            this.Gview_Main.TabIndex = 11;
+            this.Gview_Produksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Gview_Produksi.Location = new System.Drawing.Point(13, 93);
+            this.Gview_Produksi.Name = "Gview_Produksi";
+            this.Gview_Produksi.Size = new System.Drawing.Size(681, 215);
+            this.Gview_Produksi.TabIndex = 11;
             // 
             // groupBox4
             // 
@@ -230,7 +233,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Barang.Text = "Barang";
             this.MTile_Barang.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_Barang.TileCount = 9999;
-            this.MTile_Barang.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_goods;
+            this.MTile_Barang.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_Barang.TileImage")));
             this.MTile_Barang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Barang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Barang.UseSelectable = true;
@@ -248,7 +251,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Distributor.Text = "Distributor";
             this.MTile_Distributor.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_Distributor.TileCount = 9999;
-            this.MTile_Distributor.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_truck;
+            this.MTile_Distributor.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_Distributor.TileImage")));
             this.MTile_Distributor.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Distributor.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Distributor.UseSelectable = true;
@@ -266,7 +269,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_SPBahanBaku.Text = "Jadwal Produksi";
             this.MTile_SPBahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_SPBahanBaku.TileCount = 9999;
-            this.MTile_SPBahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_calendar;
+            this.MTile_SPBahanBaku.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_SPBahanBaku.TileImage")));
             this.MTile_SPBahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_SPBahanBaku.UseSelectable = true;
@@ -284,7 +287,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_BarangJadi.Text = "Barang Jadi";
             this.MTile_BarangJadi.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_BarangJadi.TileCount = 9999;
-            this.MTile_BarangJadi.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_product;
+            this.MTile_BarangJadi.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_BarangJadi.TileImage")));
             this.MTile_BarangJadi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_BarangJadi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_BarangJadi.UseSelectable = true;
@@ -302,7 +305,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Supplier.Text = "Supplier";
             this.MTile_Supplier.Theme = MetroFramework.MetroThemeStyle.Light;
             this.MTile_Supplier.TileCount = 9999;
-            this.MTile_Supplier.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_supplier;
+            this.MTile_Supplier.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_Supplier.TileImage")));
             this.MTile_Supplier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
@@ -315,114 +318,104 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             // groupBox5
             // 
             this.groupBox5.AutoSize = true;
-            this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Controls.Add(this.groupBox7);
             this.groupBox5.Location = new System.Drawing.Point(281, 393);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(707, 327);
+            this.groupBox5.Size = new System.Drawing.Size(707, 365);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Supplier Dengan Harga Termurah";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 93);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(683, 215);
-            this.dataGridView1.TabIndex = 11;
-            // 
             // groupBox6
             // 
             this.groupBox6.AutoSize = true;
-            this.groupBox6.Controls.Add(this.metroComboBox3);
-            this.groupBox6.Controls.Add(this.metroComboBox4);
-            this.groupBox6.Location = new System.Drawing.Point(270, 18);
+            this.groupBox6.Controls.Add(this.groupBox7);
+            this.groupBox6.Controls.Add(this.groupBox8);
+            this.groupBox6.Controls.Add(this.Gview_Supplier);
+            this.groupBox6.Location = new System.Drawing.Point(12, 18);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(425, 69);
+            this.groupBox6.Size = new System.Drawing.Size(688, 328);
             this.groupBox6.TabIndex = 13;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Urutkan Berdasarkan :";
+            this.groupBox6.Text = "Filter Supplier";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.AutoSize = true;
+            this.groupBox7.Controls.Add(this.metroComboBox3);
+            this.groupBox7.Controls.Add(this.Cmb_Filter_Supplier);
+            this.groupBox7.Location = new System.Drawing.Point(290, 20);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(392, 69);
+            this.groupBox7.TabIndex = 14;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Filter Supplier";
             // 
             // metroComboBox3
             // 
             this.metroComboBox3.FormattingEnabled = true;
             this.metroComboBox3.ItemHeight = 23;
-            this.metroComboBox3.Location = new System.Drawing.Point(310, 20);
+            this.metroComboBox3.Location = new System.Drawing.Point(11, 20);
             this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(105, 29);
-            this.metroComboBox3.TabIndex = 1;
+            this.metroComboBox3.Size = new System.Drawing.Size(243, 29);
+            this.metroComboBox3.TabIndex = 0;
             this.metroComboBox3.UseSelectable = true;
+            // 
+            // Cmb_Filter_Supplier
+            // 
+            this.Cmb_Filter_Supplier.FormattingEnabled = true;
+            this.Cmb_Filter_Supplier.ItemHeight = 23;
+            this.Cmb_Filter_Supplier.Location = new System.Drawing.Point(260, 20);
+            this.Cmb_Filter_Supplier.Name = "Cmb_Filter_Supplier";
+            this.Cmb_Filter_Supplier.Size = new System.Drawing.Size(121, 29);
+            this.Cmb_Filter_Supplier.TabIndex = 0;
+            this.Cmb_Filter_Supplier.UseSelectable = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.AutoSize = true;
+            this.groupBox8.Controls.Add(this.metroComboBox4);
+            this.groupBox8.Location = new System.Drawing.Point(10, 20);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(274, 69);
+            this.groupBox8.TabIndex = 15;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Filter Supplier";
             // 
             // metroComboBox4
             // 
             this.metroComboBox4.FormattingEnabled = true;
             this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Location = new System.Drawing.Point(10, 20);
+            this.metroComboBox4.Location = new System.Drawing.Point(16, 20);
             this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(294, 29);
+            this.metroComboBox4.Size = new System.Drawing.Size(243, 29);
             this.metroComboBox4.TabIndex = 0;
             this.metroComboBox4.UseSelectable = true;
             // 
-            // groupBox7
+            // Gview_Supplier
             // 
-            this.groupBox7.AutoSize = true;
-            this.groupBox7.Controls.Add(this.metroTextBox2);
-            this.groupBox7.Location = new System.Drawing.Point(12, 18);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(252, 69);
-            this.groupBox7.TabIndex = 12;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Keyword :";
+            this.Gview_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Gview_Supplier.Location = new System.Drawing.Point(10, 94);
+            this.Gview_Supplier.Name = "Gview_Supplier";
+            this.Gview_Supplier.Size = new System.Drawing.Size(672, 215);
+            this.Gview_Supplier.TabIndex = 11;
             // 
-            // metroTextBox2
+            // Btn_Logout
             // 
-            // 
-            // 
-            // 
-            this.metroTextBox2.CustomButton.Image = null;
-            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(190, 1);
-            this.metroTextBox2.CustomButton.Name = "";
-            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox2.CustomButton.TabIndex = 1;
-            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox2.CustomButton.UseSelectable = true;
-            this.metroTextBox2.CustomButton.Visible = false;
-            this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(17, 20);
-            this.metroTextBox2.MaxLength = 32767;
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PasswordChar = '\0';
-            this.metroTextBox2.PromptText = "Masukan keyword";
-            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox2.SelectedText = "";
-            this.metroTextBox2.SelectionLength = 0;
-            this.metroTextBox2.SelectionStart = 0;
-            this.metroTextBox2.ShortcutsEnabled = true;
-            this.metroTextBox2.Size = new System.Drawing.Size(218, 29);
-            this.metroTextBox2.TabIndex = 0;
-            this.metroTextBox2.UseSelectable = true;
-            this.metroTextBox2.WaterMark = "Masukan keyword";
-            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(17, 687);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(258, 33);
-            this.metroButton1.TabIndex = 15;
-            this.metroButton1.Text = "Logout";
-            this.metroButton1.UseSelectable = true;
+            this.Btn_Logout.Location = new System.Drawing.Point(17, 687);
+            this.Btn_Logout.Name = "Btn_Logout";
+            this.Btn_Logout.Size = new System.Drawing.Size(258, 33);
+            this.Btn_Logout.TabIndex = 15;
+            this.Btn_Logout.Text = "Logout";
+            this.Btn_Logout.UseSelectable = true;
+            this.Btn_Logout.Click += new System.EventHandler(this.Btn_Logout_Click);
             // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 735);
-            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.Btn_Logout);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.MTile_Barang);
             this.Controls.Add(this.groupBox2);
@@ -443,14 +436,16 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gview_Main)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Gview_Produksi)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Gview_Supplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,7 +463,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         private MetroFramework.Controls.MetroTile MTile_SPBahanBaku;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer Tmr_RefreshDT;
-        private System.Windows.Forms.DataGridView Gview_Main;
+        private System.Windows.Forms.DataGridView Gview_Produksi;
         private System.Windows.Forms.GroupBox groupBox4;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
@@ -478,13 +473,14 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         private System.Windows.Forms.Timer Tmr_Refresh_data;
         private MetroFramework.Controls.MetroTile MTile_BarangJadi;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Gview_Supplier;
         private System.Windows.Forms.GroupBox groupBox6;
-        private MetroFramework.Controls.MetroComboBox metroComboBox3;
-        private MetroFramework.Controls.MetroComboBox metroComboBox4;
+        private MetroFramework.Controls.MetroButton Btn_Logout;
+        private MetroFramework.Controls.MetroComboBox Cmb_Filter_Supplier;
         private System.Windows.Forms.GroupBox groupBox7;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroComboBox metroComboBox3;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private MetroFramework.Controls.MetroComboBox metroComboBox4;
     }
 }
 #pragma warning restore 0618
