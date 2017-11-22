@@ -11,7 +11,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
 {
     public partial class Frm_Dashboard : MetroForm
     {
-        private App_Data appData = new App_Data();
+        private App_Data appData;
         /* ----- [ MAIN SCRIPT ] ----- */
         private void InitGrid_Supplier()
         {
@@ -51,14 +51,15 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             Grid_Produksi.Columns.Add("NamaBarang", "Nama Barang");
             Grid_Produksi.Columns.Add("TanggalProduksi", "Tanggal Produksi");
             Grid_Produksi.Columns.Add("JumlahProduksi", "Jumlah Produksi");
+            Grid_Produksi.Columns["KodeProduksi"].Visible = false;
             Grid_Produksi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grid_Produksi.ReadOnly = true;
             Grid_Produksi.AutoGenerateColumns = false;
             Grid_Produksi.AllowDrop = false;
             Grid_Produksi.AllowUserToAddRows = false;
             Grid_Produksi.AllowUserToDeleteRows = false;
-            for (int i = 0; i < Grid_Supplier.Columns.Count - 1; i++)
-                Grid_Supplier.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            for (int i = 0; i < Grid_Produksi.Columns.Count - 1; i++)
+                Grid_Produksi.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         private void BindGrid_Produksi()
         {
@@ -111,6 +112,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
 
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
+            appData = new App_Data();
             InitGrid_Supplier();
             BindGrid_Supplier();
 

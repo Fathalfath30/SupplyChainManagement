@@ -11,6 +11,10 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
 {
     public partial class Frm_Distributor : MetroForm
     {
+        private App_Data appData;
+        /* ----- [ MAIN SCRIPT ] ----- */
+
+        /* ----- [ GENERATED SCRIPT ] ----- */
         public Frm_Distributor()
         {
             InitializeComponent();

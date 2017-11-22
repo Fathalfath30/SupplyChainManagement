@@ -131,12 +131,13 @@ namespace SupplyChainManagement_S1.MainClass
         /// <para>Data_SpBahanBaku[n, 4] : Bahan Baku</para>
         /// <para>Data_SpBahanBaku[n, 5] : Harga Beli</para>
         /// <para>Data_SpBahanBaku[n, 6] : DP</para>
-        /// <para>Data_SpBahanBaku[n, 7] : Status Pesanan</para>
+        /// <para>Data_SpBahanBaku[n, 7] : Jumlah Pesanan</para>
+        /// <para>Data_SpBahanBaku[n, 8] : Status Pesanan</para>
         /// </summary>
         public string[,] Data_SpBahanBaku =
         {
-            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "Sedang Proses"},
-            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "Sudah Diterima"},
+            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "20", "Sedang Proses"},
+            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "20", "Sudah Diterima"},
         };
     }
 }
