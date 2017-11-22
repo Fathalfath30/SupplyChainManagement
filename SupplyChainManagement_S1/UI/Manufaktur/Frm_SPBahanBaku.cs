@@ -20,9 +20,10 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             Grid_SPBahanBaku.Columns.Add("NamaSupplier", "Nama Supplier");
             Grid_SPBahanBaku.Columns.Add("Tanggal", "Tanggal");
             Grid_SPBahanBaku.Columns.Add("JumlahBayar", "Jumlah Bayar");
-            Grid_SPBahanBaku.Columns.Add("JumlahDp", "JumlahDp");
+            Grid_SPBahanBaku.Columns.Add("JumlahDp", "Jumlah Dp");
+            Grid_SPBahanBaku.Columns.Add("JumlahPesanan", "Jumlah Pesanan");
             Grid_SPBahanBaku.Columns.Add("StatusPesanan", "Status Pesanan");
-
+            Grid_SPBahanBaku.Columns["KodeSurat"].Visible = false;
             Grid_SPBahanBaku.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grid_SPBahanBaku.ReadOnly = true;
             Grid_SPBahanBaku.AutoGenerateColumns = false;
@@ -44,7 +45,8 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
                     appData.Data_SpBahanBaku[rIndex, 3].ToString(),
                     appData.Data_SpBahanBaku[rIndex, 5].ToString(),
                     appData.Data_SpBahanBaku[rIndex, 6].ToString(),
-                    appData.Data_SpBahanBaku[rIndex, 7].ToString()
+                    appData.Data_SpBahanBaku[rIndex, 7].ToString(),
+                    appData.Data_SpBahanBaku[rIndex, 8].ToString()
                     );
             }
         }
