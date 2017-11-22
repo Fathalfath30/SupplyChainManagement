@@ -24,6 +24,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             Grid_SPBahanBaku.Columns.Add("JumlahPesanan", "Jumlah Pesanan");
             Grid_SPBahanBaku.Columns.Add("StatusPesanan", "Status Pesanan");
             Grid_SPBahanBaku.Columns["KodeSurat"].Visible = false;
+            Grid_SPBahanBaku.Columns["JumlahDp"].Visible = false;
             Grid_SPBahanBaku.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grid_SPBahanBaku.ReadOnly = true;
             Grid_SPBahanBaku.AutoGenerateColumns = false;

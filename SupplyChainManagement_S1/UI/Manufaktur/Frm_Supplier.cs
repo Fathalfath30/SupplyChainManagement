@@ -57,6 +57,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
 
             InitGrid_Supplier();
             BindGrid_Supplier();
+            Cmb_Filter_Supplier.SelectedIndex = 0;
         }
 
         private void Grid_Supplier_SortCompare(object sender, DataGridViewSortCompareEventArgs e)

@@ -22,7 +22,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
 
         private void Frm_Produksi_Load(object sender, EventArgs e)
         {
-
+            Cmb_Produksi_Sort_By.SelectedIndex = 0;
         }
     }
 }
