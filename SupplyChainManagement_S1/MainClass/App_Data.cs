@@ -11,72 +11,93 @@
 // Written by Fathalfath30. Email : fathalfath30@gmail.com
 // Follow me on GithHub : https://github.com/Fathalfath30
 //
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using MetroFramework.Forms;
-using MySql.Data.MySqlClient;
 
 namespace SupplyChainManagement_S1.MainClass
 {
     public class App_Data
     {
-        public string[,] TipeBarnag = {
-                {"", "-Pilih Item-" },
-                {"0", "Bahan Baku"},
-                {"1", "Barang Jadi"},
-            };
 
+        /// <summary>
+        /// Data tipe barang.
+        /// <para>Tipe_Barang[n, 0] : Kode tipe barang.</para>
+        /// <para>Tipe_Barang[n, 1] : Nama tipe barang.</para>
+        /// </summary>
+        public string[,] Tipe_Barang = {
+            {"", "-Pilih Tipe Barang-" },
+            {"0", "Bahan Baku"},
+            {"1", "Barang Jadi"}
+        };
+
+        /// <summary>
+        /// Data barang.
+        /// <para>Data_Barang[n, 0] : Kode Barang</para>
+        /// <para>Data_Barang[n, 1] : Nama Barang</para>
+        /// <para>Data_Barang[n, 2] : Jenis Barang</para>
+        /// <para>Data_Barang[n, 3] : Stock Minimal</para>
+        /// <para>Data_Barang[n, 4] : Stock Maximal</para>
+        /// </summary>
         public string[,] Data_Barang = {
-                {"BRG001", "Kedelai Hitam", "Bahan Baku", "10", "50"},
-                {"BRG002", "Garam", "Bahan Baku", "10", "35"},
-                {"BRG003", "Gula Merah", "10", "Bahan Baku", "35"},
-                {"BRG004", "Kemasan Plastik", "Bahan Baku", "10", "50"},
-                {"BRG005", "Kemasan Botol", "Bahan Baku", "10", "50"},
-                {"BRG006", "Bango BTL 135ML", "Barang Jadi", "10", "50"},
-                {"BRG007", "Bango BTL 275ML", "Barang Jadi", "10", "50"},
-                {"BRG008", "Bango BTL 620ML", "Barang Jadi", "10", "50"},
-                {"BRG009", "Bango RFL 600ML", "Barang Jadi", "10", "50"},
-                {"BRG010", "Bango RFL 220ML", "Barang Jadi", "10", "50"},
-                {"BRG011", "Bango RFL 85ML", "Barnag Jadi", "10", "50"},
-                {"BRG012", "Bango RFL 35ML", "Barnag Jadi", "10", "50"},
+            {"BRG001", "Kedelai Hitam", "Bahan Baku", "10", "50"},
+            {"BRG002", "Garam", "Bahan Baku", "10", "35"},
+            {"BRG003", "Gula Merah", "10", "Bahan Baku", "35"},
+            {"BRG004", "Kemasan Plastik", "Bahan Baku", "10", "50"},
+            {"BRG005", "Kemasan Botol", "Bahan Baku", "10", "50"},
+            {"BRG006", "Bango BTL 135ML", "Barang Jadi", "10", "50"},
+            {"BRG007", "Bango BTL 275ML", "Barang Jadi", "10", "50"},
+            {"BRG008", "Bango BTL 620ML", "Barang Jadi", "10", "50"},
+            {"BRG009", "Bango RFL 600ML", "Barang Jadi", "10", "50"},
+            {"BRG010", "Bango RFL 220ML", "Barang Jadi", "10", "50"},
+            {"BRG011", "Bango RFL 85ML", "Barang Jadi", "10", "50"},
+            {"BRG012", "Bango RFL 35ML", "Barang Jadi", "10", "50"},
+        };
 
-            };
-
+        /// <summary>
+        /// Data Supplier
+        /// <para>Data_Supplier[n , 0] : Kode Supplier</para>
+        /// <para>Data_Supplier[n , 1] : Nama Supplier</para>
+        /// <para>Data_Supplier[n , 2] : Kota Supplier</para>
+        /// <para>Data_Supplier[n , 3] : Telp supplier</para>
+        /// </summary>
         public string[,] Data_Supplier = {
-                {"SUP001", "Poktan Marsudi Tani", "Sumber Agung, Ngajuk, Jawa Timur", "+9999999999999"},
-                {"SUP002", "PT. UGM", "Sleman Jogjakarta", "+9999999999999"},
-                {"SUP003", "PT. Dolphin", "Cikupa, Tangerang", "+9999999999999"},
-                {"SUP004", "PT. Garam Briket Kuda Laut", "Pati, Jawa Tengah", "+9999999999999"},
-                {"SUP005", "PT. Berlina TBK", "Tangerang, Banten", "+9999999999999"},
-                {"SUP006", "PT. Sentral Jawa", "Banyumas, Jawa Tengah", "+9999999999999"},
-                {"SUP007", "PT. Anugrah Bergula", "Cilacap, Jawa Tengah", "+9999999999999" }
-            };
+            {"SUP001", "Poktan Marsudi Tani", "Sumber Agung, Ngajuk, Jawa Timur", "+9999999999999"},
+            {"SUP002", "PT. UGM", "Sleman Jogjakarta", "+9999999999999"},
+            {"SUP003", "PT. Dolphin", "Cikupa, Tangerang", "+9999999999999"},
+            {"SUP004", "PT. Garam Briket Kuda Laut", "Pati, Jawa Tengah", "+9999999999999"},
+            {"SUP005", "PT. Berlina TBK", "Tangerang, Banten", "+9999999999999"},
+            {"SUP006", "PT. Sentral Jawa", "Banyumas, Jawa Tengah", "+9999999999999"},
+            {"SUP007", "PT. Anugrah Bergula", "Cilacap, Jawa Tengah", "+9999999999999" }
+        };
 
-        public string[,] Detil_Supplier = {
-                {"SUP001", "Poktan Marsudi Tani", "Kedelai Hitam", "Sumber Agung, Ngajuk, Jawa Timur", "250 Ton", "Rp. 000.000.000","+9999999999999" },
-                {"SUP002", "PT. UGM", "Kedelai Hitam", "Sleman Jogjakarta", "120 Ton", "Rp. 000.000.000","+9999999999999" },
-                {"SUP003", "PT. Dolphin", "Garam", "Cikupa, Tangerang", "75 Ton", "Rp. 000.000.000","+9999999999999" },
-                {"SUP004", "PT. Garam Briket Kuda Laut", "Garam", "Pati, Jawa Tengah", "540 Ton", "Rp. 000.000.000","+9999999999999" },
-                {"SUP005", "PT. Berlina TBK", "Kemasan Plastik", "Tangerang, Banten", "750 Lembar","Rp. 000.000.000","+9999999999999" },
-                {"SUP005", "PT. Berlina TBK", "Kemasan Botol", "Tangerang, Banten", "960 Lembar", "Rp. 000.000.000","+9999999999999" },
-                {"SUP006", "PT. Sentral Jawa", "Gula Merah", "Banyumas, Jawa Tengah", "162 Ton", "Rp. 000.000.000","+9999999999999" },
-                {"SUP007", "PT. Anugrah Bergula", "Gula Merah", "Cilacap, Jawa Tengah", "120 Ton","Rp. 000.000.000","+9999999999999" },
-            };
+        /// <summary>
+        /// Data Detil Supplier
+        /// <para>Data_Detil_Supplier[n, 0] : Kode Supplier</para>
+        /// <para>Data_Detil_Supplier[n, 1] : Nama Supplier</para>
+        /// <para>Data_Detil_Supplier[n, 2] : Nama Barang</para>
+        /// <para>Data_Detil_Supplier[n, 3] : Alamat</para>
+        /// <para>Data_Detil_Supplier[n, 4] : Stock Tersdia</para>
+        /// <para>Data_Detil_Supplier[n, 5] : Telp</para>
+        /// </summary>
+        public string[,] Data_Detil_Supplier = {
+            {"SUP001", "Poktan Marsudi Tani", "Kedelai Hitam", "Sumber Agung, Ngajuk, Jawa Timur", "250 Ton", "21000000","+9999999999999" },
+            {"SUP002", "PT. UGM", "Kedelai Hitam", "Sleman Jogjakarta", "120 Ton", "20253000","+9999999999999" },
+            {"SUP003", "PT. Dolphin", "Garam", "Cikupa, Tangerang", "75 Ton", "35615000","+9999999999999" },
+            {"SUP004", "PT. Garam Briket Kuda Laut", "Garam", "Pati, Jawa Tengah", "540 Ton", "34256000","+9999999999999" },
+            {"SUP005", "PT. Berlina TBK", "Kemasan Plastik", "Tangerang, Banten", "750 Lembar","750","+9999999999999" },
+            {"SUP005", "PT. Berlina TBK", "Kemasan Botol", "Tangerang, Banten", "960 Lembar", "1000","+9999999999999" },
+            {"SUP006", "PT. Sentral Jawa", "Gula Merah", "Banyumas, Jawa Tengah", "162 Ton", "26345000","+9999999999999" },
+            {"SUP007", "PT. Anugrah Bergula", "Gula Merah", "Cilacap, Jawa Tengah", "120 Ton","21525000","+9999999999999" },
+        };
 
-        public string[,] Data_Manufaktur = {
-                {"MNF001", "Manufaktur A", "Jl. BSD Boulevard Barat Green Office Park, Jawa Timur", "+9999999999999"},
-                {"MNF002", "Manufaktur B", "Wantilan, Subang, Jawa Barat", "+9999999999999"},
-                {"MNF003", "Manufaktur C", "Jababeka, Cikarang", "+9999999999999"},
-            };
-
-        public string[,] Data_Produksi =
-        {
+        /// <summary>
+        /// Data Produksi
+        /// <para>Data_Produksi[n, 0] : Kode Produksi</para>
+        /// <para>Data_Produksi[n, 1] : Kode Manufaktur</para>
+        /// <para>Data_Produksi[n, 2] : Nama Manufaktur</para>
+        /// <para>Data_Produksi[n, 3] : Nama Barang</para>
+        /// <para>Data_Produksi[n, 4] : Tanggal Produksi</para>
+        /// <para>Data_Produksi[n, 5] : Jumlah Produksi</para>
+        /// </summary>
+        public string[,] Data_Produksi = {
                 {"PRD001", "MNF001", "Manufaktur A", "Bango BTL 135ML", "15 November 2017", "15"},
                 {"PRD002", "MNF002", "Manufaktur B", "Bango BTL 275ML", "15 November 2017", "25"},
                 {"PRD003", "MNF003", "Manufaktur C", "Bango BTL 620ML", "15 November 2017", "25"},
@@ -86,18 +107,36 @@ namespace SupplyChainManagement_S1.MainClass
                 {"PRD007", "MNF003", "Manufaktur C", "Bango RFL 35ML", "15 November 2017", "51"},
         };
 
-        public string[,] Data_SpBahanBaku =
-        {
-            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "Rp. 76.000.000", "Rp. 10.000.000", "Sedang Proses"},
-            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "Rp. 35.000.000", "Rp. 0", "Sudah Diterima"},
-        };
-
+        /// <summary>
+        /// Data Distributor
+        /// <para>Data_Distributor[n, 0] : Kode Distributor</para>
+        /// <para>Data_Distributor[n, 1] : Nama distributor</para>
+        /// <para>Data_Distributor[n, 2] : Alamat Distributor</para>
+        /// <para>Data_Distributor[n, 3] : Telp Distributor</para>
+        /// <para>Data_Distributor[n, 4] : Kapastias Gudang</para>
+        /// </summary>
         public string[,] Data_Distributor =
         {
             {"DST001", "Distributor A", "Rawa Belong, Jakarta Barat", "+9999999999999" , "250 Ton"},
             {"DST001", "Distributor B", "Palmerah, Jakarta Barat", "+9999999999999" , "150 Ton"},
             {"DST001", "Distributor C", "Osaka, Jepang.", "+9999999999999" , "650 Ton"},
             {"DST001", "Distributor D", "Singapura", "+9999999999999" , "550 Ton"},
+        };
+        /// <summary>
+        /// Data Surat Pesan Bahan Baku
+        /// <para>Data_SpBahanBaku[n, 0] : Kode </para>
+        /// <para>Data_SpBahanBaku[n, 1] : Data Supplier</para>
+        /// <para>Data_SpBahanBaku[n, 2] : Nama Supplier</para>
+        /// <para>Data_SpBahanBaku[n, 3] : Tanggal SP</para>
+        /// <para>Data_SpBahanBaku[n, 4] : Bahan Baku</para>
+        /// <para>Data_SpBahanBaku[n, 5] : Harga Beli</para>
+        /// <para>Data_SpBahanBaku[n, 6] : DP</para>
+        /// <para>Data_SpBahanBaku[n, 7] : Status Pesanan</para>
+        /// </summary>
+        public string[,] Data_SpBahanBaku =
+        {
+            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "Sedang Proses"},
+            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "Sudah Diterima"},
         };
     }
 }
