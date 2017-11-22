@@ -101,6 +101,9 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             MTile_SPBahanBaku.TileCount = appData.Data_SpBahanBaku.GetLength(0);
             MTile_SPBahanBaku.Refresh();
 
+            MTile_JadwalProduksi.TileCount = appData.Data_Jadwal_Produksi.GetLength(0);
+            MTile_JadwalProduksi.Refresh();
+
             MTile_Distributor.TileCount = appData.Data_Distributor.GetLength(0);
             MTile_Distributor.Refresh();
         }

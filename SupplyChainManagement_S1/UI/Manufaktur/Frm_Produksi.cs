@@ -46,16 +46,16 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         /* ----- [ GENERATED SCRIPT ] ----- */
         public Frm_Produksi()
         {
-            InitializeComponent();
             appData = new App_Data();
+            InitializeComponent();
+
+            initGrid_Produksi();
+            BindGrid_Produksi();
         }
 
         private void Frm_Produksi_Load(object sender, EventArgs e)
         {
             Cmb_Filter_Produksi.SelectedIndex = 0;
-
-            initGrid_Produksi();
-            BindGrid_Produksi();
         }
 
         private void Cmb_Filter_Produksi_SelectedIndexChanged(object sender, EventArgs e)
