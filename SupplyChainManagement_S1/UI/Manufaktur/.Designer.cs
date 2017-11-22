@@ -261,6 +261,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Distributor.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Distributor.UseSelectable = true;
             this.MTile_Distributor.UseTileImage = true;
+            this.MTile_Distributor.Click += new System.EventHandler(this.MTile_Distributor_Click);
             // 
             // MTile_JadwalProduksi
             // 
@@ -279,6 +280,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_JadwalProduksi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_JadwalProduksi.UseSelectable = true;
             this.MTile_JadwalProduksi.UseTileImage = true;
+            this.MTile_JadwalProduksi.Click += new System.EventHandler(this.MTile_JadwalProduksi_Click);
             // 
             // MTile_Produksi
             // 
@@ -297,6 +299,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Produksi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Produksi.UseSelectable = true;
             this.MTile_Produksi.UseTileImage = true;
+            this.MTile_Produksi.Click += new System.EventHandler(this.MTile_Produksi_Click);
             // 
             // MTile_Supplier
             // 
@@ -315,6 +318,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Supplier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MTile_Supplier.UseSelectable = true;
             this.MTile_Supplier.UseTileImage = true;
+            this.MTile_Supplier.Click += new System.EventHandler(this.MTile_Supplier_Click);
             // 
             // Tmr_Refresh_data
             // 

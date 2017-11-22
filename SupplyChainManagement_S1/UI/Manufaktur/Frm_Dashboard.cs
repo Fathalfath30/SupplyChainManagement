@@ -273,5 +273,25 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         {
             new Frm_SPBahanBaku().ShowDialog();
         }
+
+        private void MTile_Supplier_Click(object sender, EventArgs e)
+        {
+            new Frm_Supplier().ShowDialog();
+        }
+
+        private void MTile_Produksi_Click(object sender, EventArgs e)
+        {
+            new Frm_Produksi().ShowDialog();
+        }
+
+        private void MTile_JadwalProduksi_Click(object sender, EventArgs e)
+        {
+            new Frm_JadwalProduksi().ShowDialog();
+        }
+
+        private void MTile_Distributor_Click(object sender, EventArgs e)
+        {
+            new Frm_Distributor().ShowDialog();
+        }
     }
 }
