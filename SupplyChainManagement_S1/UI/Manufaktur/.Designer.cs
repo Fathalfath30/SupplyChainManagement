@@ -47,7 +47,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_SPBahanBaku = new MetroFramework.Controls.MetroTile();
             this.MTile_Distributor = new MetroFramework.Controls.MetroTile();
             this.MTile_JadwalProduksi = new MetroFramework.Controls.MetroTile();
-            this.MTile_BarangJadi = new MetroFramework.Controls.MetroTile();
+            this.MTile_Produksi = new MetroFramework.Controls.MetroTile();
             this.MTile_Supplier = new MetroFramework.Controls.MetroTile();
             this.Tmr_Refresh_data = new System.Windows.Forms.Timer(this.components);
             this.Btn_Logout = new MetroFramework.Controls.MetroButton();
@@ -280,23 +280,23 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_JadwalProduksi.UseSelectable = true;
             this.MTile_JadwalProduksi.UseTileImage = true;
             // 
-            // MTile_BarangJadi
+            // MTile_Produksi
             // 
-            this.MTile_BarangJadi.ActiveControl = null;
-            this.MTile_BarangJadi.AutoSize = true;
-            this.MTile_BarangJadi.Location = new System.Drawing.Point(17, 375);
-            this.MTile_BarangJadi.Name = "MTile_BarangJadi";
-            this.MTile_BarangJadi.Size = new System.Drawing.Size(258, 98);
-            this.MTile_BarangJadi.Style = MetroFramework.MetroColorStyle.Silver;
-            this.MTile_BarangJadi.TabIndex = 1;
-            this.MTile_BarangJadi.Text = "Barang Jadi";
-            this.MTile_BarangJadi.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.MTile_BarangJadi.TileCount = 9999;
-            this.MTile_BarangJadi.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_BarangJadi.TileImage")));
-            this.MTile_BarangJadi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.MTile_BarangJadi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.MTile_BarangJadi.UseSelectable = true;
-            this.MTile_BarangJadi.UseTileImage = true;
+            this.MTile_Produksi.ActiveControl = null;
+            this.MTile_Produksi.AutoSize = true;
+            this.MTile_Produksi.Location = new System.Drawing.Point(17, 375);
+            this.MTile_Produksi.Name = "MTile_Produksi";
+            this.MTile_Produksi.Size = new System.Drawing.Size(258, 98);
+            this.MTile_Produksi.Style = MetroFramework.MetroColorStyle.Silver;
+            this.MTile_Produksi.TabIndex = 1;
+            this.MTile_Produksi.Text = "Produksi";
+            this.MTile_Produksi.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MTile_Produksi.TileCount = 9999;
+            this.MTile_Produksi.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_Produksi.TileImage")));
+            this.MTile_Produksi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.MTile_Produksi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.MTile_Produksi.UseSelectable = true;
+            this.MTile_Produksi.UseTileImage = true;
             // 
             // MTile_Supplier
             // 
@@ -439,7 +439,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.Controls.Add(this.MTile_Distributor);
             this.Controls.Add(this.MTile_JadwalProduksi);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.MTile_BarangJadi);
+            this.Controls.Add(this.MTile_Produksi);
             this.Controls.Add(this.MTile_Supplier);
             this.MaximizeBox = false;
             this.Movable = false;
@@ -485,7 +485,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         private System.Windows.Forms.GroupBox groupBox3;
         private MetroFramework.Controls.MetroTile MTile_SPBahanBaku;
         private System.Windows.Forms.Timer Tmr_Refresh_data;
-        private MetroFramework.Controls.MetroTile MTile_BarangJadi;
+        private MetroFramework.Controls.MetroTile MTile_Produksi;
         private MetroFramework.Controls.MetroButton Btn_Logout;
         private MetroFramework.Controls.MetroComboBox Cmb_Filter_Produksi;
         private System.Windows.Forms.GroupBox groupBox6;
