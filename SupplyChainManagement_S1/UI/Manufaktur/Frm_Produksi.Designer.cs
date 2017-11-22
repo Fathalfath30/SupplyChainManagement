@@ -141,6 +141,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.Cmb_Filter_Produksi.Size = new System.Drawing.Size(231, 29);
             this.Cmb_Filter_Produksi.TabIndex = 1;
             this.Cmb_Filter_Produksi.UseSelectable = true;
+            this.Cmb_Filter_Produksi.SelectedIndexChanged += new System.EventHandler(this.Cmb_Filter_Produksi_SelectedIndexChanged);
             // 
             // Frm_Produksi
             // 

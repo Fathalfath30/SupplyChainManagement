@@ -58,8 +58,8 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             Grid_Produksi.AllowDrop = false;
             Grid_Produksi.AllowUserToAddRows = false;
             Grid_Produksi.AllowUserToDeleteRows = false;
-            for (int i = 0; i < Grid_Supplier.Columns.Count - 1; i++)
-                Grid_Supplier.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            for (int i = 0; i < Grid_Produksi.Columns.Count - 1; i++)
+                Grid_Produksi.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         private void BindGrid_Produksi()
         {
