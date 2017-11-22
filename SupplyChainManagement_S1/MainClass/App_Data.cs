@@ -117,10 +117,10 @@ namespace SupplyChainManagement_S1.MainClass
         /// </summary>
         public string[,] Data_Distributor =
         {
-            {"DST001", "Distributor A", "Rawa Belong, Jakarta Barat", "+9999999999999" , "250 Ton"},
-            {"DST001", "Distributor B", "Palmerah, Jakarta Barat", "+9999999999999" , "150 Ton"},
-            {"DST001", "Distributor C", "Osaka, Jepang.", "+9999999999999" , "650 Ton"},
-            {"DST001", "Distributor D", "Singapura", "+9999999999999" , "550 Ton"},
+            {"DST001", "Distributor A", "Rawa Belong, Jakarta Barat", "+9999999999999" , "250 Ton", "Siap Kirim" },
+            {"DST002", "Distributor B", "Palmerah, Jakarta Barat", "+9999999999999" , "150 Ton", "Siap Kirim"},
+            {"DST003", "Distributor C", "Osaka, Jepang.", "+9999999999999" , "650 Ton", "Sedang Mengirim"},
+            {"DST004", "Distributor D", "Singapura", "+9999999999999" , "550 Ton", "Siap Kirim"},
         };
         /// <summary>
         /// Data Surat Pesan Bahan Baku
@@ -138,6 +138,31 @@ namespace SupplyChainManagement_S1.MainClass
         {
             {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "20", "Sedang Proses"},
             {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "20", "Sudah Diterima"},
+        };
+
+        /// <summary>
+        /// Data Jadwal Produksi
+        /// Data_Jadwal_Produksi[n , 0] : Kode Jadwal
+        /// Data_Jadwal_Produksi[n , 1] : Nama Manufaktur
+        /// Data_Jadwal_Produksi[n , 2] : Nama Barang
+        /// Data_Jadwal_Produksi[n , 3] : Tanggal Produksi
+        /// Data_Jadwal_Produksi[n , 4] : Target Produksi
+        /// </summary>
+        public string[,] Data_Jadwal_Produksi = {
+            {"JRD001", "Manufaktur A", "Bango BTL 135ML", "27 November 2018", "25" },
+            {"JRD002", "Manufaktur A", "Bango BTL 275ML", "27 November 2018", "35" },
+            {"JRD003", "Manufaktur A", "Bango BTL 620ML", "27 November 2018", "21" },
+            {"JRD004", "Manufaktur A", "Bango BTL 600ML", "27 November 2018", "26" },
+            {"JRD005", "Manufaktur A", "Bango BTL 220ML", "27 November 2018", "21" },
+            {"JRD006", "Manufaktur A", "Bango BTL 85ML", "27 November 2018", "61" },
+            {"JRD007", "Manufaktur A", "Bango BTL 35ML", "27 November 2018", "25" },
+            {"JRD008", "Manufaktur A", "Bango BTL 135ML", "29 November 2018", "35" },
+            {"JRD009", "Manufaktur A", "Bango BTL 275ML", "29 November 2018", "55" },
+            {"JRD010", "Manufaktur A", "Bango BTL 620ML", "29 November 2018", "45" },
+            {"JRD011", "Manufaktur A", "Bango BTL 600ML", "29 November 2018", "24" },
+            {"JRD012", "Manufaktur A", "Bango BTL 220ML", "29 November 2018", "21" },
+            {"JRD013", "Manufaktur A", "Bango BTL 85ML", "29 November 2018", "11" },
+            {"JRD014", "Manufaktur A", "Bango BTL 35ML", "29 November 2018", "21" }
         };
     }
 }
