@@ -16,19 +16,6 @@ namespace SupplyChainManagement_S1.MainClass
 {
     public class App_Data
     {
-        /// <summary>
-        /// Data filter supplier
-        /// <para>Data_Filter_Supplier[n, 0] : ID Filter</para>
-        /// <para>Data_Filter_Supplier[n, 1] : Nama Filter</para>
-        /// </summary>
-        public string[,] Data_Filter_Supplier = {
-            {"1", "Tampilkan Semuanya" },
-            {"2", "Kedelai Hitam" },
-            {"3", "Garam" },
-            {"4", "Gula Merah" },
-            {"5", "Kemasan Botol" },
-            {"6", "Kemasan Plastik" },
-        };
 
         /// <summary>
         /// Data tipe barang.
@@ -91,14 +78,14 @@ namespace SupplyChainManagement_S1.MainClass
         /// <para>Data_Detil_Supplier[n, 5] : Telp</para>
         /// </summary>
         public string[,] Data_Detil_Supplier = {
-            {"SUP001", "Poktan Marsudi Tani", "Kedelai Hitam", "Sumber Agung, Ngajuk, Jawa Timur", "250 Ton", "Rp. 21.000.000","+9999999999999" },
-            {"SUP002", "PT. UGM", "Kedelai Hitam", "Sleman Jogjakarta", "120 Ton", "Rp. 20.253.000","+9999999999999" },
-            {"SUP003", "PT. Dolphin", "Garam", "Cikupa, Tangerang", "75 Ton", "Rp. 35.615.000","+9999999999999" },
-            {"SUP004", "PT. Garam Briket Kuda Laut", "Garam", "Pati, Jawa Tengah", "540 Ton", "Rp. 34.256.000","+9999999999999" },
-            {"SUP005", "PT. Berlina TBK", "Kemasan Plastik", "Tangerang, Banten", "750 Lembar","Rp. 750","+9999999999999" },
-            {"SUP005", "PT. Berlina TBK", "Kemasan Botol", "Tangerang, Banten", "960 Lembar", "Rp. 1.000","+9999999999999" },
-            {"SUP006", "PT. Sentral Jawa", "Gula Merah", "Banyumas, Jawa Tengah", "162 Ton", "Rp. 26.345.000","+9999999999999" },
-            {"SUP007", "PT. Anugrah Bergula", "Gula Merah", "Cilacap, Jawa Tengah", "120 Ton","Rp. 21.525.000","+9999999999999" },
+            {"SUP001", "Poktan Marsudi Tani", "Kedelai Hitam", "Sumber Agung, Ngajuk, Jawa Timur", "250 Ton", "21000000","+9999999999999" },
+            {"SUP002", "PT. UGM", "Kedelai Hitam", "Sleman Jogjakarta", "120 Ton", "20253000","+9999999999999" },
+            {"SUP003", "PT. Dolphin", "Garam", "Cikupa, Tangerang", "75 Ton", "35615000","+9999999999999" },
+            {"SUP004", "PT. Garam Briket Kuda Laut", "Garam", "Pati, Jawa Tengah", "540 Ton", "34256000","+9999999999999" },
+            {"SUP005", "PT. Berlina TBK", "Kemasan Plastik", "Tangerang, Banten", "750 Lembar","750","+9999999999999" },
+            {"SUP005", "PT. Berlina TBK", "Kemasan Botol", "Tangerang, Banten", "960 Lembar", "1000","+9999999999999" },
+            {"SUP006", "PT. Sentral Jawa", "Gula Merah", "Banyumas, Jawa Tengah", "162 Ton", "26345000","+9999999999999" },
+            {"SUP007", "PT. Anugrah Bergula", "Gula Merah", "Cilacap, Jawa Tengah", "120 Ton","21525000","+9999999999999" },
         };
 
         /// <summary>
@@ -148,8 +135,8 @@ namespace SupplyChainManagement_S1.MainClass
         /// </summary>
         public string[,] Data_SpBahanBaku =
         {
-            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "Rp. 76.000.000", "Rp. 10.000.000", "Sedang Proses"},
-            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "Rp. 35.000.000", "Rp. 0", "Sudah Diterima"},
+            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "Sedang Proses"},
+            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "Sudah Diterima"},
         };
     }
 }

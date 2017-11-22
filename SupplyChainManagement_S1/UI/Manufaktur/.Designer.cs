@@ -37,38 +37,36 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.MLabel_Jam = new MetroFramework.Controls.MetroLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Gview_Produksi = new System.Windows.Forms.DataGridView();
+            this.Grid_Produksi = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.Cmb_Produksi_Sort_Order = new MetroFramework.Controls.MetroComboBox();
+            this.Cmb_Produksi_Sort_By = new MetroFramework.Controls.MetroComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.Cmb_Filter_Produksi = new MetroFramework.Controls.MetroComboBox();
             this.Tmr_RefreshDT = new System.Windows.Forms.Timer(this.components);
-            this.MTile_Barang = new MetroFramework.Controls.MetroTile();
-            this.MTile_Distributor = new MetroFramework.Controls.MetroTile();
             this.MTile_SPBahanBaku = new MetroFramework.Controls.MetroTile();
+            this.MTile_Distributor = new MetroFramework.Controls.MetroTile();
+            this.MTile_JadwalProduksi = new MetroFramework.Controls.MetroTile();
             this.MTile_BarangJadi = new MetroFramework.Controls.MetroTile();
             this.MTile_Supplier = new MetroFramework.Controls.MetroTile();
             this.Tmr_Refresh_data = new System.Windows.Forms.Timer(this.components);
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.Cmb_Filter_Supplier = new MetroFramework.Controls.MetroComboBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
-            this.Gview_Supplier = new System.Windows.Forms.DataGridView();
             this.Btn_Logout = new MetroFramework.Controls.MetroButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.Cmb_Supplier_Sort_Columns = new System.Windows.Forms.GroupBox();
+            this.Cmb_Supplier_Sort_By = new MetroFramework.Controls.MetroComboBox();
+            this.Cmb_Supplier_Sort_Order = new MetroFramework.Controls.MetroComboBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.Cmb_Filter_Supplier = new MetroFramework.Controls.MetroComboBox();
+            this.Grid_Supplier = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gview_Produksi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Produksi)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.Cmb_Supplier_Sort_Columns.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gview_Supplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Supplier)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -124,120 +122,127 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.Gview_Produksi);
+            this.groupBox2.Controls.Add(this.Grid_Produksi);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(281, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(707, 327);
+            this.groupBox2.Size = new System.Drawing.Size(707, 312);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Barang Produksi Siap Dikirim";
+            this.groupBox2.Text = "Data Produksi";
             // 
-            // Gview_Produksi
+            // Grid_Produksi
             // 
-            this.Gview_Produksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Gview_Produksi.Location = new System.Drawing.Point(13, 93);
-            this.Gview_Produksi.Name = "Gview_Produksi";
-            this.Gview_Produksi.Size = new System.Drawing.Size(681, 215);
-            this.Gview_Produksi.TabIndex = 11;
+            this.Grid_Produksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_Produksi.Location = new System.Drawing.Point(13, 93);
+            this.Grid_Produksi.Name = "Grid_Produksi";
+            this.Grid_Produksi.Size = new System.Drawing.Size(681, 200);
+            this.Grid_Produksi.TabIndex = 11;
             // 
             // groupBox4
             // 
             this.groupBox4.AutoSize = true;
-            this.groupBox4.Controls.Add(this.metroComboBox2);
-            this.groupBox4.Controls.Add(this.metroComboBox1);
+            this.groupBox4.Controls.Add(this.Cmb_Produksi_Sort_Order);
+            this.groupBox4.Controls.Add(this.Cmb_Produksi_Sort_By);
             this.groupBox4.Location = new System.Drawing.Point(269, 18);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(425, 69);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Urutkan Berdasarkan :";
+            this.groupBox4.Visible = false;
             // 
-            // metroComboBox2
+            // Cmb_Produksi_Sort_Order
             // 
-            this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 23;
-            this.metroComboBox2.Location = new System.Drawing.Point(310, 20);
-            this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(105, 29);
-            this.metroComboBox2.TabIndex = 1;
-            this.metroComboBox2.UseSelectable = true;
+            this.Cmb_Produksi_Sort_Order.FormattingEnabled = true;
+            this.Cmb_Produksi_Sort_Order.ItemHeight = 23;
+            this.Cmb_Produksi_Sort_Order.Items.AddRange(new object[] {
+            "Ascending",
+            "Descending"});
+            this.Cmb_Produksi_Sort_Order.Location = new System.Drawing.Point(310, 20);
+            this.Cmb_Produksi_Sort_Order.Name = "Cmb_Produksi_Sort_Order";
+            this.Cmb_Produksi_Sort_Order.Size = new System.Drawing.Size(105, 29);
+            this.Cmb_Produksi_Sort_Order.TabIndex = 0;
+            this.Cmb_Produksi_Sort_Order.UseSelectable = true;
             // 
-            // metroComboBox1
+            // Cmb_Produksi_Sort_By
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(10, 20);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(294, 29);
-            this.metroComboBox1.TabIndex = 0;
-            this.metroComboBox1.UseSelectable = true;
+            this.Cmb_Produksi_Sort_By.FormattingEnabled = true;
+            this.Cmb_Produksi_Sort_By.ItemHeight = 23;
+            this.Cmb_Produksi_Sort_By.Items.AddRange(new object[] {
+            "Kode Produksi",
+            "Nama Manufaktur",
+            "Nama Barang",
+            "Tanggal Produksi ",
+            "Jumlah Produksi"});
+            this.Cmb_Produksi_Sort_By.Location = new System.Drawing.Point(10, 20);
+            this.Cmb_Produksi_Sort_By.Name = "Cmb_Produksi_Sort_By";
+            this.Cmb_Produksi_Sort_By.Size = new System.Drawing.Size(294, 29);
+            this.Cmb_Produksi_Sort_By.TabIndex = 0;
+            this.Cmb_Produksi_Sort_By.UseSelectable = true;
             // 
             // groupBox3
             // 
             this.groupBox3.AutoSize = true;
-            this.groupBox3.Controls.Add(this.metroTextBox1);
+            this.groupBox3.Controls.Add(this.Cmb_Filter_Produksi);
             this.groupBox3.Location = new System.Drawing.Point(13, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(252, 69);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Keyword :";
+            this.groupBox3.Text = "Filter Produksi :";
             // 
-            // metroTextBox1
+            // Cmb_Filter_Produksi
             // 
-            // 
-            // 
-            // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(190, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(17, 20);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.PromptText = "Masukan keyword";
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(218, 29);
-            this.metroTextBox1.TabIndex = 0;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMark = "Masukan keyword";
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.Cmb_Filter_Produksi.AutoCompleteCustomSource.AddRange(new string[] {
+            "Bango BTL 135ML",
+            "Bango BTL 275ML",
+            "Bango BTL 620ML",
+            "Bango RFL 600ML",
+            "Bango RFL 220ML",
+            "Bango RFL 85ML ",
+            "Bango RFL 35ML"});
+            this.Cmb_Filter_Produksi.FormattingEnabled = true;
+            this.Cmb_Filter_Produksi.ItemHeight = 23;
+            this.Cmb_Filter_Produksi.Items.AddRange(new object[] {
+            "Tampilkan Semuanya",
+            "Bango BTL 135ML",
+            "Bango BTL 275ML",
+            "Bango BTL 620ML",
+            "Bango RFL 600ML",
+            "Bango RFL 220ML",
+            "Bango RFL 85ML ",
+            "Bango RFL 35ML "});
+            this.Cmb_Filter_Produksi.Location = new System.Drawing.Point(11, 20);
+            this.Cmb_Filter_Produksi.Name = "Cmb_Filter_Produksi";
+            this.Cmb_Filter_Produksi.Size = new System.Drawing.Size(231, 29);
+            this.Cmb_Filter_Produksi.TabIndex = 1;
+            this.Cmb_Filter_Produksi.UseSelectable = true;
+            this.Cmb_Filter_Produksi.SelectedIndexChanged += new System.EventHandler(this.Cmb_Filter_Produksi_SelectedIndexChanged);
             // 
             // Tmr_RefreshDT
             // 
             this.Tmr_RefreshDT.Tick += new System.EventHandler(this.Tmr_RefreshDT_Tick);
             // 
-            // MTile_Barang
+            // MTile_SPBahanBaku
             // 
-            this.MTile_Barang.ActiveControl = null;
-            this.MTile_Barang.AutoSize = true;
-            this.MTile_Barang.Location = new System.Drawing.Point(17, 167);
-            this.MTile_Barang.Name = "MTile_Barang";
-            this.MTile_Barang.Size = new System.Drawing.Size(258, 98);
-            this.MTile_Barang.Style = MetroFramework.MetroColorStyle.Lime;
-            this.MTile_Barang.TabIndex = 6;
-            this.MTile_Barang.Text = "Barang";
-            this.MTile_Barang.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.MTile_Barang.TileCount = 9999;
-            this.MTile_Barang.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_Barang.TileImage")));
-            this.MTile_Barang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.MTile_Barang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.MTile_Barang.UseSelectable = true;
-            this.MTile_Barang.UseTileImage = true;
+            this.MTile_SPBahanBaku.ActiveControl = null;
+            this.MTile_SPBahanBaku.AutoSize = true;
+            this.MTile_SPBahanBaku.Location = new System.Drawing.Point(17, 167);
+            this.MTile_SPBahanBaku.Name = "MTile_SPBahanBaku";
+            this.MTile_SPBahanBaku.Size = new System.Drawing.Size(258, 98);
+            this.MTile_SPBahanBaku.Style = MetroFramework.MetroColorStyle.Lime;
+            this.MTile_SPBahanBaku.TabIndex = 6;
+            this.MTile_SPBahanBaku.Text = "Surat Pesan Bahan Baku";
+            this.MTile_SPBahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MTile_SPBahanBaku.TileCount = 9999;
+            this.MTile_SPBahanBaku.TileImage = global::SupplyChainManagement_S1.Properties.Resources.icon_shopping;
+            this.MTile_SPBahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.MTile_SPBahanBaku.UseSelectable = true;
+            this.MTile_SPBahanBaku.UseTileImage = true;
+            this.MTile_SPBahanBaku.Click += new System.EventHandler(this.MTile_Barang_Click);
             // 
             // MTile_Distributor
             // 
@@ -257,23 +262,23 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.MTile_Distributor.UseSelectable = true;
             this.MTile_Distributor.UseTileImage = true;
             // 
-            // MTile_SPBahanBaku
+            // MTile_JadwalProduksi
             // 
-            this.MTile_SPBahanBaku.ActiveControl = null;
-            this.MTile_SPBahanBaku.AutoSize = true;
-            this.MTile_SPBahanBaku.Location = new System.Drawing.Point(17, 479);
-            this.MTile_SPBahanBaku.Name = "MTile_SPBahanBaku";
-            this.MTile_SPBahanBaku.Size = new System.Drawing.Size(258, 98);
-            this.MTile_SPBahanBaku.Style = MetroFramework.MetroColorStyle.Green;
-            this.MTile_SPBahanBaku.TabIndex = 3;
-            this.MTile_SPBahanBaku.Text = "Jadwal Produksi";
-            this.MTile_SPBahanBaku.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.MTile_SPBahanBaku.TileCount = 9999;
-            this.MTile_SPBahanBaku.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_SPBahanBaku.TileImage")));
-            this.MTile_SPBahanBaku.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.MTile_SPBahanBaku.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.MTile_SPBahanBaku.UseSelectable = true;
-            this.MTile_SPBahanBaku.UseTileImage = true;
+            this.MTile_JadwalProduksi.ActiveControl = null;
+            this.MTile_JadwalProduksi.AutoSize = true;
+            this.MTile_JadwalProduksi.Location = new System.Drawing.Point(17, 479);
+            this.MTile_JadwalProduksi.Name = "MTile_JadwalProduksi";
+            this.MTile_JadwalProduksi.Size = new System.Drawing.Size(258, 98);
+            this.MTile_JadwalProduksi.Style = MetroFramework.MetroColorStyle.Green;
+            this.MTile_JadwalProduksi.TabIndex = 3;
+            this.MTile_JadwalProduksi.Text = "Jadwal Produksi";
+            this.MTile_JadwalProduksi.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MTile_JadwalProduksi.TileCount = 9999;
+            this.MTile_JadwalProduksi.TileImage = ((System.Drawing.Image)(resources.GetObject("MTile_JadwalProduksi.TileImage")));
+            this.MTile_JadwalProduksi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.MTile_JadwalProduksi.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.MTile_JadwalProduksi.UseSelectable = true;
+            this.MTile_JadwalProduksi.UseTileImage = true;
             // 
             // MTile_BarangJadi
             // 
@@ -315,91 +320,6 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             // 
             this.Tmr_Refresh_data.Tick += new System.EventHandler(this.Tmr_Refresh_data_Tick);
             // 
-            // groupBox5
-            // 
-            this.groupBox5.AutoSize = true;
-            this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Location = new System.Drawing.Point(281, 393);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(707, 365);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Supplier Dengan Harga Termurah";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.AutoSize = true;
-            this.groupBox6.Controls.Add(this.groupBox7);
-            this.groupBox6.Controls.Add(this.groupBox8);
-            this.groupBox6.Controls.Add(this.Gview_Supplier);
-            this.groupBox6.Location = new System.Drawing.Point(12, 18);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(688, 328);
-            this.groupBox6.TabIndex = 13;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Filter Supplier";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.AutoSize = true;
-            this.groupBox7.Controls.Add(this.metroComboBox3);
-            this.groupBox7.Controls.Add(this.Cmb_Filter_Supplier);
-            this.groupBox7.Location = new System.Drawing.Point(290, 20);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(392, 69);
-            this.groupBox7.TabIndex = 14;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Filter Supplier";
-            // 
-            // metroComboBox3
-            // 
-            this.metroComboBox3.FormattingEnabled = true;
-            this.metroComboBox3.ItemHeight = 23;
-            this.metroComboBox3.Location = new System.Drawing.Point(11, 20);
-            this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(243, 29);
-            this.metroComboBox3.TabIndex = 0;
-            this.metroComboBox3.UseSelectable = true;
-            // 
-            // Cmb_Filter_Supplier
-            // 
-            this.Cmb_Filter_Supplier.FormattingEnabled = true;
-            this.Cmb_Filter_Supplier.ItemHeight = 23;
-            this.Cmb_Filter_Supplier.Location = new System.Drawing.Point(260, 20);
-            this.Cmb_Filter_Supplier.Name = "Cmb_Filter_Supplier";
-            this.Cmb_Filter_Supplier.Size = new System.Drawing.Size(121, 29);
-            this.Cmb_Filter_Supplier.TabIndex = 0;
-            this.Cmb_Filter_Supplier.UseSelectable = true;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.AutoSize = true;
-            this.groupBox8.Controls.Add(this.metroComboBox4);
-            this.groupBox8.Location = new System.Drawing.Point(10, 20);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(274, 69);
-            this.groupBox8.TabIndex = 15;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Filter Supplier";
-            // 
-            // metroComboBox4
-            // 
-            this.metroComboBox4.FormattingEnabled = true;
-            this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Location = new System.Drawing.Point(16, 20);
-            this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(243, 29);
-            this.metroComboBox4.TabIndex = 0;
-            this.metroComboBox4.UseSelectable = true;
-            // 
-            // Gview_Supplier
-            // 
-            this.Gview_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Gview_Supplier.Location = new System.Drawing.Point(10, 94);
-            this.Gview_Supplier.Name = "Gview_Supplier";
-            this.Gview_Supplier.Size = new System.Drawing.Size(672, 215);
-            this.Gview_Supplier.TabIndex = 11;
-            // 
             // Btn_Logout
             // 
             this.Btn_Logout.Location = new System.Drawing.Point(17, 687);
@@ -408,19 +328,116 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.Btn_Logout.TabIndex = 15;
             this.Btn_Logout.Text = "Logout";
             this.Btn_Logout.UseSelectable = true;
-            this.Btn_Logout.Click += new System.EventHandler(this.Btn_Logout_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.AutoSize = true;
+            this.groupBox6.Controls.Add(this.Cmb_Supplier_Sort_Columns);
+            this.groupBox6.Controls.Add(this.groupBox8);
+            this.groupBox6.Controls.Add(this.Grid_Supplier);
+            this.groupBox6.Location = new System.Drawing.Point(281, 375);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(707, 345);
+            this.groupBox6.TabIndex = 16;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Data Supplier";
+            // 
+            // Cmb_Supplier_Sort_Columns
+            // 
+            this.Cmb_Supplier_Sort_Columns.AutoSize = true;
+            this.Cmb_Supplier_Sort_Columns.Controls.Add(this.Cmb_Supplier_Sort_By);
+            this.Cmb_Supplier_Sort_Columns.Controls.Add(this.Cmb_Supplier_Sort_Order);
+            this.Cmb_Supplier_Sort_Columns.Location = new System.Drawing.Point(290, 22);
+            this.Cmb_Supplier_Sort_Columns.Name = "Cmb_Supplier_Sort_Columns";
+            this.Cmb_Supplier_Sort_Columns.Size = new System.Drawing.Size(406, 69);
+            this.Cmb_Supplier_Sort_Columns.TabIndex = 14;
+            this.Cmb_Supplier_Sort_Columns.TabStop = false;
+            this.Cmb_Supplier_Sort_Columns.Text = "Filter Supplier";
+            this.Cmb_Supplier_Sort_Columns.Visible = false;
+            // 
+            // Cmb_Supplier_Sort_By
+            // 
+            this.Cmb_Supplier_Sort_By.FormattingEnabled = true;
+            this.Cmb_Supplier_Sort_By.ItemHeight = 23;
+            this.Cmb_Supplier_Sort_By.Items.AddRange(new object[] {
+            "Nama Supplier",
+            "Nama Barang",
+            "Harga Satuan",
+            "Stock Tersedia"});
+            this.Cmb_Supplier_Sort_By.Location = new System.Drawing.Point(11, 20);
+            this.Cmb_Supplier_Sort_By.Name = "Cmb_Supplier_Sort_By";
+            this.Cmb_Supplier_Sort_By.Size = new System.Drawing.Size(243, 29);
+            this.Cmb_Supplier_Sort_By.TabIndex = 0;
+            this.Cmb_Supplier_Sort_By.UseSelectable = true;
+            // 
+            // Cmb_Supplier_Sort_Order
+            // 
+            this.Cmb_Supplier_Sort_Order.FormattingEnabled = true;
+            this.Cmb_Supplier_Sort_Order.ItemHeight = 23;
+            this.Cmb_Supplier_Sort_Order.Items.AddRange(new object[] {
+            "Ascending",
+            "Descending"});
+            this.Cmb_Supplier_Sort_Order.Location = new System.Drawing.Point(260, 20);
+            this.Cmb_Supplier_Sort_Order.Name = "Cmb_Supplier_Sort_Order";
+            this.Cmb_Supplier_Sort_Order.Size = new System.Drawing.Size(121, 29);
+            this.Cmb_Supplier_Sort_Order.TabIndex = 0;
+            this.Cmb_Supplier_Sort_Order.UseSelectable = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.AutoSize = true;
+            this.groupBox8.Controls.Add(this.Cmb_Filter_Supplier);
+            this.groupBox8.Location = new System.Drawing.Point(10, 22);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(274, 69);
+            this.groupBox8.TabIndex = 15;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Filter Supplier";
+            // 
+            // Cmb_Filter_Supplier
+            // 
+            this.Cmb_Filter_Supplier.AutoCompleteCustomSource.AddRange(new string[] {
+            "Tampilkan Semuanya",
+            "Kedelai Hitam",
+            "Garam",
+            "Gula Merah",
+            "Kemasan Botol",
+            "Kemasan Plastik"});
+            this.Cmb_Filter_Supplier.FormattingEnabled = true;
+            this.Cmb_Filter_Supplier.ItemHeight = 23;
+            this.Cmb_Filter_Supplier.Items.AddRange(new object[] {
+            "Tampilkan Semuanya ",
+            "Kedelai Hitam ",
+            "Garam ",
+            "Gula Merah ",
+            "Kemasan Botol ",
+            "Kemasan Plastik "});
+            this.Cmb_Filter_Supplier.Location = new System.Drawing.Point(16, 20);
+            this.Cmb_Filter_Supplier.Name = "Cmb_Filter_Supplier";
+            this.Cmb_Filter_Supplier.Size = new System.Drawing.Size(243, 29);
+            this.Cmb_Filter_Supplier.TabIndex = 0;
+            this.Cmb_Filter_Supplier.UseSelectable = true;
+            this.Cmb_Filter_Supplier.SelectedIndexChanged += new System.EventHandler(this.Cmb_Filter_Supplier_SelectedIndexChanged);
+            // 
+            // Grid_Supplier
+            // 
+            this.Grid_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_Supplier.Location = new System.Drawing.Point(10, 96);
+            this.Grid_Supplier.Name = "Grid_Supplier";
+            this.Grid_Supplier.Size = new System.Drawing.Size(686, 227);
+            this.Grid_Supplier.TabIndex = 11;
             // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 735);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.Btn_Logout);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.MTile_Barang);
+            this.Controls.Add(this.MTile_SPBahanBaku);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.MTile_Distributor);
-            this.Controls.Add(this.MTile_SPBahanBaku);
+            this.Controls.Add(this.MTile_JadwalProduksi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.MTile_BarangJadi);
             this.Controls.Add(this.MTile_Supplier);
@@ -436,16 +453,14 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gview_Produksi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Produksi)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
+            this.Cmb_Supplier_Sort_Columns.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Gview_Supplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Supplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,27 +475,26 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel MLabel_Tanggal;
         private MetroFramework.Controls.MetroTile MTile_Distributor;
-        private MetroFramework.Controls.MetroTile MTile_SPBahanBaku;
+        private MetroFramework.Controls.MetroTile MTile_JadwalProduksi;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer Tmr_RefreshDT;
-        private System.Windows.Forms.DataGridView Gview_Produksi;
+        private System.Windows.Forms.DataGridView Grid_Produksi;
         private System.Windows.Forms.GroupBox groupBox4;
-        private MetroFramework.Controls.MetroComboBox metroComboBox2;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox Cmb_Produksi_Sort_Order;
+        private MetroFramework.Controls.MetroComboBox Cmb_Produksi_Sort_By;
         private System.Windows.Forms.GroupBox groupBox3;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private MetroFramework.Controls.MetroTile MTile_Barang;
+        private MetroFramework.Controls.MetroTile MTile_SPBahanBaku;
         private System.Windows.Forms.Timer Tmr_Refresh_data;
         private MetroFramework.Controls.MetroTile MTile_BarangJadi;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView Gview_Supplier;
-        private System.Windows.Forms.GroupBox groupBox6;
         private MetroFramework.Controls.MetroButton Btn_Logout;
-        private MetroFramework.Controls.MetroComboBox Cmb_Filter_Supplier;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private MetroFramework.Controls.MetroComboBox metroComboBox3;
+        private MetroFramework.Controls.MetroComboBox Cmb_Filter_Produksi;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox Cmb_Supplier_Sort_Columns;
+        private MetroFramework.Controls.MetroComboBox Cmb_Supplier_Sort_By;
+        private MetroFramework.Controls.MetroComboBox Cmb_Supplier_Sort_Order;
         private System.Windows.Forms.GroupBox groupBox8;
-        private MetroFramework.Controls.MetroComboBox metroComboBox4;
+        private MetroFramework.Controls.MetroComboBox Cmb_Filter_Supplier;
+        private System.Windows.Forms.DataGridView Grid_Supplier;
     }
 }
 #pragma warning restore 0618
