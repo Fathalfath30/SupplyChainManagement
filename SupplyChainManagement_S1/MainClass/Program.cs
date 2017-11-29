@@ -37,7 +37,8 @@ namespace SupplyChainManagement_S1.MainClass
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new UI.Main.Frm_Login());
-            Application.Run(new UI.Manufaktur.Frm_Dashboard());
+            // Application.Run(new UI.Manufaktur.Frm_Dashboard());
+            Application.Run(new UI.Supplier.Frm_Dashboard());
         }
     }
 }

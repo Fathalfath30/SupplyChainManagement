@@ -31,7 +31,6 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
             for (int i = 0; i < Grid_Supplier.Columns.Count - 1; i++)
                 Grid_Supplier.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
-        /* ----- [ GENERATED SCRIPT ] ----- */
         private void BindGrid_Supplier()
         {
             Grid_Supplier.Rows.Clear();
@@ -46,6 +45,7 @@ namespace SupplyChainManagement_S1.UI.Manufaktur
                     );
             }
         }
+        /* ----- [ GENERATED SCRIPT ] ----- */
         public Frm_Supplier()
         {
             InitializeComponent();

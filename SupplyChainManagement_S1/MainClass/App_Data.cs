@@ -136,8 +136,8 @@ namespace SupplyChainManagement_S1.MainClass
         /// </summary>
         public string[,] Data_SpBahanBaku =
         {
-            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "20", "Sedang Proses"},
-            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "20", "Sudah Diterima"},
+            {"SPM001", "SUP001", "Poktan Marsudi Tani", "12 November 2017", "Kedelai Hitam", "76000000", "10000000", "20", "Sedang Proses", "Mobil Box A"},
+            {"SPM002", "SUP001", "Poktan Marsudi Tani", "10 Januari 2017", "Kedelai Hitam", "35000000", "0", "20", "Sudah Diterima", "Mobil Box B"},
         };
 
         /// <summary>

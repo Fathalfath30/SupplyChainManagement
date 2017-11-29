@@ -107,6 +107,12 @@
     <Compile Include="UI\Manufaktur\Frm_Supplier.Designer.cs">
       <DependentUpon>Frm_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Supplier\Frm_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Supplier\Frm_Dashboard.Designer.cs">
+      <DependentUpon>Frm_Dashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,6 +144,9 @@
     <EmbeddedResource Include="UI\Manufaktur\Frm_Supplier.resx">
       <DependentUpon>Frm_Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Supplier\Frm_Dashboard.resx">
+      <DependentUpon>Frm_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -153,6 +162,7 @@
   <ItemGroup>
     <None Include="Assets\UI\icon_goods.png" />
     <Content Include="Assets\UI\icon_calendar.png" />
+    <Content Include="Assets\UI\icon_location.png" />
     <Content Include="Assets\UI\icon_po.png" />
     <Content Include="Assets\UI\icon_product.png" />
     <Content Include="Assets\UI\icon_shopping.png" />
@@ -162,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Query\" />
+    <Folder Include="UI\Distributor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
