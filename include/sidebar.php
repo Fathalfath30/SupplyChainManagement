@@ -27,7 +27,7 @@ switch ( DEMO_TYPE ) {
             </a>
         </li>
         <li class="<?php echo ($info == "po") ? "active" : ""; ?>">
-            <a href="<?php echo base_url("manufaktur.php?task=po-bahan-baku") ?>">
+            <a href="<?php echo base_url("manufaktur.php?task=po") ?>">
                 <span class="imoon imoon-box-add"></span>
                 <span class="sidebar-title">Pesan Bahan Baku</span>
             </a>
@@ -38,13 +38,13 @@ switch ( DEMO_TYPE ) {
                 <span class="sidebar-title">Jadwal Pengiriman</span>
             </a>
         </li>
-        <li class="<?php echo ($info == "dashboard") ? "active" : ""; ?>">
+        <li class="<?php echo ($info == "B2B") ? "active" : ""; ?>">
             <a href="<?php echo base_url("manufaktur.php?task=dashboard") ?>">
                 <span class="fa fa-users"></span>
                 <span class="sidebar-title">B2B</span>
             </a>
         </li>
-        <li class="<?php echo ($info == "dashboard") ? "active" : ""; ?>">
+        <li class="<?php echo ($info == "po-distributor") ? "active" : ""; ?>">
             <a href="<?php echo base_url("manufaktur.php?task=dashboard") ?>">
                 <span class="fa fa-dashboard"></span>
                 <span class="sidebar-title">Pemesanan Distributor</span>

@@ -65,7 +65,7 @@
 
 <script type="text/javascript">
     $ (document).ready (function () {
-        
+
         $ ('#data-distributor').dataTable ({
             "aoColumns": [
                 null,
