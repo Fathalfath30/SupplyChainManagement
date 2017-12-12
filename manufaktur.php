@@ -56,7 +56,7 @@ define('DEMO_TYPE', 'MANUFAKTUR');
                 <p style="color:rgba(192, 192, 192, 1); text-align:center; font-weight: 500;">Copyright &copy;
                                                                                               2017 -
                     <a style="color: rgba(0, 119, 179, 0.4)"
-                       href="#">PT Kecap Bango</a> All Right Reserved.
+                       href="#">PT. Anugrah Setia Lestari</a> All Right Reserved.
                     <br>Powered by <a href="#"
                                       style="color: rgba(0, 119, 179, 0.4)" target="_blank">S1</a>.
                 </p>

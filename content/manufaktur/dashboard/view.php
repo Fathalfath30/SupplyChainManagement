@@ -14,53 +14,98 @@
  // Follow me on GithHub : https://github.com/Fathalfath30
  //
 */
-include 'app_data/DB_BahanBaku.php';
+include 'system/App_data.php';
 ?>
-    <div class="row mb12">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Stock Barang Produksi Dalam Gudang
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-12">
+        <div class="panel panel-visible" id="spy2">
+            <div class="panel-heading">
+                <div class="panel-title hidden-xs">
+                    <span class="glyphicon glyphicon-tasks"></span>Jadwal Produksi
+                </div>
+            </div>
+            <div class="panel-body pn">
+                <table class="table table-bordered table-hover" id="dataTables" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Tanggal Pembuatan</th>
+                        <th>Mesin</th>
+                        <th>Status</th>
+                        <th>Kondisi</th>
+                        <th>Estimasi Selesai</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    for ( $i = 0; $i < count($data['JADWAL_PRODUKSI']); $i++ ) {
+                        $X = $data['JADWAL_PRODUKSI'][$i];
+                        $color = 'black';
+                        switch ( strtolower($X['KONDISI']) ) {
+                            case 'excellent':
+                                $color = 'green';
+                                break;
+                            case 'good':
+                                $color = 'blue';
+                                break;
+                            case 'bad':
+                                $color = 'red';
+                                break;
+                        }
+                        ?>
+                        <tr>
+                            <td><?php echo $X['TANGGAL_BUAT'] ?></td>
+                            <td><?php echo $X['MESIN'] ?></td>
+                            <td><?php echo $X['STATUS'] ?></td>
+                            <td style='color:<?php echo $color ?>'><?php echo $X['KONDISI'] ?></td>
+                            <td><?php echo $X['ESTIMASI'] ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="panel-body">
-            <div class="col-lg-2 col-lg-offset-1">
-                <div class="panel bg-primary light of-h mb10">
-                    <div class="pn pl20 p5">
-                        <h2 class="mt15 lh15"> <b>240</b> TON</h2>
-                        <h5 class="text-muted">Kedelai Hitam</h5>
-                    </div>
+    </div>
+</div>
+
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-12">
+        <div class="panel panel-visible" id="spy2">
+            <div class="panel-heading">
+                <div class="panel-title hidden-xs">
+                    <span class="glyphicon glyphicon-tasks"></span>Data Pemesanan Bahan Baku
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="panel bg-primary light of-h mb10">
-                    <div class="pn pl20 p5">
-                        <h2 class="mt15 lh15"> <b>520</b> TON</h2>
-                        <h5 class="text-muted">Garam</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="panel bg-warning light of-h mb10">
-                    <div class="pn pl20 p5">
-                        <h2 class="mt15 lh15"> <b>95</b> Lbr</h2>
-                        <h5 class="text-muted">Plastik (Lembar)</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="panel bg-danger light of-h mb10">
-                    <div class="pn pl20 p5">
-                        <h2 class="mt15 lh15"> <b>45</b> Buah</h2>
-                        <h5 class="text-muted">Botol (Buah)</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="panel bg-primary light of-h mb10">
-                    <div class="pn pl20 p5">
-                        <h2 class="mt15 lh15"> <b>290</b> TON</h2>
-                        <h5 class="text-muted">Gula Merah</h5>
-                    </div>
-                </div>
+            <div class="panel-body pn">
+                <table class="table table-bordered table-hover" id="data-pesanan" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Supplier</th>
+                        <th>Tanggal Pesan</th>
+                        <th>Stok</th>
+                        <th>Total Harga</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    for ( $i = 0; $i < count($data['PO_BAHAN_BAKU']); $i++ ) {
+                        $X = $data['PO_BAHAN_BAKU'][$i];
+                        ?>
+                        <tr>
+                            <td><?php echo $X['SUPPLIER'] ?></td>
+                            <td><?php echo $X['TANGGAL_PESAN'] ?></td>
+                            <td><?php echo $X['STOCK'] ?></td>
+                            <td><?php echo $X['T_HARGA'] ?></td>
+                            <td style='color:<?php echo $X['COLOR'] ?>'><?php echo $X['STATUS'] ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -71,37 +116,31 @@ include 'app_data/DB_BahanBaku.php';
         <div class="panel panel-visible" id="spy2">
             <div class="panel-heading">
                 <div class="panel-title hidden-xs">
-                    <span class="glyphicon glyphicon-tasks"></span>Data Stock Yang Hampir Habis
+                    <span class="glyphicon glyphicon-tasks"></span>Data Pemesanan Bahan Baku
                 </div>
             </div>
             <div class="panel-body pn">
-                <table class="table table-bordered table-hover" id="dataTables" cellspacing="0" width="100%">
+                <table class="table table-bordered table-hover" id="data-distributor" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th style="width: 10%;">Kode</th>
-                        <th>Nama Barang</th>
-                        <th style="width: 20%;">Label</th>
-                        <th>Tanggal Masuk</th>
-                        <th style="width: 20%;">Jumlah Stock</th>
-                        <th>Aksi</th>
+                        <th>Distributor</th>
+                        <th>Tanggal Pesan</th>
+                        <th>Stok</th>
+                        <th>Estimasi Selesai</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    for ( $i = 0; $i < count($app_data['BAHAN_BAKU']); $i++ ) {
-                        $data = $app_data['BAHAN_BAKU'][sprintf("GBB%03d", $i + 1)];
-                        if ($data['A_STOCK'] > 3)
-                            continue;
+                    for ( $i = 0; $i < count($data['PO_DISTRIBUTOR']); $i++ ) {
+                        $X = $data['PO_DISTRIBUTOR'][$i];
                         ?>
                         <tr>
-                            <td><?php echo $data['ID'] ?></td>
-                            <td><?php echo $data['NAME'] ?></td>
-                            <td><?php echo $data['LABEL'] ?></td>
-                            <td><?php echo $data['DATE_IN'] ?></td>
-                            <td><?php echo $data['A_STOCK'] ?></td>
-                            <td align="center">
-                                <a href="<?php echo base_url(sprintf('manufaktur.php?task=detail&obj=bahanb&id=%s', $data['ID'])) ?>" class="label label-primary col-lg-12 label-sm">Detail</a>
-                            </td>
+                            <td><?php echo $X['DISTRIBUTOR'] ?></td>
+                            <td><?php echo $X['TANGGAL'] ?></td>
+                            <td><?php echo $X['STOCK'] ?></td>
+                            <td><?php echo $X['ESTIMASI'] ?></td>
+                            <td style='color:<?php echo $X['COLOR'] ?>'><?php echo $X['STATUS'] ?></td>
                         </tr>
                         <?php
                     }

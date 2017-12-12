@@ -12,61 +12,7 @@
 ?>
 <script type="text/javascript">
     $ (document).ready (function () {
-        $ ('#data-distributor').dataTable ({
-            "aoColumns": [
-                null,
-                null,
-                null,
-                null,
-                null
-            ],
-            "order": [
-                [0, "asc"],
-            ],
-            "oLanguage": {
-                "oPaginate": {
-                    "sPrevious": "",
-                    "sNext": ""
-                }
-            },
-            "iDisplayLength": 10,
-            "aLengthMenu": [
-                [10, 25, 50, -1],
-                [10, 25, 50, "All"]
-            ],
-            "sDom": '<"dt-panelmenu clearfix"lfr>t<"dt-panelfooter clearfix"ip>',
-            "oTableTools": {
-                "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-            }
-        });
         $ ('#data-pesanan').dataTable ({
-            "aoColumns": [
-                null,
-                null,
-                null,
-                null,
-                null,
-            ],
-            "order": [
-                [0, "asc"],
-            ],
-            "oLanguage": {
-                "oPaginate": {
-                    "sPrevious": "",
-                    "sNext": ""
-                }
-            },
-            "iDisplayLength": 10,
-            "aLengthMenu": [
-                [10, 25, 50, -1],
-                [10, 25, 50, "All"]
-            ],
-            "sDom": '<"dt-panelmenu clearfix"lfr>t<"dt-panelfooter clearfix"ip>',
-            "oTableTools": {
-                "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-            }
-        });
-        $ ('#dataTables').dataTable ({
             "aoColumns": [
                 null,
                 null,

@@ -47,56 +47,11 @@ switch ($task) {
     case 'dashboard' :
         include 'content/manufaktur/dashboard/javascript.php';
         break;
-    case 'gudang':
-        switch($obj) {
-            case 'bahan-baku' :
-                include 'content/manufaktur/gudang-bahanb/view/javascript.php';
-                break;
-            case 'barang-jadi' :
-                include 'content/manufaktur/gudang-barangj/view/javascript.php';
-                break;
-        }
-        break;
-    case 'supplier':
-        switch($obj) {
-            case 'kedelai' :
-                include 'content/manufaktur/supplier-kedelai/view/javascript.php';
-                break;
-            case 'garam':
-                include 'content/manufaktur/supplier-garam/view/javascript.php';
-                break;
-            case 'plastik':
-                include 'content/manufaktur/supplier-plastik/view/javascript.php';
-                break;
-            case 'botol':
-                include 'content/manufaktur/supplier-botol/view/javascript.php';
-                break;
-            case 'gula-merah':
-                include 'content/manufaktur/supplier-gmerah/view/javascript.php';
-                break;
-        }
-        break;
-    case 'order':
-        switch($obj) {
-            case 'kedelai' :
-                include 'content/manufaktur/order-kedelai/javascript.php';
-                break;
-            case 'garam':
-                include 'content/manufaktur/order-garam/javascript.php';
-                break;
-            case 'plastik':
-                include 'content/manufaktur/order-plastik/javascript.php';
-                break;
-            case 'botol':
-                include 'content/manufaktur/order-botol/javascript.php';
-                break;
-            case 'gmerah':
-                include 'content/manufaktur/order-gmerah/javascript.php';
-                break;
-        }
-        break;
     case 'po':
-        include 'content/manufaktur/po/view/javascript.php';
+        include 'content/manufaktur/po-bahan-baku/javascript.php';
+        break;
+    case 'jadwal-kirim':
+        include 'content/manufaktur/jadwal-kirim/javascript.php';
         break;
 }
 ?>
